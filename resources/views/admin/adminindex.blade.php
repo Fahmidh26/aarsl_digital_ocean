@@ -2,16 +2,6 @@
 @section('admins')
 
 
-@php
-	$date = date('d-m-y');
-	$today = App\Models\Order::where('order_date',$date)->sum('amount');
-	$month = date('F');
-	$month = App\Models\Order::where('order_month',$month)->sum('amount');
-    $year = date('Y');
-	$year = App\Models\Order::where('order_year',$year)->sum('amount');
-    $pending = App\Models\Order::where('status','pending')->get();
-@endphp
-
 {{-- @auth
     <p>Hello, {{ Auth::user()->name }}! Your id is {{ Auth::id() }}</p>
 @endauth
