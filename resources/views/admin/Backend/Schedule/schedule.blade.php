@@ -30,7 +30,7 @@
 					<tr>
 						  <td>
 							<select id="item" name="item[]" class="form-control" required="" >
-								<option value="" selected="" disabled="">Select Product</option>
+								<option value="" selected="" disabled="">Select Customer/Dealer</option>
 								@foreach($customers as $customer)
 								<option value="{{ $customer->id }}">{{ $customer->customer_name }}</option>	
 						   @endforeach

@@ -14,7 +14,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="row mb-3">
-						<div class="col-2"><label for="mySelect">Supplier</label></div>
+						<div class="col-3"><label  class="text-uppercase text-dark text-xs font-weight-bold" for="mySelect">Supplier</label></div>
 						<div class="col">
 							<select id="mySelect" name="supplier_id" class="form-control" required="">
 							<option value="" selected="" disabled="">Select Supplier</option>
@@ -27,12 +27,12 @@
 						</div>
 	
 						<div class="row mb-3">
-							<div class="col-2"><label>Chalan No.</label></div>
-							<div class="col"><input class="form-control mb-3" type="text" id="chalan" name="chalan" required=""></div>
+							<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">Chalan No.</label></div>
+							<div class="col"><input class="form-control " type="text" id="chalan" name="chalan" required=""></div>
 							
 						</div>
 						<div class="row mb-3">
-							<div class="col-2"><label>Container Tracking No.</label></div>
+							<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">Container Tracking No.</label></div>
 							<div class="col"><input class="form-control mb-3" type="text" id="track" name="track" required=""></div>
 							
 						</div>
@@ -44,15 +44,15 @@
 				</div>
 				<div class="col">
 					<div class="row mb-3">
-						<div class="col-2"><label>L/C Opening Date</label></div>
-						<div class="col"><input class="form-control mb-3" type="date" id="quoDate" name="quoDate" required=""></div>
+						<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">L/C Opening Date</label></div>
+						<div class="col"><input class="form-control" type="date" id="quoDate" name="quoDate" required=""></div>
 					</div>
 					{{-- <div class="row mb-3">
 						<div class="col-2"><label>Details</label></div>
 						<div class="col"><input class="form-control mb-3" type="text" id="details" name="details"></div>
 					</div> --}}
 					<div class="row mb-3">
-						<div class="col-2"><label>Last Date of Shipment</label></div>
+						<div class="col-3"><label  class="text-uppercase text-dark text-xs font-weight-bold ">Last Date of Shipment</label></div>
 						<div class="col"><input class="form-control mb-3" type="text" id="details" name="details"></div>
 					</div>
 					{{-- <div class="row mb-3">
@@ -61,21 +61,23 @@
 			
 				</div> --}}
 			</div>
-			<div class="input-field">
-				<table class="table table-bordered" id="table_field">
+			<div class="table-responsive">
+				<table id="table_field" class="table align-items-center mb-0">
+				<thead>
 					  <tr>
-						<th>Item Information</th>
-						<th>Stock/Metric Ton</th> 
-						<th>PI No.</th>
-						<th>Metric Ton</th>
-						<th>Rate Type</th>
-						<th>Rate</th>
+						<th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Item Information</th>
+						<th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Stock/Metric Ton</th> 
+						<th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">PI No.</th>
+						<th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Metric Ton</th>
+						<th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Rate Type</th>
+						<th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Rate</th>
 						{{-- <th>Dis. Value</th>
 						<th>Vat %</th>
 						<th>VAT Value</th> --}}
-						<th>Total</th>
-						<th>Action</th>
+						<th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Total</th>
+						<th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Action</th>
 					</tr>
+				</thead>
 					<tr>
 						  <td>
 							<select id="item" name="item[]" class="form-control" required="" >
@@ -105,44 +107,44 @@
 						</td>
 					</tr>
 				</table>
-				
+				<hr>
 					<div class="row">
 					<div class="col">
 					</div>
 
 					<div class="col-4">
-						<div class="row mb-3">
-							<div class="col-4"><label>Sub Total</label></div>
+						<div class="row mb-2">
+							<div class="col-4"><label  class="text-uppercase text-dark text-xs font-weight-bold">Sub Total</label></div>
 							<div class="col"><span><input class="form-control" type="text" name="subtotal" id="subtotal" readonly></span>
 							</div>
 						</div>
-						<div class="row mb-3">
-							<div class="col-4"><label>Discount (%)</label></div>
+						<div class="row mb-2">
+							<div class="col-4"><label  class="text-uppercase text-dark text-xs font-weight-bold ">Discount (%)</label></div>
 							<div class="col"><input class="dper form-control" type="number" id="discount-percentage" name="dper">
 							</div>
 						</div>
-						<div class="row mb-3">
-							<div class="col-4"><label>VAT (%)</label></div>
+						<div class="row mb-2">
+							<div class="col-4"><label  class="text-uppercase text-dark text-xs font-weight-bold ">VAT (%)</label></div>
 							<div class="col"><input class="vper form-control" type="number" id="vat-percentage" name="vper" readonly>
 							</div>
 						</div>
-						<div class="row mb-3">
-							<div class="col-4"><label>Discount (TK)</label></div>
+						<div class="row mb-2">
+							<div class="col-4"><label  class="text-uppercase text-dark text-xs font-weight-bold ">Discount (TK)</label></div>
 							<div class="col"><input class="dflat form-control" name="dflat" type="number" id="discount-flat">
 							</div>
 						</div>
-						<div class="row mb-3">
-							<div class="col-4"><label>Grand Total</label></div>
+						<div class="row mb-2">
+							<div class="col-4"><label  class="text-uppercase text-dark text-xs font-weight-bold ">Grand Total</label></div>
 							<div class="col"><input class="form-control" type="text" name="grandtotal" id="grandtotal" readonly>
 							</div>
 						</div>
-						<div class="row mb-3">
-							<div class="col-4"><label>Paid Amount</label></div>
+						<div class="row mb-2">
+							<div class="col-4"><label class="text-uppercase text-dark text-xs font-weight-bold ">Paid Amount</label></div>
 							<div class="col"><input readonly class="form-control" type="number" name="paidamount" id="paidamount">
 							</div>
 						</div>
-						<div class="row mb-3">
-							<div class="col-4"><label>Due Amount</label></div>
+						<div class="row mb-2">
+							<div class="col-4"><label class="text-uppercase text-dark text-xs font-weight-bold ">Due Amount</label></div>
 							<div class="col"><input class="form-control" type="text" name="dueamount" id="dueamount" readonly>
 							</div>
 						</div>
@@ -152,12 +154,16 @@
 				</div>
 				<div class="row">
 					<div class="col">
-						<table class="table table-bordered" id="table_fieldpayment">
+						<div class="table-responsive">
+							<table id="table_fieldpayment" class="table align-items-center mb-0">
+							<thead>
 							<tr>
-							  <th>Payment Type</th>
-							  <th>Paid Amount</th>
-							  <th>Action</th>
+							  <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Payment Type</th>
+							  <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Paid Amount</th>
+							  <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Action</th>
 						  </tr>
+
+							</thead>
 						  <tr>
 								<td>
 								  <select id="payitem" name="payitem[]" class="form-control" required="" >
@@ -168,19 +174,32 @@
 								  </select>	  
 							  </td>
 								<td><input class="form-control pay_amount" type="number" id="pay_amount" name="pay_amount[]" required=""></td>
-								<td><i class="fa-solid fa-circle-plus display-4 text-success" type="button" name="addpay" id="addpay"></i></td>
+								<td><a name="addpay" id="addpay" class="btn bg-gradient-dark mb-0"><i class="fas fa-plus" aria-hidden="true"></i></a>
+								</td>
 								<input class="form-control sumPayment" type="text" name="sumPayment" id="sumPayment" hidden readonly>
 						  </tr>
 					  </table>
 					</div>
+					</div>
 					<div class="col">				
 					</div>
 				</div>
-					{{-- <i class="btn fa-solid fa-floppy-disk h2 text-info" type="submit" name="save" id="save"> Save Purchase</i> --}}
-					<input class="btn btn-success" type="submit" name="save" id="save" value="
-					Save Purchase">
-	
+				
+				{{-- <input class="btn bg-gradient-dark mb-0" type="submit" name="save" id="save" value="
+				Save Purchase"> --}}
 			</div>
+			<div class="container">
+				<div class="row">
+				  <div class="col">
+				  </div>
+				  <div class="col">
+					<input type="submit" class="btn bg-gradient-primary w-100" value="Open L/C">
+				  </div>
+				  <div class="col">
+				  </div>
+				</div>
+			  </div>
+			
 	  </form>
 	</div>
 </div>
@@ -207,7 +226,7 @@
   
   <script>
 	$(document).ready(function(){
-		var html='<tr><td><select id="item" name="item[]" class="form-control" required="" ><option value="" selected="" disabled="">Select Product</option>@foreach($products as $product) <option value="{{ $product->id }}">{{ $product->product_name }} ({{$product->product_code}})</option>	@endforeach</select></td><td><input class="form-control stock" type="text" id="stock" name="stock[]" required="" readonly></td><td><input class="form-control batch" type="text" id="batch" name="batch[]" required=""></td><td><input class="form-control qnty" type="number" id="qnty" name="qnty[]" required=""></td><td><select id="rateType" name="rateType[]" class="form-control" required="" ><option value="" selected="" disabled="">Select Rate Type</option><option value="FOB">FOB</option><option value="EXW">EXW</option><option value="CFR">CFR</option><option value="CIF">CIF</option></select></td><td><input class="form-control rate" type="number" id="rate" name="rate[]" required=""></td><td><input class="form-control total" type="number" id="amount" name="amount[]" value="0" readonly></td><td><i class="fa-solid fa-circle-xmark display-4 text-danger" type="button" name="remove" id="remove"></i></td></tr>';
+		var html='<tr><td><select id="item" name="item[]" class="form-control" required="" ><option value="" selected="" disabled="">Select Product</option>@foreach($products as $product) <option value="{{ $product->id }}">{{ $product->product_name }} ({{$product->product_code}})</option>	@endforeach</select></td><td><input class="form-control stock" type="text" id="stock" name="stock[]" required="" readonly></td><td><input class="form-control batch" type="text" id="batch" name="batch[]" required=""></td><td><input class="form-control qnty" type="number" id="qnty" name="qnty[]" required=""></td><td><select id="rateType" name="rateType[]" class="form-control" required="" ><option value="" selected="" disabled="">Select Rate Type</option><option value="FOB">FOB</option><option value="EXW">EXW</option><option value="CFR">CFR</option><option value="CIF">CIF</option></select></td><td><input class="form-control rate" type="number" id="rate" name="rate[]" required=""></td><td><input class="form-control total" type="number" id="amount" name="amount[]" value="0" readonly></td><td><a name="remove" id="remove" class="btn bg-gradient-danger mb-0"><i class="fas fa-minus" aria-hidden="true"></i></a></td></tr>';
 	
 		// var x =1;
 	  $("#add").click(function(){
@@ -219,7 +238,7 @@
 	duePrice();
 	});
 
-	var htmlpay='<tr><td><select id="payitem" name="payitem[]" class="form-control" required="" ><option value="" selected="" disabled="">Select Product</option>@foreach($banks as $payment)<option value="{{ $payment->id }}">{{ $payment->bank_name }}</option>@endforeach</select></td><td><input class="form-control pay_amount" type="number" id="pay_amount" name="pay_amount[]" required=""></td><td><i class="fa-solid fa-circle-xmark display-4 text-danger" type="button" name="payremove" id="payremove"></i></td></tr>';
+	var htmlpay='<tr><td><select id="payitem" name="payitem[]" class="form-control" required="" ><option value="" selected="" disabled="">Select Product</option>@foreach($banks as $payment)<option value="{{ $payment->id }}">{{ $payment->bank_name }}</option>@endforeach</select></td><td><input class="form-control pay_amount" type="number" id="pay_amount" name="pay_amount[]" required=""></td><td><a name="payremove" id="payremove" class="btn bg-gradient-danger mb-0"><i class="fas fa-minus" aria-hidden="true"></i></a></td></tr>';
 
 		// var x =1;
 	  $("#addpay").click(function(){

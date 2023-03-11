@@ -1,41 +1,31 @@
 @extends('admin.aDashboard')
 @section('admins')
 
-  <!-- Content Wrapper. Contains page content -->
-
-	  <div class="container-full">
-		<!-- Content Header (Page header) -->
-		 
-
-		<!-- Main content -->
-		<section class="content">
-		  <div class="row">
-			   
-		 
-
-			<div class="col-12">
-
-			 <div class="box">
-				<div class="box-header with-border">
-				  <h3 class="box-title">Purchase List <span class="badge badge-pill badge-danger"> {{ count($purchases) }} </span></h3>
-				</div>
-				<!-- /.box-header -->
-				<div class="box-body">
-					<div class="table-responsive">
-					  <table id="example1" class="table table-bordered table-striped">
-						<thead>
-							<tr>
-								<th>SL.</th>
-								<th>Chalan No</th>
-								<th>Supplier Name</th>
-								<th>Purchase Date</th>
-								<th>Total Amount</th>
-								<th>Status</th>
-								<th>View</th>
-								 
-							</tr>
-						</thead>
-						<tbody>
+ 
+ {{-- TRIAL START --}}
+ <div class="container-fluid">
+	<div class="row mt-4">
+	  <div class="col-lg-12 mb-lg-0 mb-4">
+		<div class="card">
+		  <div class="card-body p-3">
+			<div class="row">
+							<!-- /.box-header -->
+							{{-- <div class="box-body"> --}}
+								<div class="table-responsive">
+								  <table id="example1" class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Sl.</th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Chalan No.</th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Supplier </th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">LC Date</th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grand Total</th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Change Status</th>
+											 
+										</tr>
+									</thead>
+									<tbody>
 			@php
 				$sl = 0;
 			@endphp
@@ -54,31 +44,21 @@
 							 
 	 </tr>
 	  @endforeach
-						</tbody>
-						 
-					  </table>
-					</div>
-				</div>
-				<!-- /.box-body -->
-			  </div>
-			  <!-- /.box -->
+	</tbody>
+									 
+</table>
+</div>
+{{-- </div> --}}
+</div>
+</div>
+</div>
+</div>
 
-			          
-			</div>
-			<!-- /.col -->
+</div>
 
- 
- 
+@include('admin.body.footer')
 
-
-		  </div>
-		  <!-- /.row -->
-		</section>
-		<!-- /.content -->
-	  
-	  </div>
-  
-
+{{-- TRIAL END --}}
 
 
 @endsection
