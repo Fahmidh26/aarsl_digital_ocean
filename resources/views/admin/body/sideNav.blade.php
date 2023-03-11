@@ -166,7 +166,7 @@ $adminuserrole = (auth()->guard('admin')->user()->adminuserrole == 1);
 
 
 
-@if($schedule  == true)
+@if($product  == true)
 <li class="nav-item">
 <a data-bs-toggle="collapse" href="#schedule" class="nav-link  {{ ($prefix == '/schedule')?'active':'' }}" aria-controls="ecommerceExamples" role="button">
 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">

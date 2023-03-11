@@ -163,7 +163,7 @@
 				<div class="d-flex flex-column h-100">
 				  <p class="mb-1 pt-2 text-bold text-lg">Welcome To The World Of DYAZ</p>
 				  <h5 class="font-weight-bolder">DYAZ Dashboard</h5>
-				  <p class="mb-5">Get the tastiest Ac!d in Town</p>
+				  <p class="mb-5">Product of STATA IT LTD</p>
 				  <a
 					class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto"
 					href="javascript:;"
