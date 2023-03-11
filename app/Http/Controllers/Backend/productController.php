@@ -16,8 +16,8 @@ class productController extends Controller
 {
     public function AddProduct(){
 		$categories = Category::latest()->get();
-		$brands = Brand::latest()->get();
-		return view('admin.Backend.Product.product', compact('categories','brands'));
+		// $brands = Brand::latest()->get();
+		return view('admin.Backend.Product.product', compact('categories'));
 	}
 
 
