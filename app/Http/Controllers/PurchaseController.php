@@ -151,10 +151,13 @@ class PurchaseController extends Controller
             $purchase = Purchase::findOrFail($purchase_id);
             $purchaseItems = PurchaseItem::where('purchase_id',$purchase_id)->get();
             $paymentItems = PaymentItem::where('purchase_id',$purchase_id)->get();
-            // $supplier = Supplier::where('purchase_id',$purchase_id)->get();
+            $banks = Bank::orderBy('bank_name','ASC')->get();
+            $suppliers = Supplier::orderBy('supplier_name','ASC')->get();
+            $products = Product::orderBy('product_name','ASC')->get();
+            // $supplier = Supplier::orderBy('supplier_name','ASC')->get();
             // $products = Product::orderBy('product_name','ASC')->get();
 
-            return view('admin.Backend.Purchase.purchase_details',compact('purchase','purchaseItems','paymentItems'));
+            return view('admin.Backend.Purchase.purchase_details',compact('purchase','purchaseItems','paymentItems','banks','suppliers','products'));
 
 	} // end method 
 

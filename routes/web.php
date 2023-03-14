@@ -25,6 +25,7 @@ use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\homePageController;
 use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\SalesController;
 use App\Http\Controllers\QuotationController;
 use App\Http\Controllers\ProductionController;
 use App\Http\Controllers\SupplierController;
@@ -730,6 +731,47 @@ Route::prefix('product')->group(function(){
             Route::get('/status/factory/{id}', [PurchaseController::class, 'StatusChangeFactory'])->name('purchase.status.factory');
             
             });
+
+
+            Route::prefix('sales')->group(function(){
+
+                Route::get('/view', [SalesController::class, 'SalesForm'])->name('sales.view');
+                
+                Route::post('/store', [SalesController::class, 'SalesStore'])->name('sales.store');
+        
+                Route::get('/manage', [SalesController::class, 'ManageSales'])->name('sales.manage');
+    
+                Route::get('/port', [PurchaseController::class, 'PurchaseReachedPort'])->name('purchase.port');
+    
+                Route::get('/factory', [PurchaseController::class, 'PurchaseReachedFactory'])->name('purchase.factory');
+                // Route::get('/get-stock', [PurchaseController::class, 'getProductStock']);
+    
+                Route::get('/get-unit-price', function(Request $request) {
+                    // get the product ID from the query string
+                    $productId = $request->query('productId');
+                  
+                    // $unitPrice = Product::where('id',$productId)->value('unit_price')->get();
+                    // query the database for the unit price of the product
+                    $unitPrice = DB::table('products')->where('id', $productId)->value('selling_price');
+                  
+                    // return the unit price as a JSON response
+                    return response()->json(['unitPrice' => $unitPrice]);
+                  });
+            
+                
+                Route::get('/details/{id}', [PurchaseController::class, 'PurchaseDetails'])->name('purchase.details');
+                
+                // Route::post('/update', [CustomerController::class, 'CustomerUpdate'])->name('customer.update');
+                
+                // Route::get('/delete/{id}', [CustomerController::class, 'CustomerDelete'])->name('customer.delete');
+                
+                // Route::get('/inactive/{id}', [SliderController::class, 'SliderInactive'])->name('slider.inactive');
+                
+                Route::get('/status/port/{id}', [PurchaseController::class, 'StatusChangePort'])->name('purchase.status.port');
+                Route::get('/status/factory/{id}', [PurchaseController::class, 'StatusChangeFactory'])->name('purchase.status.factory');
+                
+                });
+    
 
 
     Route::prefix('expense')->group(function(){

@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('supplier_id');
-            $table->unsignedBigInteger('bank_id');
             $table->string('chalan_no');
             $table->date('purchase_date')->nullable();
             $table->text('details')->nullable();
