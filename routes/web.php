@@ -42,6 +42,7 @@ use App\Models\Category;
 use App\Models\Customer;
 use App\Models\Product;
 use App\Models\slider;
+use App\Models\Sales;
 use App\Models\TodaysProduction;
 use App\Models\subCategory;
 use Illuminate\Http\Request;
@@ -111,6 +112,7 @@ Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'veri
 ])->group(function () {
     Route::get('/admin/dashboard', function () {
 
+        $dues = Customer::where('balance','>', 1)->get();
         $customers = Customer::orderBy('customer_name','ASC')->get();
         $products = Product::orderBy('product_name','ASC')->get();
         $stock = Product::sum('qty');
@@ -118,7 +120,7 @@ Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'veri
         $todays_production = TodaysProduction::orderBy('id','DESC')->first();
         $today = Carbon::today();
         $schedules = Schedule::whereDate('schedule_date', $today)->orderBy('time', 'ASC')->get();
-        return view('admin.adminindex', compact('products','customers','stock','todays_production','inventory','schedules'));
+        return view('admin.adminindex', compact('products','customers','stock','todays_production','inventory','schedules','dues'));
     })->name('admin.dashboard');
 });
 
@@ -779,7 +781,7 @@ Route::prefix('product')->group(function(){
 
             Route::get('/view', [ChalanController::class, 'ChalanForm'])->name('chalan.view');
             
-            Route::post('/store', [SalesController::class, 'SalesStore'])->name('sales.store');
+            Route::post('/store', [ChalanController::class, 'ChalanStore'])->name('chalan.store');
     
             Route::get('/manage', [SalesController::class, 'ManageSales'])->name('sales.manage');
 

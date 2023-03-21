@@ -68,6 +68,7 @@ class SalesController extends Controller
          // Advance
          $totalQty = array_sum($qty);
          $rate = array_shift($rate);
+         $rateType = array_shift($rateType);
         
        
         foreach ($item as $key => $value) {
@@ -92,7 +93,9 @@ class SalesController extends Controller
         $customer = Customer::find($customer_id);
         $customer->balance += $paidAmount;
         $customer->advance += $totalQty;
+        $customer->due += $totalQty;
         $customer->rate = $rate;
+        $customer->rateType = $rateType;
         $customer->save();
 
        

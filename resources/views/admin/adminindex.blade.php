@@ -244,7 +244,7 @@
 				  month
 				</p> -->
 			  </div>
-			  <div class="col-lg-6 col-5 my-auto text-end">
+			  {{-- <div class="col-lg-6 col-5 my-auto text-end">
 				<div class="dropdown float-lg-end pe-4">
 				  <a
 					class="cursor-pointer"
@@ -281,7 +281,7 @@
 					</li>
 				  </ul>
 				</div>
-			  </div>
+			  </div> --}}
 			</div>
 		  </div>
 		  <div class="card-body px-0 pb-2">
@@ -318,6 +318,8 @@
 				  </tr>
 				</thead>
 				<tbody>
+
+					@foreach ($dues as $due)
 				  <tr>
 					<td>
 					  <div class="d-flex px-2 py-1">
@@ -325,203 +327,34 @@
 						<div
 						  class="d-flex flex-column justify-content-center"
 						>
-						  <h6 class="mb-0 text-lg">Khadiza Enterprise</h6>
+						  <h6 class="mb-0 text-lg">{{$due->customer_name}}</h6>
 						</div>
 					  </div>
 					</td>
 					<td class="align-middle text-center text-sm">
 					  <span class="text-lg font-weight-bold">
-						1692
+						{{$due->advance}}
 					  </span>
 					</td>
 					<td class="align-middle text-center text-sm">
 					  <span class="text-lg font-weight-bold">
-						1322
-					  </span>
-					</td>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						370
+						{{$due->delivery}}
 					  </span>
 					</td>
 					</td>
 					<td class="align-middle text-center text-sm">
 					  <span class="text-lg font-weight-bold">
-						3,710,740
+						{{$due->due}}
+					  </span>
+					</td>
+					</td>
+					<td class="align-middle text-center text-sm">
+					  <span class="text-lg font-weight-bold">
+						{{$due->balance}}
 					  </span>
 					</td>
 				  </tr>
-				  <tr>
-					<td>
-					  <div class="d-flex px-2 py-1">
-						
-						<div
-						  class="d-flex flex-column justify-content-center"
-						>
-						  <h6 class="mb-0 text-lg">Ayesha Trading Corpor.</h6>
-						</div>
-					  </div>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						2269
-					  </span>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						2119
-					  </span>
-					</td>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						150
-					  </span>
-					</td>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						1,503,150
-					  </span>
-					</td>
-				  </tr>
-				  <tr>
-					<td>
-					  <div class="d-flex px-2 py-1">
-						
-						<div
-						  class="d-flex flex-column justify-content-center"
-						>
-						  <h6 class="mb-0 text-lg">Hamid</h6>
-						</div>
-					  </div>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						450
-					  </span>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						550
-					  </span>
-					</td>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						-100
-					  </span>
-					</td>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						1,002,100
-					  </span>
-					</td>
-				  </tr>
-				  <tr>
-					<td>
-					  <div class="d-flex px-2 py-1">
-						
-						<div
-						  class="d-flex flex-column justify-content-center"
-						>
-						  <h6 class="mb-0 text-lg">Friends Chemical</h6>
-						</div>
-					  </div>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						3839
-					  </span>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						3711
-					  </span>
-					</td>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						128
-					  </span>
-					</td>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						1,282,688
-					  </span>
-					</td>
-				  </tr>
-				  <tr>
-					<td>
-					  <div class="d-flex px-2 py-1">
-						
-						<div
-						  class="d-flex flex-column justify-content-center"
-						>
-						  <h6 class="mb-0 text-lg">Al Amin Chemical</h6>
-						</div>
-					  </div>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						650
-					  </span>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						123.5
-					  </span>
-					</td>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						527
-					  </span>
-					</td>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						5,276,057
-					  </span>
-					</td>
-				  </tr>
-				  <tr>
-					<td>
-					  <div class="d-flex px-2 py-1">
-						
-						<div
-						  class="d-flex flex-column justify-content-center"
-						>
-						  <h6 class="mb-0 text-lg">ZXL Industries</h6>
-						</div>
-					  </div>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						220
-					  </span>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						170
-					  </span>
-					</td>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						50
-					  </span>
-					</td>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						501,050
-					  </span>
-					</td>
-				  </tr>
+				  @endforeach
 				</tbody>
 			  </table>
 			</div>

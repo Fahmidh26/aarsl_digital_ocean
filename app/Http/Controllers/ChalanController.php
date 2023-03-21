@@ -9,7 +9,8 @@ use App\Models\Sales;
 use App\Models\Bank;
 use App\Models\TodaysProduction;
 use Illuminate\Http\Request;
-use App\Http\Controllers\DB;
+use App\Models\Chalan;
+use Carbon\Carbon;
 
 class ChalanController extends Controller
 {
@@ -26,7 +27,7 @@ class ChalanController extends Controller
         return view('admin.Backend.Chalan.chalan_form', compact('customerIds','acidProducts','inventory','banks'));
     }
 
-    public function SalesStore(Request $request)
+    public function ChalanStore(Request $request)
     {
         // $request->validate([
     	// 	'supplier_id' => 'required',
@@ -38,57 +39,34 @@ class ChalanController extends Controller
         //     'expDate.required' => 'Please Enter Quotation Expiry Date',
     	// ]);
 
-        $sale_id = Sales::insertGetId([
+        $chalan_id = Chalan::insertGetId([
             'customer_id' => $request->customer_id,
-            'sale_date' => $request->saleDate,
-            'details' => $request->details,
-            'sub_total' => $request->subtotal,
-            'grand_total' => $request->grandtotal,
-            'discount_flat' => $request->dflat,
-            'discount_per' => $request->dper,
-            'total_vat' => $request->vper,
-            'p_paid_amount' => $request->paidamount,
-            'due_amount' => $request->dueamount,
+            'company' => $request->company,
+            'address' => $request->address,
+            'chalan_date' => $request->chalanDate,
+            'chalan_no' => 'RSA'.mt_rand(10000000,99999999),
+            'qty' => $request->qnty,
+            'rate' => $request->rate,
+            'total' => $request->amount,
+            // 'sub_total' => $request->subtotal,
+            // 'grand_total' => $request->grandtotal,
+            'nbalance' => $request->nbalance,
             'created_at' => Carbon::now(),   
   
         ]);
 
-        $item = $request->input('item');
-        // $stock = $request->input('stock');
-        // $batch = $request->input('batch');
-        $qty = $request->input('qnty');
-        $rate = $request->input('rate');
-        $rateType = $request->input('rateType');
-        $amount = $request->input('amount');
+        $chalan = Chalan::find($chalan_id);
+        $customer_id = $chalan->customer->id;
+        $customer = Customer::find($customer_id);
 
-       
-        foreach ($item as $key => $value) {
+        $customer->balance = $chalan->nbalance;
+        $customer->delivery += $chalan->qty;
+        $customer->due -= $chalan->qty;
+        $customer->save();
 
-            SalesItem::create([
-                'product_id' => $value,
-                'sale_id' => $sale_id,
-                'qty' => $qty[$key],
-                'rate' => $rate[$key],
-                'rateType' => $rateType[$key],
-                'amount' => $amount[$key],
-            ]);
-        }
-
-        $payitem = $request->input('payitem');
-        $pay_amount = $request->input('pay_amount');
-     
-        foreach ($payitem as $key => $value) {
-
-            SalesPaymentItem::create([
-                'bank_id' => $value,
-                'sale_id' => $sale_id,
-                'b_paid_amount' => $pay_amount[$key],
-            ]);
-        }
-    
 		// return redirect()->back();
         $notification = array(
-			'message' => 'Sale Saved Successfully',
+			'message' => 'Chalan Added Successfully',
 			'alert-type' => 'success'
 		);
 

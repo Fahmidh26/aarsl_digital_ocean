@@ -9,7 +9,7 @@
 		  <div class="card-body p-3">
 			<div class="row">
 				
-			<form class="insert-form" id="insert_form" method="post" action="{{ route('sales.store') }}">
+			<form class="insert-form" id="insert_form" method="post" action="{{ route('chalan.store') }}">
 			@csrf
 			<div class="row">
 				<div class="col">
@@ -29,7 +29,7 @@
 						
 						<div class="row mb-3">
 							<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">Customer/Company</label></div>
-							<div class="col"><input class="form-control mb-3" type="text" id="phone" name="phone" required=""></div>
+							<div class="col"><input class="form-control mb-3" type="text" id="company" name="company" required=""></div>
 							
 						</div>
 
@@ -71,9 +71,9 @@
 				<thead>
 					  <tr>
 						<th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Item Information</th>
-						<th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Due Purchase</th> 
-						<th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Qty/Metric Ton</th>
-						<th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Rate Type</th>
+						<th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Due Purchase (M/T)</th> 
+						<th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Qty (M/T)</th>
+						
 						<th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Rate</th>
 						{{-- <th>Dis. Value</th>
 						<th>Vat %</th>
@@ -89,19 +89,12 @@
 							</select>
 
 						</td> --}}
-						<td><input class="form-control" value="{{$acidProducts->id}}" type="text" id="item" name="item[]" required="" readonly></td>
-						  <td><input class="form-control stock" type="text" value="{{$inventory}}" id="stock" name="stock[]" required="" readonly></td>
-						  <td><input class="form-control qnty" type="number" id="qnty" name="qnty[]" required=""></td>
-						  <td><select id="rateType" name="rateType[]" class="form-control" required="" >
-							<option value="" selected="" disabled="">Select Rate Type</option>
-							<option value="FOB">FOB</option>
-							<option value="EXW">EXW</option>
-							<option value="CFR">CFR</option>
-							<option value="CIF">CIF</option>
-							</select>
-						  </td>
-						  <td><input class="form-control rate" type="number" id="rate" name="rate[]" required=""></td>
-						  <td><input class="form-control total" type="number" id="amount" name="amount[]" value="0" readonly></td>
+						<td><input class="form-control" value="{{$acidProducts->product_name}}" type="text" id="item" name="item" required="" readonly></td>
+						  <td><input class="form-control due" type="text" value="{{$inventory}}" id="due" name="due" required="" readonly></td>
+						  <td><input class="form-control qnty" type="number" id="qnty" name="qnty" required=""></td>
+
+						  <td><input class="form-control rate" readonly type="number" id="rate" name="rate" required=""></td>
+						  <td><input class="form-control total" type="number" id="amount" name="amount" value="0" readonly></td>
 						  {{-- <td>
 							<a name="add" id="add" class="btn bg-gradient-dark mb-0"><i class="fas fa-plus" aria-hidden="true"></i></a>
 							<i class="fa-solid fa-circle-plus display-4 text-success" type="button" name="add" id="add" ></i>
@@ -140,13 +133,18 @@
 							</div>
 						</div>
 						<div class="row mb-2">
-							<div class="col-4"><label class="text-uppercase text-dark text-xs font-weight-bold ">Paid Amount</label></div>
-							<div class="col"><input readonly class="form-control" type="number" name="paidamount" id="paidamount">
+							<div class="col-4"><label class="text-uppercase text-dark text-xs font-weight-bold ">Advance (M/T)</label></div>
+							<div class="col"><input readonly class="form-control" type="number" name="advance" id="advance">
 							</div>
 						</div>
 						<div class="row mb-2">
-							<div class="col-4"><label class="text-uppercase text-dark text-xs font-weight-bold ">Due Amount</label></div>
-							<div class="col"><input class="form-control" type="text" name="dueamount" id="dueamount" readonly>
+							<div class="col-4"><label class="text-uppercase text-dark text-xs font-weight-bold ">Balance</label></div>
+							<div class="col"><input class="form-control" type="text" name="balance" id="balance" readonly>
+							</div>
+						</div>
+						<div class="row mb-2">
+							<div class="col-4"><label class="text-uppercase text-dark text-xs font-weight-bold ">New Balance</label></div>
+							<div class="col"><input class="form-control" type="text" name="nbalance" id="nbalance" readonly>
 							</div>
 						</div>
 
@@ -258,10 +256,13 @@
       // make an AJAX request to the server
       $.get('/get-data', { option: selectedOption }, function(data) {
         // update the field with the response data
-        $("#address").val(data.address);
-		$("#phone").val(data.phone);
-		console.log(data);
-		$('.js-example-basic-single').select2();
+        $("#rate").val(data.rate);
+		$("#due").val(data.due);
+		$("#advance").val(data.advance);
+		$("#balance").val(data.balance);
+		
+		// console.log(data);
+		// $('.js-example-basic-single').select2();
 
       });
     });
@@ -281,6 +282,12 @@
 		total.val(rate * qnty);
 		totalPrice();
 		duePrice();
+		nbalance();
+
+	
+		// var tValue = $("#grandtotal").val();
+		// var nBalance = data.balance - tValue;
+		// $("#nbalance").val(2);	
 	});
 	// $("#discount-percentage").on("input", ".dper", function () {
 	// 	var discount_value = this.value;
@@ -304,6 +311,13 @@
 		  function duePrice(){
 			$("#paidamount").val($("#sumPayment").val());
 			$("#dueamount").val(($("#grandtotal").val()) - ($("#sumPayment").val()));
+		  }
+
+		  function nbalance(){
+			var tValue = $("#grandtotal").val();
+			var bbalance = $("#balance").val();
+			var nBalance = bbalance - tValue;
+			$("#nbalance").val(nBalance);	
 		  }
 
 	function totalPrice(){
