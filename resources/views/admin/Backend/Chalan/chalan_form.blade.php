@@ -26,17 +26,14 @@
 						</div>
 						</div>
 	
+						
 						<div class="row mb-3">
-							<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">Address</label></div>
-							<div class="col"><input class="form-control " type="text" id="address" name="address" required="">
-						</div>
-							
-						</div>
-						<div class="row mb-3">
-							<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">Phone</label></div>
+							<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">Customer/Company</label></div>
 							<div class="col"><input class="form-control mb-3" type="text" id="phone" name="phone" required=""></div>
 							
 						</div>
+
+						
 	
 						{{-- <div class="row mb-3">
 							<div class="col-2"><label>Address</label></div>
@@ -45,17 +42,24 @@
 				</div>
 				<div class="col">
 					<div class="row mb-3">
-						<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">Sale Date</label></div>
-						<div class="col"><input class="form-control" type="date" id="saleDate" name="saleDate" required=""></div>
+						<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">Chalan Date</label></div>
+						<div class="col"><input class="form-control" type="date" id="chalanDate" name="chalanDate" required=""></div>
+					</div>
+
+					<div class="row mb-3">
+						<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">Address</label></div>
+						<div class="col"><input class="form-control " type="text" id="address" name="address" required="">
+					</div>
+						
 					</div>
 					{{-- <div class="row mb-3">
 						<div class="col-2"><label>Details</label></div>
 						<div class="col"><input class="form-control mb-3" type="text" id="details" name="details"></div>
 					</div> --}}
-					<div class="row mb-3">
+					{{-- <div class="row mb-3">
 						<div class="col-3"> <label for="details">Details</label></div>
 						<div class="col"><textarea class="form-control" name="details" id="details" rows="3"></textarea></div>
-					</div>
+					</div> --}}
 					{{-- <div class="row mb-3">
 						<div class="col"><input class="form-control mb-3" type="hidden" id="auth_id" name="auth_id"  value="{{ Auth::id()}}">
 					</div>
@@ -67,7 +71,7 @@
 				<thead>
 					  <tr>
 						<th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Item Information</th>
-						<th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Stock/Metric Ton</th> 
+						<th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Due Purchase</th> 
 						<th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Qty/Metric Ton</th>
 						<th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Rate Type</th>
 						<th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Rate</th>
@@ -75,7 +79,7 @@
 						<th>Vat %</th>
 						<th>VAT Value</th> --}}
 						<th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Total</th>
-						<th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Action</th>
+						{{-- <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Action</th> --}}
 					</tr>
 				</thead>
 					<tr>
@@ -98,10 +102,10 @@
 						  </td>
 						  <td><input class="form-control rate" type="number" id="rate" name="rate[]" required=""></td>
 						  <td><input class="form-control total" type="number" id="amount" name="amount[]" value="0" readonly></td>
-						  <td>
+						  {{-- <td>
 							<a name="add" id="add" class="btn bg-gradient-dark mb-0"><i class="fas fa-plus" aria-hidden="true"></i></a>
-							{{-- <i class="fa-solid fa-circle-plus display-4 text-success" type="button" name="add" id="add" ></i> --}}
-						</td>
+							<i class="fa-solid fa-circle-plus display-4 text-success" type="button" name="add" id="add" ></i>
+						</td> --}}
 					</tr>
 				</table>
 				<hr>
@@ -115,7 +119,7 @@
 							<div class="col"><span><input class="form-control" type="text" name="subtotal" id="subtotal" readonly></span>
 							</div>
 						</div>
-						<div class="row mb-2">
+						{{-- <div class="row mb-2">
 							<div class="col-4"><label  class="text-uppercase text-dark text-xs font-weight-bold ">Discount (%)</label></div>
 							<div class="col"><input class="dper form-control" type="number" id="discount-percentage" name="dper">
 							</div>
@@ -129,7 +133,7 @@
 							<div class="col-4"><label  class="text-uppercase text-dark text-xs font-weight-bold ">Discount (TK)</label></div>
 							<div class="col"><input class="dflat form-control" name="dflat" type="number" id="discount-flat">
 							</div>
-						</div>
+						</div> --}}
 						<div class="row mb-2">
 							<div class="col-4"><label  class="text-uppercase text-dark text-xs font-weight-bold ">Grand Total</label></div>
 							<div class="col"><input class="form-control" type="text" name="grandtotal" id="grandtotal" readonly>
@@ -149,7 +153,7 @@
 					
 					</div>
 				</div>
-				<div class="row">
+				{{-- <div class="row">
 					<div class="col">
 						<div class="table-responsive">
 							<table id="table_fieldpayment" class="table align-items-center mb-0">
@@ -180,7 +184,7 @@
 					</div>
 					<div class="col">				
 					</div>
-				</div>
+				</div> --}}
 				
 				{{-- <input class="btn bg-gradient-dark mb-0" type="submit" name="save" id="save" value="
 				Save Purchase"> --}}
@@ -190,7 +194,7 @@
 				  <div class="col">
 				  </div>
 				  <div class="col">
-					<input type="submit" class="btn bg-gradient-primary w-100" value="Add Sale">
+					<input type="submit" class="btn bg-gradient-primary w-100" value="Add Chalan">
 				  </div>
 				  <div class="col">
 				  </div>
@@ -223,29 +227,29 @@
   
   <script>
 	$(document).ready(function(){
-		var html='<tr><td><input class="form-control" value="{{$acidProducts->id}}" type="text" id="item" name="item[]" required="" readonly></td><td><input class="form-control stock" type="text" id="stock" name="stock[]" value="{{$inventory}}" required="" readonly></td><td><input class="form-control qnty" type="number" id="qnty" name="qnty[]" required=""></td><td><select id="rateType" name="rateType[]" class="form-control" required="" ><option value="" selected="" disabled="">Select Rate Type</option><option value="FOB">FOB</option><option value="EXW">EXW</option><option value="CFR">CFR</option><option value="CIF">CIF</option></select></td><td><input class="form-control rate" type="number" id="rate" name="rate[]" required=""></td><td><input class="form-control total" type="number" id="amount" name="amount[]" value="0" readonly></td><td><a name="remove" id="remove" class="btn bg-gradient-danger mb-0"><i class="fas fa-minus" aria-hidden="true"></i></a></td></tr>';
+		// var html='<tr><td><input class="form-control" value="{{$acidProducts->id}}" type="text" id="item" name="item[]" required="" readonly></td><td><input class="form-control stock" type="text" id="stock" name="stock[]" value="{{$inventory}}" required="" readonly></td><td><input class="form-control qnty" type="number" id="qnty" name="qnty[]" required=""></td><td><select id="rateType" name="rateType[]" class="form-control" required="" ><option value="" selected="" disabled="">Select Rate Type</option><option value="FOB">FOB</option><option value="EXW">EXW</option><option value="CFR">CFR</option><option value="CIF">CIF</option></select></td><td><input class="form-control rate" type="number" id="rate" name="rate[]" required=""></td><td><input class="form-control total" type="number" id="amount" name="amount[]" value="0" readonly></td><td><a name="remove" id="remove" class="btn bg-gradient-danger mb-0"><i class="fas fa-minus" aria-hidden="true"></i></a></td></tr>';
 	
 		// var x =1;
-	  $("#add").click(function(){
-		$("#table_field").append(html);
-	  });
-	  $("#table_field").on('click', '#remove', function () {
-    $(this).closest('tr').remove();
-	totalPrice();
-	duePrice();
-	});
+	//   $("#add").click(function(){
+	// 	$("#table_field").append(html);
+	//   });
+	//   $("#table_field").on('click', '#remove', function () {
+    // $(this).closest('tr').remove();
+	// totalPrice();
+	// duePrice();
+	// });
 
-	var htmlpay='<tr><td><select id="payitem" name="payitem[]" class="form-control" required="" ><option value="" selected="" disabled="">Select Payment</option>@foreach($banks as $payment)<option value="{{ $payment->id }}">{{ $payment->bank_name }}</option>@endforeach</select></td><td><input class="form-control pay_amount" type="number" id="pay_amount" name="pay_amount[]" required=""></td><td><a name="payremove" id="payremove" class="btn bg-gradient-danger mb-0"><i class="fas fa-minus" aria-hidden="true"></i></a></td></tr>';
+	// var htmlpay='<tr><td><select id="payitem" name="payitem[]" class="form-control" required="" ><option value="" selected="" disabled="">Select Payment</option>@foreach($banks as $payment)<option value="{{ $payment->id }}">{{ $payment->bank_name }}</option>@endforeach</select></td><td><input class="form-control pay_amount" type="number" id="pay_amount" name="pay_amount[]" required=""></td><td><a name="payremove" id="payremove" class="btn bg-gradient-danger mb-0"><i class="fas fa-minus" aria-hidden="true"></i></a></td></tr>';
 
 		// var x =1;
-	  $("#addpay").click(function(){
-		$("#table_fieldpayment").append(htmlpay);
-	  });
-	  $("#table_fieldpayment").on('click', '#payremove', function () {
-    $(this).closest('tr').remove();
-	totalPayment()
-	duePrice();
-	});
+	//   $("#addpay").click(function(){
+	// 	$("#table_fieldpayment").append(htmlpay);
+	//   });
+	//   $("#table_fieldpayment").on('click', '#payremove', function () {
+    // $(this).closest('tr').remove();
+	// totalPayment()
+	// duePrice();
+	// });
 
 	$("#mySelect").change(function() {
       // get the selected option value
