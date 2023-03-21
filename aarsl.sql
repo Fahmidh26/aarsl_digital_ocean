@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2023 at 06:21 AM
+-- Generation Time: Mar 21, 2023 at 12:40 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -141,9 +141,19 @@ CREATE TABLE `chalans` (
   `chalan_date` date NOT NULL,
   `chalan_no` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `qty` int(11) NOT NULL,
+  `rate` float DEFAULT NULL,
+  `total` float DEFAULT NULL,
+  `nbalance` float DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `chalans`
+--
+
+INSERT INTO `chalans` (`id`, `customer_id`, `company`, `address`, `chalan_date`, `chalan_no`, `qty`, `rate`, `total`, `nbalance`, `created_at`, `updated_at`) VALUES
+(11, 643, 'Williamson and Giles Trading', 'Nihil facere quis ea', '2023-03-21', 'RSA42422129', 50, 100, 5000, 3000, '2023-03-21 05:39:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -162,6 +172,7 @@ CREATE TABLE `customers` (
   `delivery` float DEFAULT NULL,
   `due` float DEFAULT NULL,
   `rate` float DEFAULT NULL,
+  `rateType` varchar(255) DEFAULT NULL,
   `balance` float DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
@@ -171,9 +182,9 @@ CREATE TABLE `customers` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id`, `customer_name`, `address`, `phone`, `email`, `dea_cus`, `advance`, `delivery`, `due`, `rate`, `balance`, `created_at`, `updated_at`) VALUES
-(642, 'abrar', 'Dignissimos cupidita', '+1 (289) 165-6162', 'cosyly@mailinator.com', 1, 133, NULL, NULL, 89, 96, '2023-03-20 11:21:50', '2023-03-20 05:21:50'),
-(643, 'fahmid', 'Nihil facere quis ea', '+1 (948) 259-2026', 'jykaci@mailinator.com', 1, NULL, NULL, NULL, NULL, 11, '2023-03-20 06:54:16', '2023-03-20 00:54:16');
+INSERT INTO `customers` (`id`, `customer_name`, `address`, `phone`, `email`, `dea_cus`, `advance`, `delivery`, `due`, `rate`, `rateType`, `balance`, `created_at`, `updated_at`) VALUES
+(642, 'abrar', 'Dignissimos cupidita', '+1 (289) 165-6162', 'cosyly@mailinator.com', 1, NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-21 11:34:34', '2023-03-21 04:53:50'),
+(643, 'fahmid', 'Nihil facere quis ea', '+1 (948) 259-2026', 'jykaci@mailinator.com', 1, 80, 50, 30, 100, 'EXW', 3000, '2023-03-21 11:39:32', '2023-03-21 05:39:32');
 
 -- --------------------------------------------------------
 
@@ -566,23 +577,7 @@ CREATE TABLE `sales` (
 --
 
 INSERT INTO `sales` (`id`, `customer_id`, `sale_date`, `details`, `sub_total`, `grand_total`, `discount_flat`, `discount_per`, `total_vat`, `p_paid_amount`, `due_amount`, `created_at`, `updated_at`) VALUES
-(1, 642, '2004-01-22', NULL, 7921.00, 7871.00, '50', NULL, NULL, '91', '7780', '2023-03-14 04:29:13', NULL),
-(2, 642, '2004-01-22', NULL, 7921.00, 7871.00, '50', NULL, NULL, '91', '7780', '2023-03-14 04:36:53', NULL),
-(3, 642, '2019-07-04', NULL, 1836.00, 1784.00, '52', NULL, NULL, '100', '1684', '2023-03-14 04:37:04', NULL),
-(4, 642, '2019-07-04', NULL, 1836.00, 1784.00, '52', NULL, NULL, '100', '1684', '2023-03-14 04:38:15', NULL),
-(5, 642, '1972-06-08', NULL, 6250.00, 6219.00, '31', NULL, NULL, '57', '6162', '2023-03-14 04:49:19', NULL),
-(6, 642, '1972-06-08', NULL, 6250.00, 6219.00, '31', NULL, NULL, '57', '6162', '2023-03-14 04:50:28', NULL),
-(7, 642, '2017-06-08', NULL, 9638.00, 9583.00, '55', NULL, NULL, '20', '9563', '2023-03-14 04:50:40', NULL),
-(8, 642, '1978-03-13', NULL, 2340.00, 2293.00, '47', NULL, NULL, '12', '2281', '2023-03-14 04:53:35', NULL),
-(10, 642, '2002-05-30', NULL, 1960.00, 1911.00, '49', NULL, NULL, '88', '1823', '2023-03-14 05:01:32', NULL),
-(11, 642, '2002-05-30', NULL, 1960.00, 1911.00, '49', NULL, NULL, '88', '1823', '2023-03-14 05:03:06', NULL),
-(12, 642, '2003-01-12', NULL, 3604.00, 3504.00, '100', NULL, NULL, '94', '3410', '2023-03-14 05:03:40', NULL),
-(16, 642, '1987-05-24', 'Quia id aut ex obcae', 960.00, 905.00, '55', NULL, NULL, '905', '0', '2023-03-20 00:48:39', NULL),
-(17, 642, '2010-09-06', 'Et quisquam minim cu', 561.00, 560.00, '1', NULL, NULL, '560', '0', '2023-03-20 00:49:10', NULL),
-(19, 642, '1996-03-23', 'Quos ea soluta est e', 5056.00, 5005.00, '51', NULL, NULL, '83', '4922', '2023-03-20 00:52:58', NULL),
-(22, 642, '1978-05-12', 'Vitae magna numquam', 111.00, 58.00, '53', NULL, NULL, '6', '52', '2023-03-20 01:28:58', NULL),
-(23, 642, '2018-10-11', 'Ratione impedit lor', 245.00, 245.00, '65', NULL, NULL, '59', '186', '2023-03-20 01:29:17', NULL),
-(24, 642, '2015-05-13', 'Illum deleniti sint', 6842.00, 6826.00, '16', NULL, NULL, '31', '6795', '2023-03-20 05:21:50', NULL);
+(30, 643, '1978-08-15', 'Voluptas voluptates', 8000.00, 8000.00, NULL, NULL, NULL, '8000', '0', '2023-03-21 05:37:19', NULL);
 
 -- --------------------------------------------------------
 
@@ -607,18 +602,7 @@ CREATE TABLE `sales_items` (
 --
 
 INSERT INTO `sales_items` (`id`, `sale_id`, `product_id`, `qty`, `rateType`, `rate`, `amount`, `created_at`, `updated_at`) VALUES
-(1, 11, 1, '56', 'FOB', 35.00, 1960.00, '2023-03-14 05:03:06', '2023-03-14 05:03:06'),
-(2, 12, 1, '50', 'FOB', 32.00, 1600.00, '2023-03-14 05:03:40', '2023-03-14 05:03:40'),
-(3, 12, 1, '67', 'FOB', 20.00, 1340.00, '2023-03-14 05:03:40', '2023-03-14 05:03:40'),
-(4, 12, 1, '83', 'CFR', 8.00, 664.00, '2023-03-14 05:03:40', '2023-03-14 05:03:40'),
-(9, 16, 1, '80', 'FOB', 12.00, 960.00, '2023-03-20 00:48:39', '2023-03-20 00:48:39'),
-(10, 17, 1, '33', 'EXW', 17.00, 561.00, '2023-03-20 00:49:10', '2023-03-20 00:49:10'),
-(12, 19, 1, '64', 'EXW', 79.00, 5056.00, '2023-03-20 00:52:58', '2023-03-20 00:52:58'),
-(15, 22, 1, '37', 'EXW', 3.00, 111.00, '2023-03-20 01:28:58', '2023-03-20 01:28:58'),
-(16, 23, 1, '3', 'CIF', 15.00, 45.00, '2023-03-20 01:29:17', '2023-03-20 01:29:17'),
-(17, 23, 1, '5', 'EXW', 40.00, 200.00, '2023-03-20 01:29:17', '2023-03-20 01:29:17'),
-(18, 24, 1, '33', 'CFR', 8.00, 2937.00, '2023-03-20 05:21:50', '2023-03-20 05:21:50'),
-(19, 24, 1, '55', 'EXW', 9.00, 3905.00, '2023-03-20 05:21:50', '2023-03-20 05:21:50');
+(23, 30, 1, '80', 'E', 1.00, 8000.00, '2023-03-21 05:37:19', '2023-03-21 05:37:19');
 
 -- --------------------------------------------------------
 
@@ -640,16 +624,7 @@ CREATE TABLE `sales_payment_items` (
 --
 
 INSERT INTO `sales_payment_items` (`id`, `sale_id`, `bank_id`, `b_paid_amount`, `created_at`, `updated_at`) VALUES
-(1, 11, 3, 88.00, '2023-03-14 05:03:06', '2023-03-14 05:03:06'),
-(2, 12, 2, 3.00, '2023-03-14 05:03:40', '2023-03-14 05:03:40'),
-(3, 12, 1, 73.00, '2023-03-14 05:03:40', '2023-03-14 05:03:40'),
-(4, 12, 2, 18.00, '2023-03-14 05:03:40', '2023-03-14 05:03:40'),
-(8, 16, 3, 905.00, '2023-03-20 00:48:39', '2023-03-20 00:48:39'),
-(9, 17, 2, 560.00, '2023-03-20 00:49:10', '2023-03-20 00:49:10'),
-(11, 19, 2, 83.00, '2023-03-20 00:52:58', '2023-03-20 00:52:58'),
-(14, 22, 2, 6.00, '2023-03-20 01:28:59', '2023-03-20 01:28:59'),
-(15, 23, 2, 59.00, '2023-03-20 01:29:17', '2023-03-20 01:29:17'),
-(16, 24, 2, 31.00, '2023-03-20 05:21:50', '2023-03-20 05:21:50');
+(20, 30, 3, 8000.00, '2023-03-21 05:37:19', '2023-03-21 05:37:19');
 
 -- --------------------------------------------------------
 
@@ -697,10 +672,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('0XGLZGUT5rNeeuyrkkUUQCUHszOySc08ntDQ0cif', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiVTYzTjkxTE11eTFHM25zZnZ2TFZsWTlrWGFlcGlReUV2bHJtaWN0ciI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9kYXNoYm9hcmQiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUyOiJsb2dpbl9hZG1pbl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxOToicGFzc3dvcmRfaGFzaF9hZG1pbiI7czo2MDoiJDJ5JDEwJEFMYk1tR25xQ2VCZmxQLkpUOExXTnUvc3dzbWVydkYyVUZzc1VCQTNRS281MmM2Q3JBOVllIjt9', 1679116467),
-('DB6CLrUcsyk4OQIV0t0tR3IXALoZxMjvA9xnDJqZ', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiUTVWa01aWmFPWTdUVVhrQVlxOW4xSE8zTlNMQXlqdmJXSFFaYVFoWiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jaGFsYW4vdmlldyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTI6ImxvZ2luX2FkbWluXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE5OiJwYXNzd29yZF9oYXNoX2FkbWluIjtzOjYwOiIkMnkkMTAkQUxiTW1HbnFDZUJmbFAuSlQ4TFdOdS9zd3NtZXJ2RjJVRnNzVUJBM1FLbzUyYzZDckE5WWUiO30=', 1679311435),
-('WCbmJm8hTTolO7LHUCgrMVhu8zh6RjsI2MMCnU0d', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiTFFBRUVURzlUZVRiQzhyZ2xYMldBQlNCc2ZEUjNBVTh6TGhGUzNMWSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jaGFsYW4vdmlldyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTI6ImxvZ2luX2FkbWluXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE5OiJwYXNzd29yZF9oYXNoX2FkbWluIjtzOjYwOiIkMnkkMTAkQUxiTW1HbnFDZUJmbFAuSlQ4TFdOdS9zd3NtZXJ2RjJVRnNzVUJBM1FLbzUyYzZDckE5WWUiO30=', 1678948045),
-('xUL87LvVXD5UP0GziqSNWCKwzEeBROjuRwjNN5OQ', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiZWI5VUprazJjRlNnOThneGtCTERIMTJyaWxZR2haUEU1dFcyYU02NCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jaGFsYW4vdmlldyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTI6ImxvZ2luX2FkbWluXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE5OiJwYXNzd29yZF9oYXNoX2FkbWluIjtzOjYwOiIkMnkkMTAkQUxiTW1HbnFDZUJmbFAuSlQ4TFdOdS9zd3NtZXJ2RjJVRnNzVUJBM1FLbzUyYzZDckE5WWUiO30=', 1679375918);
+('xUL87LvVXD5UP0GziqSNWCKwzEeBROjuRwjNN5OQ', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiZWI5VUprazJjRlNnOThneGtCTERIMTJyaWxZR2haUEU1dFcyYU02NCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9kYXNoYm9hcmQiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUyOiJsb2dpbl9hZG1pbl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxOToicGFzc3dvcmRfaGFzaF9hZG1pbiI7czo2MDoiJDJ5JDEwJEFMYk1tR25xQ2VCZmxQLkpUOExXTnUvc3dzbWVydkYyVUZzc1VCQTNRS281MmM2Q3JBOVllIjt9', 1679398788);
 
 -- --------------------------------------------------------
 
@@ -1048,7 +1020,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `chalans`
 --
 ALTER TABLE `chalans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `customers`
@@ -1138,19 +1110,19 @@ ALTER TABLE `quotation_items`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `sales_items`
 --
 ALTER TABLE `sales_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `sales_payment_items`
 --
 ALTER TABLE `sales_payment_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `schedules`
