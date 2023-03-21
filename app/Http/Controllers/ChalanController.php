@@ -4,29 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\AcidProduct;
-use App\Models\Bank;
 use App\Models\Customer;
-use App\Models\PaymentItem;
-use App\Models\Product;
 use App\Models\Sales;
-use App\Models\SalesItem;
-use App\Models\SalesPaymentItem;
+use App\Models\Bank;
 use App\Models\TodaysProduction;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Http\Controllers\DB;
 
-class SalesController extends Controller
+class ChalanController extends Controller
 {
-    public function SalesForm() 
+    public function ChalanForm() 
     {
-        // $id = Auth::user()->id;
-		// $adminData = Admin::find($id);
-        $banks = Bank::orderBy('bank_name','ASC')->get();
-        $customers = Customer::orderBy('customer_name','ASC')->get();
+        // $customers = Sales::select('customer_id')->distinct()->pluck('customer_id');
+        // dd($customers );
+        $customerIds =Sales::join('customers', 'sales.customer_id', '=', 'customers.id')->select('sales.customer_id', 'customers.customer_name')
+                ->distinct()->pluck('customers.customer_name', 'sales.customer_id');
         $inventory = TodaysProduction::sum('qty');
         $acidProducts = AcidProduct::orderBy('product_name','ASC')->first();
-        $products = Product::orderBy('product_name','ASC')->get();
-        return view('admin.Backend.Sales.sales_form', compact('customers','banks','inventory','acidProducts','products'));
+        // $products = Product::orderBy('product_name','ASC')->get();
+        $banks = Bank::orderBy('bank_name','ASC')->get();
+        return view('admin.Backend.Chalan.chalan_form', compact('customerIds','acidProducts','inventory','banks'));
     }
 
     public function SalesStore(Request $request)
@@ -56,7 +53,6 @@ class SalesController extends Controller
   
         ]);
 
-        
         $item = $request->input('item');
         // $stock = $request->input('stock');
         // $batch = $request->input('batch');
@@ -65,10 +61,6 @@ class SalesController extends Controller
         $rateType = $request->input('rateType');
         $amount = $request->input('amount');
 
-         // Advance
-         $totalQty = array_sum($qty);
-         $rate = array_shift($rate);
-        
        
         foreach ($item as $key => $value) {
 
@@ -81,21 +73,6 @@ class SalesController extends Controller
                 'amount' => $amount[$key],
             ]);
         }
-
-       
-        // Retrieve the sales record by ID
-        $sales = Sales::find($sale_id);
-        $paidAmount = $sales->p_paid_amount;
-
-        // Retrieve the customer ID from the sales record
-        $customer_id = $sales->customer->id;
-        $customer = Customer::find($customer_id);
-        $customer->balance += $paidAmount;
-        $customer->advance += $totalQty;
-        $customer->rate = $rate;
-        $customer->save();
-
-       
 
         $payitem = $request->input('payitem');
         $pay_amount = $request->input('pay_amount');

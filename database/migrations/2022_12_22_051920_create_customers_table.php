@@ -19,6 +19,10 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('phone');
             $table->text('address')->nullable();
+            $table->float('advance',8,2);
+            $table->float('delivery',8,2);
+            $table->float('due',8,2);
+            $table->float('balance',8,2);
             $table->timestamps();
         });
     }
