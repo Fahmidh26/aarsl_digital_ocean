@@ -23,7 +23,7 @@
 				  >
 					Today's Production
 				  </p>
-				  @if ($todays_production->qty == null)
+				  {{-- @if ($todays_production->qty == null)
 				  <h5
 				  style="font-size: 36px"
 				  class="font-weight-bolder mb-0"
@@ -43,7 +43,7 @@
 					>MT</span
 				  >
 				</h5>
-				  @endif
+				  @endif --}}
 				  
 				</div>
 			  </div>
