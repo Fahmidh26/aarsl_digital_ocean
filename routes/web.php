@@ -119,10 +119,10 @@ Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'veri
         $products = Product::orderBy('product_name','ASC')->get();
         $stock = Product::sum('qty');
         $inventory = AcidProduct::find(1);
-        // $todays_production = TodaysProduction::orderBy('id','DESC')->first();
+        $todays_production = TodaysProduction::orderBy('id','DESC')->first();
         $today = Carbon::today();
         $schedules = Schedule::whereDate('schedule_date', $today)->orderBy('time', 'ASC')->get();
-        return view('admin.adminindex', compact('products','customers','stock','inventory','schedules','dues'));
+        return view('admin.adminindex', compact('products','customers','stock','todays_production','inventory','schedules','dues'));
     })->name('admin.dashboard');
 });
 
