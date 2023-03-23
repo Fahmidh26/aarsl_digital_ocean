@@ -718,118 +718,31 @@
 				  </tr>
 				</thead>
 				<tbody>
+					@foreach ($banks as $bank)
+						
+					
 				  <tr>
 					<td>
 					  <div class="d-flex px-2 py-1">
-						
 						<div
 						  class="d-flex flex-column justify-content-center"
 						>
-						  <h6 class="mb-0 text-lg">Sonali Bank, Local Office</h6>
+						  <h6 class="mb-0 text-lg">{{$bank->ac_name}}</h6>
 						</div>
 					  </div>
 					</td>
 					<td class="align-middle text-center text-sm">
 					  <span class="text-lg font-weight-bold">
-						33147501
+						{{$bank->ano_name}}
 					  </span>
 					</td>
 					<td class="align-middle text-center text-sm">
 					  <span class="text-lg font-weight-bold">
-						116,374
+						{{$bank->balance}}
 					  </span>
 					</td>
 				  </tr>
-				  <tr>
-					<td>
-					  <div class="d-flex px-2 py-1">
-						
-						<div
-						  class="d-flex flex-column justify-content-center"
-						>
-						  <h6 class="mb-0 text-lg">Shahjalal Bank(Company)</h6>
-						</div>
-					  </div>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						40191110000-4541
-					  </span>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						1,174,339
-					  </span>
-					</td>
-				  </tr>
-				  <tr>
-					<td>
-					  <div class="d-flex px-2 py-1">
-						
-						<div
-						  class="d-flex flex-column justify-content-center"
-						>
-						  <h6 class="mb-0 text-lg">Shahjalal Bank(MD Sir)</h6>
-						</div>
-					  </div>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						40191210000-6472
-					  </span>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						(119,708,789))
-					  </span>
-					</td>
-				  </tr>
-
-				  <tr>
-					<td>
-					  <div class="d-flex px-2 py-1">
-						
-						<div
-						  class="d-flex flex-column justify-content-center"
-						>
-						  <h6 class="mb-0 text-lg">Islami Bank, Gulshan</h6>
-						</div>
-					  </div>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						20501770100-1452-14
-					  </span>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						-
-					  </span>
-					</td>
-				  </tr>
-
-				  <tr>
-					<td>
-					  <div class="d-flex px-2 py-1">
-						
-						<div
-						  class="d-flex flex-column justify-content-center"
-						>
-						  <h6 class="mb-0 text-lg">Dhaka Bank Limited</h6>
-						</div>
-					  </div>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						106-100-1913
-					  </span>
-					</td>
-					<td class="align-middle text-center text-sm">
-					  <span class="text-lg font-weight-bold">
-						-
-					  </span>
-					</td>
-				  </tr>
+				  @endforeach
 				  
 				</tbody>
 			  </table>

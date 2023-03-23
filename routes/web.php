@@ -43,6 +43,7 @@ use App\Models\Category;
 use App\Models\Customer;
 use App\Models\Product;
 use App\Models\slider;
+use App\Models\Bank;
 use App\Models\Sales;
 use App\Models\TodaysProduction;
 use App\Models\subCategory;
@@ -117,12 +118,13 @@ Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'veri
         $dues = Customer::where('balance','>', 1)->get();
         $customers = Customer::orderBy('customer_name','ASC')->get();
         $products = Product::orderBy('product_name','ASC')->get();
+        $banks = Bank::where('balance','>', 1)->get();
         $stock = Product::sum('qty');
         $inventory = AcidProduct::find(1);
         $todays_production = TodaysProduction::orderBy('id','DESC')->first();
         $today = Carbon::today();
         $schedules = Schedule::whereDate('schedule_date', $today)->orderBy('time', 'ASC')->get();
-        return view('admin.adminindex', compact('products','customers','stock','todays_production','inventory','schedules','dues'));
+        return view('admin.adminindex', compact('products','customers','stock','todays_production','inventory','schedules','dues','banks'));
     })->name('admin.dashboard');
 });
 

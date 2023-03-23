@@ -22,7 +22,7 @@
               <th>A/C Name</th>
               <th>A/C Number</th>
               <th>Branch</th>
-              <th>Signature Picture</th>
+              <th>Balance</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -34,7 +34,7 @@
   <td>{{ $item->ac_name }}</td>
   <td>{{ $item->ano_name }}</td>
   <td>{{ $item->branch }}</td>
-  <td>{{ $item->sign_image }}</td>
+  <td>{{ $item->balance }}</td>
   <td>
 <a href="{{ route('brand.edit',$item->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
 <a href="{{ route('brand.delete',$item->id) }}" class="btn btn-danger" title="Delete Data" id="delete">
@@ -71,7 +71,7 @@
         <div class="table-responsive">
 
 
-<form method="post" action="{{ route('bank.store') }}" enctype="multipart/form-data">
+<form method="post" action="{{ route('bank.store') }}">
    @csrf
            
  <div class="form-group">
@@ -97,7 +97,7 @@
 <div class="form-group">
   <h6>A/C Number<span class="text-danger">*</span></h6>
   <div class="controls">
- <input type="text"  name="ano_name" class="form-control" > 
+ <input type="number"  name="ano_name" class="form-control" > 
  @error('ano_name') 
  <span class="text-danger">{{ $message }}</span>
  @enderror 
@@ -115,9 +115,9 @@
 </div>
 
 <div class="form-group">
-  <h6>Signature Picture</h6>
+  <h6>Balance</h6>
   <div class="controls">
- <input type="file" name="sign_image" class="form-control" >
+ <input type="number" name="balance" class="form-control" >
    {{-- @error('sign_image') 
  <span class="text-danger">{{ $message }}</span>
  @enderror  --}}

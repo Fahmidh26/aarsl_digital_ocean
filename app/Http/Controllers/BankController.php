@@ -60,7 +60,7 @@ class BankController extends Controller
             'ac_name' => $request->ac_name,
             'ano_name' => $request->ano_name,
             'branch' => $request->branch,
-            'sign_image' => null,
+			'balance' => $request->balance,
             'created_at' => Carbon::now(),   
             ]);
     
