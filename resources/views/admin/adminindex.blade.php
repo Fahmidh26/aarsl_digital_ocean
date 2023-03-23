@@ -64,7 +64,7 @@
 					style="font-size: 36px"
 					class="font-weight-bolder mb-0"
 				  >
-					{{$inventory}}
+					{{$inventory->stock}}
 					<span class="text-success text-sm font-weight-bolder"
 					  >MT</span
 					>

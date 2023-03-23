@@ -42,8 +42,8 @@
         <td> {{ $item->email  }}  </td>
 
         <td>
-			@if($item->brand == 1)
-			<span class="badge btn-primary">Brand</span>
+			@if($item->supplier == 1)
+			<span class="badge btn-primary">Supplier</span>
 			@else
 			@endif
 
@@ -59,70 +59,48 @@
 			@endif
 
 
-			@if($item->slider == 1)
-			<span class="badge btn-danger">Slider</span>
+			@if($item->bank == 1)
+			<span class="badge btn-danger">Bank</span>
 			@else
 			@endif
 
 
-			@if($item->coupons == 1)
-			<span class="badge btn-warning">Coupons</span>
+			@if($item->production == 1)
+			<span class="badge btn-warning">Production</span>
 			@else
 			@endif
 
 
-			@if($item->shipping == 1)
-			<span class="badge btn-info">Shipping</span>
+			@if($item->l_c == 1)
+			<span class="badge btn-info">l_c</span>
 			@else
 			@endif
 
 
-			@if($item->quotation == 1)
-			<span class="badge btn-dark">Quotation</span>
+			@if($item->sale == 1)
+			<span class="badge btn-dark">Sale</span>
 			@else
 			@endif
 
 
-			@if($item->setting == 1)
-			<span class="badge btn-light">Setting</span>
+			@if($item->expense == 1)
+			<span class="badge btn-light">Expense</span>
 			@else
 			@endif
 
 
-			@if($item->returnorder == 1)
-			<span class="badge btn-primary">Return Order</span>
+			@if($item->chalan == 1)
+			<span class="badge btn-primary">Chalan</span>
 			@else
 			@endif
 
-			@if($item->locations == 1)
-			<span class="badge btn-light">Location</span>
+			@if($item->hr == 1)
+			<span class="badge btn-light">HR</span>
 			@else
 			@endif
 
-
-			@if($item->review == 1)
-			<span class="badge btn-secondary">Review</span>
-			@else
-			@endif
-
-
-			@if($item->orders == 1)
+			@if($item->schedule == 1)
 			<span class="badge btn-success">Orders</span>
-			@else
-			@endif
-
-			@if($item->stock == 1)
-			<span class="badge btn-danger">Stock</span>
-			@else
-			@endif
-
-			@if($item->reports == 1)
-			<span class="badge btn-warning">Reports</span>
-			@else
-			@endif
-
-			@if($item->alluser == 1)
-			<span class="badge btn-info">Alluser</span>
 			@else
 			@endif
 

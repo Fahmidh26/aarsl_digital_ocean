@@ -22,6 +22,7 @@ use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\RequisitionController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\homePageController;
 use App\Http\Controllers\PurchaseController;
@@ -48,6 +49,7 @@ use App\Models\subCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
+use App\Models\AcidProduct;
 
 /*
 |--------------------------------------------------------------------------
@@ -116,7 +118,7 @@ Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'veri
         $customers = Customer::orderBy('customer_name','ASC')->get();
         $products = Product::orderBy('product_name','ASC')->get();
         $stock = Product::sum('qty');
-        $inventory = TodaysProduction::sum('qty');
+        $inventory = AcidProduct::find(1);
         $todays_production = TodaysProduction::orderBy('id','DESC')->first();
         $today = Carbon::today();
         $schedules = Schedule::whereDate('schedule_date', $today)->orderBy('time', 'ASC')->get();
@@ -783,7 +785,7 @@ Route::prefix('product')->group(function(){
             
             Route::post('/store', [ChalanController::class, 'ChalanStore'])->name('chalan.store');
     
-            Route::get('/manage', [SalesController::class, 'ManageSales'])->name('sales.manage');
+            Route::get('/manage', [ChalanController::class, 'ManageChalan'])->name('chalan.manage');
 
             Route::get('/port', [PurchaseController::class, 'PurchaseReachedPort'])->name('purchase.port');
 
@@ -821,12 +823,18 @@ Route::prefix('product')->group(function(){
     Route::prefix('expense')->group(function(){
 
         Route::get('/expense-type', [ExpenseController::class, 'EnpenseTypeView'])->name('expenseType.view');
-        
         Route::post('/expense-type/store', [ExpenseController::class, 'EnpenseTypeStore'])->name('enpenseType.store');
-
         Route::get('/manage', [PurchaseController::class, 'PurchaseManage'])->name('purchase.manage');
 
-        // Route::get('/get-stock', [PurchaseController::class, 'getProductStock']);
+        Route::get('/requisition-type', [RequisitionController::class, 'RequisitionTypeView'])->name('requisitionType.view');
+        Route::post('/requisition-type/store', [RequisitionController::class, 'RequisitionTypeStore'])->name('requisitionType.store');
+        Route::get('/requisition/manage', [PurchaseController::class, 'PurchaseManage'])->name('purchase.manage');
+
+
+        Route::get('/requisition', [RequisitionController::class, 'RequisitionView'])->name('requisition.view');
+        Route::post('/requisition/store', [RequisitionController::class, 'RequisitionStore'])->name('requisition.store');
+        Route::get('/requisition/manage', [RequisitionController::class, 'RequisitionManage'])->name('requisition.manage');
+
 
         Route::get('/get-unit-price', function(Request $request) {
             // get the product ID from the query string

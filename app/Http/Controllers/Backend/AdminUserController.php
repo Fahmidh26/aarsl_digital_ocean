@@ -49,8 +49,9 @@ class AdminUserController extends Controller
 		'production' => $request->production,
 
 		'hr' => $request->hr,
+		'chalan' => $request->chalan,
 		'expense' => $request->expense,
-		'supplier' => $request->supplier,
+		'schedule' => $request->schedule,
 		'adminuserrole' => $request->adminuserrole,
 		
 		'type' => 2,

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\AcidProduct;
 use App\Models\Product;
 use App\Models\Production;
 use App\Models\TodaysProduction;
@@ -72,10 +73,16 @@ class ProductionController extends Controller
 
 	public function StoreTodaysProduction(Request $request){
 
+        $sumQty = 0;
+
             TodaysProduction::create([
                 'product' => 'Sulphuric Acid',
-                'qty' => $request->qnty,
+                'qty' => $request->qnty,      
             ]);
+
+            $stock = AcidProduct::find(1);
+            $stock->stock += $request->qnty;
+            $stock->save();            
 
        $notification = array(
 			'message' => 'Todays Production Added Successfully',

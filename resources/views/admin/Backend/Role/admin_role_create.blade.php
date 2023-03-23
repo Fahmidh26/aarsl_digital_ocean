@@ -160,6 +160,12 @@
 	</div>
 </div>
 
+<div class="col-md-4">
+	<div class="form-check form-switch">
+		<input class="form-check-input" type="checkbox" id="checkbox_13" name="chalan" value="1">
+		<label class="form-check-label" for="checkbox_13">Chalan</label>
+	</div>
+</div>
 
 			 <div class="text-xs-right">
 	<input type="submit" class="btn btn-rounded btn-primary mb-5" value="Add Admin User">					 

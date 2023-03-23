@@ -64,6 +64,10 @@ class ChalanController extends Controller
         $customer->due -= $chalan->qty;
         $customer->save();
 
+        $stock = AcidProduct::find(1);
+        $stock->stock -= $chalan->qty;
+        $stock->save();            
+
 		// return redirect()->back();
         $notification = array(
 			'message' => 'Chalan Added Successfully',
@@ -74,10 +78,10 @@ class ChalanController extends Controller
 
     }
 
-    public function ManageSales (){
+    public function ManageChalan (){
        
-        $sales = Sales::orderBy('id','DESC')->get();
-		return view('admin.Backend.Sales.manage_sales',compact('sales'));
+        $chalans = Chalan::orderBy('id','DESC')->get();
+		return view('admin.Backend.Chalan.manage_chalan',compact('chalans'));
 
     }
 }

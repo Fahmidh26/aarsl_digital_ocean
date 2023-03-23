@@ -13,10 +13,10 @@ $bank = (auth()->guard('admin')->user()->bank == 1);
 $supplier = (auth()->guard('admin')->user()->supplier == 1);
 $sale = (auth()->guard('admin')->user()->sale == 1);
 $l_c = (auth()->guard('admin')->user()->l_c == 1);
+$chalan = (auth()->guard('admin')->user()->chalan == 1);
 $expense = (auth()->guard('admin')->user()->expense == 1);
-$supplier = (auth()->guard('admin')->user()->supplier == 1);
-$hr = (auth()->guard('admin')->user()->hr == 1);
 $schedule = (auth()->guard('admin')->user()->schedule == 1);
+$hr = (auth()->guard('admin')->user()->hr == 1);
 $adminuserrole = (auth()->guard('admin')->user()->adminuserrole == 1);
 @endphp
 
@@ -73,10 +73,10 @@ $adminuserrole = (auth()->guard('admin')->user()->adminuserrole == 1);
 <span class="sidenav-mini-icon"></span>
 <span class="sidenav-normal"> Category View </span>
 </a>
-<a class="nav-link {{ ($route == 'subCategory.view')? 'active':'' }}" href="{{ route('subCategory.view') }}">
+{{-- <a class="nav-link {{ ($route == 'subCategory.view')? 'active':'' }}" href="{{ route('subCategory.view') }}">
   <span class="sidenav-mini-icon"></span>
   <span class="sidenav-normal">SubCategory View </span>
-  </a>
+  </a> --}}
 </li>
 </ul>
 </div>
@@ -166,7 +166,7 @@ $adminuserrole = (auth()->guard('admin')->user()->adminuserrole == 1);
 
 
 
-@if($product  == true)
+@if($schedule  == true)
 <li class="nav-item">
 <a data-bs-toggle="collapse" href="#schedule" class="nav-link  {{ ($prefix == '/schedule')?'active':'' }}" aria-controls="ecommerceExamples" role="button">
 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
@@ -279,7 +279,7 @@ $adminuserrole = (auth()->guard('admin')->user()->adminuserrole == 1);
 @endif
 
 
-@if($sale  == true)
+@if($chalan  == true)
   <li class="nav-item">
   <a data-bs-toggle="collapse" href="#chalan" class="nav-link  {{ ($prefix == '/chalan')?'active':'' }}" aria-controls="ecommerceExamples" role="button">
   <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
@@ -402,14 +402,23 @@ $adminuserrole = (auth()->guard('admin')->user()->adminuserrole == 1);
 <span class="sidenav-mini-icon"></span>
 <span class="sidenav-normal">Add Expense Type</span>
 </a>
-<a class="nav-link {{ ($route == 'purchase.manage')? 'active':'' }}" href="{{ route('purchase.manage') }}">
-  <span class="sidenav-mini-icon"></span>
-  <span class="sidenav-normal">Manage Expense Type</span>
-  </a>
 <a class="nav-link {{ ($route == 'designation.add')? 'active':'' }}" href="{{ route('designation.add') }}">
-<span class="sidenav-mini-icon"></span>
-<span class="sidenav-normal">Manage Expense</span>
-</a>
+  <span class="sidenav-mini-icon"></span>
+  <span class="sidenav-normal">Manage Expense</span>
+  </a>
+<a class="nav-link {{ ($route == 'requisitionType.view')? 'active':'' }}" href="{{ route('requisitionType.view') }}">
+  <span class="sidenav-mini-icon"></span>
+  <span class="sidenav-normal">Add Requisition Type</span>
+  </a>
+  <a class="nav-link {{ ($route == 'requisition.view')? 'active':'' }}" href="{{ route('requisition.view') }}">
+    <span class="sidenav-mini-icon"></span>
+    <span class="sidenav-normal">Add Requisition</span>
+    </a>
+<a class="nav-link {{ ($route == 'requisition.manage')? 'active':'' }}" href="{{ route('requisition.manage') }}">
+  <span class="sidenav-mini-icon"></span>
+  <span class="sidenav-normal">Manage Requisition</span>
+  </a>
+
 </li>
 </ul>
 </div>
