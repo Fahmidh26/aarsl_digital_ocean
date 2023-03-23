@@ -23,15 +23,28 @@
 				  >
 					Today's Production
 				  </p>
+				  @if ($todays_production->qty == null)
 				  <h5
-					style="font-size: 36px"
-					class="font-weight-bolder mb-0"
+				  style="font-size: 36px"
+				  class="font-weight-bolder mb-0"
+				>
+					0
+				  <span class="text-success text-sm font-weight-bolder"
+					>MT</span
 				  >
-					{{$todays_production->qty}}
-					<span class="text-success text-sm font-weight-bolder"
-					  >MT</span
-					>
-				  </h5>
+				</h5>
+				  @else
+				  <h5
+				  style="font-size: 36px"
+				  class="font-weight-bolder mb-0"
+				>
+				  {{$todays_production->qty}}
+				  <span class="text-success text-sm font-weight-bolder"
+					>MT</span
+				  >
+				</h5>
+				  @endif
+				  
 				</div>
 			  </div>
 			  <div class="col-4 text-end">
