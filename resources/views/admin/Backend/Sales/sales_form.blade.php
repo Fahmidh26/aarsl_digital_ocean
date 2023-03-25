@@ -85,8 +85,11 @@
 							</select>
 
 						</td> --}}
-						<td><input class="form-control" value="{{$acidProducts->id}}" type="text" id="item" name="item[]" required="" readonly></td>
-						  <td><input class="form-control stock" type="text" value="{{$inventory}}" id="stock" name="stock[]" required="" readonly></td>
+						<td><select id="mySelect" name="item[]" class="form-control" required="">
+							<option value="{{$acidProducts->id}}" selected="" disabled="">Suplhuric Acid</option>
+							</select>
+						</td>
+						  <td><input class="form-control stock" type="text" value="{{$acidProducts->stock}}" id="stock" name="stock[]" required="" readonly></td>
 						  <td><input class="form-control qnty" type="number" id="qnty" name="qnty[]" required=""></td>
 						  <td><select id="rateType" name="rateType[]" class="form-control" required="" >
 							<option value="" selected="" disabled="">Select Rate Type</option>
@@ -223,7 +226,7 @@
   
   <script>
 	$(document).ready(function(){
-		var html='<tr><td><input class="form-control" value="{{$acidProducts->id}}" type="text" id="item" name="item[]" required="" readonly></td><td><input class="form-control stock" type="text" id="stock" name="stock[]" value="{{$inventory}}" required="" readonly></td><td><input class="form-control qnty" type="number" id="qnty" name="qnty[]" required=""></td><td><select id="rateType" name="rateType[]" class="form-control" required="" ><option value="" selected="" disabled="">Select Rate Type</option><option value="FOB">FOB</option><option value="EXW">EXW</option><option value="CFR">CFR</option><option value="CIF">CIF</option></select></td><td><input class="form-control rate" type="number" id="rate" name="rate[]" required=""></td><td><input class="form-control total" type="number" id="amount" name="amount[]" value="0" readonly></td><td><a name="remove" id="remove" class="btn bg-gradient-danger mb-0"><i class="fas fa-minus" aria-hidden="true"></i></a></td></tr>';
+		var html='<tr><td><input class="form-control" value="{{$acidProducts->id}}" type="text" id="item" name="item[]" required="" readonly></td><td><input class="form-control stock" type="text" id="stock" name="stock[]" value="{{$acidProducts->stock}}" required="" readonly></td><td><input class="form-control qnty" type="number" id="qnty" name="qnty[]" required=""></td><td><select id="rateType" name="rateType[]" class="form-control" required="" ><option value="" selected="" disabled="">Select Rate Type</option><option value="FOB">FOB</option><option value="EXW">EXW</option><option value="CFR">CFR</option><option value="CIF">CIF</option></select></td><td><input class="form-control rate" type="number" id="rate" name="rate[]" required=""></td><td><input class="form-control total" type="number" id="amount" name="amount[]" value="0" readonly></td><td><a name="remove" id="remove" class="btn bg-gradient-danger mb-0"><i class="fas fa-minus" aria-hidden="true"></i></a></td></tr>';
 	
 		// var x =1;
 	  $("#add").click(function(){
