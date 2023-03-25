@@ -27,8 +27,9 @@ class AdminUserController extends Controller
 
  public function StoreAdminRole(Request $request){
 
+	if($request->file('profile_photo_path')){
 
-    	$image = $request->file('profile_photo_path');
+		$image = $request->file('profile_photo_path');
     	$name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
     	Image::make($image)->resize(225,225)->save('upload/admin_images/'.$name_gen);
     	$save_url = 'upload/admin_images/'.$name_gen;
@@ -60,6 +61,36 @@ class AdminUserController extends Controller
 
 
     	]);
+	}else{
+		Admin::insert([
+			'name' => $request->name,
+			'email' => $request->email,
+			'password' => Hash::make($request->password),
+			'phone' => $request->phone,
+			'category' => $request->category,
+			'product' => $request->product,
+			'customer' => $request->customer,
+			'bank' => $request->bank,
+	
+			'supplier' => $request->supplier,
+			'sale' => $request->sale,
+			'l_c' => $request->l_c,
+			'production' => $request->production,
+	
+			'hr' => $request->hr,
+			'chalan' => $request->chalan,
+			'expense' => $request->expense,
+			'schedule' => $request->schedule,
+			'adminuserrole' => $request->adminuserrole,
+			
+			'type' => 2,
+			'profile_photo_path' => null,
+			'created_at' => Carbon::now(),
+	
+	
+			]);
+	}
+    	
 
 	    $notification = array(
 			'message' => 'Admin User Created Successfully',

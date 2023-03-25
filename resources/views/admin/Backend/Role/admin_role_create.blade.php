@@ -77,9 +77,9 @@
 
 				<div class="col-md-6">
 		<div class="form-group">
-		<h5>Admin User Image <span class="text-danger">*</span></h5>
+		<h5>Admin User Image </h5>
 		<div class="controls">
- <input type="file" name="profile_photo_path" class="form-control" required="" id="image"> </div>
+ <input type="file" name="profile_photo_path" class="form-control" id="image"> </div>
 	</div>
 				</div><!-- end cold md 6 --> 
 
