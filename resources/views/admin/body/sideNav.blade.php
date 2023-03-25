@@ -250,7 +250,7 @@ $adminuserrole = (auth()->guard('admin')->user()->adminuserrole == 1);
 
       @if($sale  == true)
 <li class="nav-item">
-<a data-bs-toggle="collapse" href="#sale" class="nav-link  {{ ($prefix == '/sale')?'active':'' }}" aria-controls="ecommerceExamples" role="button">
+<a data-bs-toggle="collapse" href="#sale" class="nav-link  {{ ($prefix == '/sales')?'active':'' }}" aria-controls="ecommerceExamples" role="button">
 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
   <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
     <path d="M14.3498 2H9.64977C8.60977 2 7.75977 2.84 7.75977 3.88V4.82C7.75977 5.86 8.59977 6.7 9.63977 6.7H14.3498C15.3898 6.7 16.2298 5.86 16.2298 4.82V3.88C16.2398 2.84 15.3898 2 14.3498 2Z" fill="#3a416f"/>

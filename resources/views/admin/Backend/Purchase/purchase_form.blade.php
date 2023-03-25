@@ -27,13 +27,18 @@
 						</div>
 	
 						<div class="row mb-3">
-							<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">Chalan No.</label></div>
+							<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">L/C No.</label></div>
 							<div class="col"><input class="form-control " type="text" id="chalan" name="chalan" required=""></div>
 							
 						</div>
-						<div class="row mb-3">
+						<div class="row mb-1">
 							<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">Container Tracking No.</label></div>
 							<div class="col"><input class="form-control mb-3" type="text" id="track" name="track" required=""></div>
+							
+						</div>
+						<div class="row mb-1">
+							<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">Bill of Entry No.</label></div>
+							<div class="col"><input class="form-control mb-3" type="text" id="boen" name="boen" required=""></div>
 							
 						</div>
 	
@@ -53,7 +58,15 @@
 					</div> --}}
 					<div class="row mb-3">
 						<div class="col-3"><label  class="text-uppercase text-dark text-xs font-weight-bold ">Last Date of Shipment</label></div>
-						<div class="col"><input class="form-control mb-3" type="text" id="details" name="details"></div>
+						<div class="col"><input class="form-control" type="date" id="details" name="details"></div>
+					</div>
+					<div class="row mb-3">
+						<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">B/E  Date</label></div>
+						<div class="col"><input class="form-control" type="date" id="boed" name="boed" required=""></div>
+					</div>
+					<div class="row mb-3">
+						<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">B/E Submitted To Bank</label></div>
+						<div class="col"><input class="form-control" type="date" id="besb" name="besb" required=""></div>
 					</div>
 					{{-- <div class="row mb-3">
 						<div class="col"><input class="form-control mb-3" type="hidden" id="auth_id" name="auth_id"  value="{{ Auth::id()}}">
