@@ -26,7 +26,7 @@ class SalesController extends Controller
         // $inventory = TodaysProduction::sum('qty');
         $acidProducts = AcidProduct::find(1);
         // $acidProducts = AcidProduct::orderBy('product_name','ASC')->first();
-        $products = Product::orderBy('product_name','ASC')->get();
+        $products = AcidProduct::orderBy('id','ASC')->get();
         return view('admin.Backend.Sales.sales_form', compact('customers','banks','acidProducts','products'));
     }
 
