@@ -31,7 +31,7 @@ class AdminUserController extends Controller
 
 		$image = $request->file('profile_photo_path');
     	$name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-    	Image::make($image)->resize(225,225)->save('upload/admin_images/'.$name_gen);
+    	Image::make($image)->save('upload/admin_images/'.$name_gen);
     	$save_url = 'upload/admin_images/'.$name_gen;
 
 	Admin::insert([
@@ -210,7 +210,7 @@ class AdminUserController extends Controller
 		if($adminimg->profile_photo_path){
 			unlink($img);
 		}
-		
+
         Admin::findOrFail($id)->delete();
 
          $notification = array(
