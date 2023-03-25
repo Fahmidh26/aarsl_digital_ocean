@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2023 at 07:26 AM
+-- Generation Time: Mar 23, 2023 at 10:46 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -40,7 +40,7 @@ CREATE TABLE `acid_products` (
 --
 
 INSERT INTO `acid_products` (`id`, `product_name`, `stock`, `created_at`, `updated_at`) VALUES
-(1, 'Sulphuric Acid', 10, NULL, '2023-03-21 23:39:36');
+(1, 'Sulphuric Acid', 0, NULL, '2023-03-21 23:39:36');
 
 -- --------------------------------------------------------
 
@@ -82,8 +82,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `password`, `phone`, `category`, `product`, `customer`, `bank`, `supplier`, `production`, `l_c`, `sale`, `chalan`, `alluser`, `expense`, `hr`, `adminuserrole`, `schedule`, `type`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@gmail.com', '2022-06-05 03:57:32', '$2y$10$ALbMmGnqCeBflP.JT8LWNu/swsmervF2UFssUBA3QKo52c6CrA9Ye', '01964870827', '1', '1', '1', '1', '1', '1', '1', '1', 1, '1', 1, 1, '1', NULL, 1, 'AQlsClKfHH6CWQ6Fq9YtlEkqtw2pFdjX3A7gXfYenUvlRBWuYE4Vdqs24L8l', NULL, '202207230834attachment_127807231.jfif', '2022-06-05 03:57:32', '2022-07-23 03:06:17'),
-(16, 'Keane Foster', 'fahmidh26@gmail.com', NULL, '$2y$10$Z5pBuhLX1FgJWGZ42mxaLuxWRhXJYIYprKUSHsDxOeo0ZPn1n2b0O', '+1 (106) 366-4902', '1', '1', NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, 2, NULL, NULL, 'upload/admin_images/1761136575317569.png', '2023-03-22 23:51:59', NULL);
+(1, 'Admin', 'admin@gmail.com', '2022-06-05 03:57:32', '$2y$10$ALbMmGnqCeBflP.JT8LWNu/swsmervF2UFssUBA3QKo52c6CrA9Ye', '01964870827', '1', '1', '1', '1', '1', '1', '1', '1', 1, '1', 1, 1, '1', NULL, 1, 'AQlsClKfHH6CWQ6Fq9YtlEkqtw2pFdjX3A7gXfYenUvlRBWuYE4Vdqs24L8l', NULL, '202207230834attachment_127807231.jfif', '2022-06-05 03:57:32', '2022-07-23 03:06:17');
 
 -- --------------------------------------------------------
 
@@ -97,19 +96,10 @@ CREATE TABLE `banks` (
   `ac_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ano_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `branch` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sign_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `balance` float DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `banks`
---
-
-INSERT INTO `banks` (`id`, `bank_name`, `ac_name`, `ano_name`, `branch`, `sign_image`, `created_at`, `updated_at`) VALUES
-(1, 'CIty', 'tasdik', '6565656565', 'progoti', NULL, '2023-01-10 01:14:49', NULL),
-(2, 'Cash', 'tasdik', '6565656565', 'progoti', NULL, '2023-01-30 01:37:52', NULL),
-(3, 'Advance', 'Lawrence Mcclain', 'Aurelia Shields', 'Neque tempore illo', NULL, '2023-03-12 23:13:17', NULL);
 
 -- --------------------------------------------------------
 
@@ -152,15 +142,6 @@ CREATE TABLE `chalans` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `chalans`
---
-
-INSERT INTO `chalans` (`id`, `customer_id`, `company`, `address`, `chalan_date`, `chalan_no`, `qty`, `rate`, `total`, `nbalance`, `created_at`, `updated_at`) VALUES
-(11, 643, 'Williamson and Giles Trading', 'Nihil facere quis ea', '2023-03-21', 'RSA42422129', 50, 100, 5000, 3000, '2023-03-21 05:39:32', NULL),
-(12, 642, 'Williamson and Giles Trading', 'sundorban', '2023-03-22', 'RSA10891400', 5, 100, 500, 500, '2023-03-21 23:07:46', NULL),
-(13, 642, 'Calhoun and Hendrix LLC', 'nurerchala, Dhaka 1212', '2023-03-22', 'RSA60933042', 5, 100, 500, 0, '2023-03-21 23:39:35', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -183,14 +164,6 @@ CREATE TABLE `customers` (
   `created_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `customers`
---
-
-INSERT INTO `customers` (`id`, `customer_name`, `address`, `phone`, `email`, `dea_cus`, `advance`, `delivery`, `due`, `rate`, `rateType`, `balance`, `created_at`, `updated_at`) VALUES
-(642, 'abrar', 'Dignissimos cupidita', '+1 (289) 165-6162', 'cosyly@mailinator.com', 1, 10, 10, 0, 100, 'CFR', 0, '2023-03-22 05:39:36', '2023-03-21 23:39:36'),
-(643, 'fahmid', 'Nihil facere quis ea', '+1 (948) 259-2026', 'jykaci@mailinator.com', 1, 80, 50, 30, 100, 'EXW', 3000, '2023-03-21 11:39:32', '2023-03-21 05:39:32');
 
 -- --------------------------------------------------------
 
@@ -358,21 +331,6 @@ CREATE TABLE `payment_items` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `payment_items`
---
-
-INSERT INTO `payment_items` (`id`, `purchase_id`, `bank_id`, `b_paid_amount`, `created_at`, `updated_at`) VALUES
-(50, 62, 2, 4765.00, '2023-03-11 03:50:00', '2023-03-11 03:50:00'),
-(51, 62, 2, 1779.00, '2023-03-11 03:50:00', '2023-03-11 03:50:00'),
-(52, 62, 1, 84.00, '2023-03-11 03:50:00', '2023-03-11 03:50:00'),
-(53, 62, 1, 112.00, '2023-03-11 03:50:00', '2023-03-11 03:50:00'),
-(54, 63, 1, 9.00, '2023-03-11 03:58:49', '2023-03-11 03:58:49'),
-(55, 64, 1, 41.00, '2023-03-11 04:47:22', '2023-03-11 04:47:22'),
-(56, 65, 1, 71.00, '2023-03-11 04:47:59', '2023-03-11 04:47:59'),
-(57, 65, 1, 76.00, '2023-03-11 04:47:59', '2023-03-11 04:47:59'),
-(58, 65, 1, 22.00, '2023-03-11 04:47:59', '2023-03-11 04:47:59');
-
 -- --------------------------------------------------------
 
 --
@@ -405,16 +363,6 @@ CREATE TABLE `productions` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `productions`
---
-
-INSERT INTO `productions` (`id`, `product_id`, `qty`, `created_at`, `updated_at`) VALUES
-(8, 180, '50', '2023-03-11 03:51:57', '2023-03-11 03:51:57'),
-(9, 182, '2', '2023-03-11 04:52:05', '2023-03-11 04:52:05'),
-(10, 180, '3', '2023-03-11 04:52:05', '2023-03-11 04:52:05'),
-(11, 180, '4', '2023-03-11 04:52:05', '2023-03-11 04:52:05');
-
 -- --------------------------------------------------------
 
 --
@@ -440,10 +388,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category_id`, `product_name`, `selling_price`, `product_code`, `status`, `discount_price`, `discount`, `qty`, `created_at`, `updated_at`) VALUES
-(182, '12', 'Sulphur Pellet', '2500', 'SP', 1, NULL, '2500', 144, '2023-02-26 00:12:52', '2023-03-11 04:52:05'),
-(181, '12', 'Sulphur Flakes', '2000', 'SF', 1, NULL, '2000', 244, '2023-02-26 00:12:33', '2023-03-06 04:25:33'),
-(180, '12', 'Sulphur Granular', '15000', 'SG', 1, NULL, '15000', 101, '2023-02-26 00:12:09', '2023-03-11 04:52:05'),
-(179, '12', 'Sulphur Lump', '1000', 'SL', 1, NULL, '1000', 148, '2023-02-26 00:11:44', '2023-03-11 03:51:06');
+(182, '12', 'Sulphur Pellet', '2500', 'SP', 1, NULL, '2500', 0, '2023-02-26 00:12:52', '2023-03-11 04:52:05'),
+(181, '12', 'Sulphur Flakes', '2000', 'SF', 1, NULL, '2000', 0, '2023-02-26 00:12:33', '2023-03-06 04:25:33'),
+(180, '12', 'Sulphur Granular', '15000', 'SG', 1, NULL, '15000', 0, '2023-02-26 00:12:09', '2023-03-11 04:52:05'),
+(179, '12', 'Sulphur Lump', '1000', 'SL', 1, NULL, '1000', 0, '2023-02-26 00:11:44', '2023-03-11 03:51:06');
 
 -- --------------------------------------------------------
 
@@ -471,16 +419,6 @@ CREATE TABLE `purchases` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `purchases`
---
-
-INSERT INTO `purchases` (`id`, `supplier_id`, `chalan_no`, `purchase_date`, `ldate`, `track`, `details`, `sub_total`, `grand_total`, `purchase_discount`, `discount_flat`, `total_vat`, `p_paid_amount`, `due_amount`, `status`, `created_at`, `updated_at`) VALUES
-(62, 1, 'Aut assumenda est bl', '1984-04-25', NULL, 'Qui eos cum id labor', 'Nulla dolore ipsam q', 6740.00, 6740.00, NULL, '94', NULL, '6740', '0', 'Reached Factory', '2023-03-11 03:49:59', '2023-03-11 03:51:06'),
-(63, 1, 'Eligendi dolore repe', '2016-08-17', NULL, 'Neque dolorem adipis', 'Et aperiam ut dolore', 1386.00, 1370.00, NULL, '16', NULL, '9', '1361', 'Reached Port', '2023-03-11 03:58:48', '2023-03-11 04:45:26'),
-(64, 1, 'Saepe id vel quia ea', '2003-07-29', NULL, 'Sunt harum natus ut', 'Nostrud veniam aut', 3731.00, 3705.00, NULL, '26', NULL, '41', '3664', 'Reached Port', '2023-03-11 04:47:22', '2023-03-11 04:48:12'),
-(65, 1, 'Dicta aut architecto', '1976-01-19', NULL, 'In ex molestias repe', 'Aliquid repellendus', 11669.00, 11573.00, NULL, '96', NULL, '169', '11404', 'L/C Opened', '2023-03-11 04:47:59', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -499,21 +437,6 @@ CREATE TABLE `purchase_items` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `purchase_items`
---
-
-INSERT INTO `purchase_items` (`id`, `purchase_id`, `product_id`, `qty`, `batch_no`, `rate`, `rateType`, `amount`, `created_at`, `updated_at`) VALUES
-(66, 62, 179, 8, 'Aliquid duis omnis e', 42.00, 'CIF', 336.00, '2023-03-11 03:50:00', '2023-03-11 03:50:00'),
-(67, 62, 182, 32, 'Aut voluptate occaec', 48.00, 'CIF', 1536.00, '2023-03-11 03:50:00', '2023-03-11 03:50:00'),
-(68, 62, 182, 78, 'Lorem sint excepturi', 6.00, 'CFR', 468.00, '2023-03-11 03:50:00', '2023-03-11 03:50:00'),
-(69, 62, 180, 55, 'Qui sunt perferendis', 80.00, 'FOB', 4400.00, '2023-03-11 03:50:00', '2023-03-11 03:50:00'),
-(70, 63, 181, 42, 'Culpa vel voluptate', 33.00, 'EXW', 1386.00, '2023-03-11 03:58:49', '2023-03-11 03:58:49'),
-(71, 64, 181, 91, 'Sint inventore eius', 41.00, 'FOB', 3731.00, '2023-03-11 04:47:22', '2023-03-11 04:47:22'),
-(72, 65, 180, 57, 'Et assumenda lorem q', 88.00, 'FOB', 5016.00, '2023-03-11 04:47:59', '2023-03-11 04:47:59'),
-(73, 65, 179, 5, 'Perferendis omnis li', 43.00, 'CFR', 215.00, '2023-03-11 04:47:59', '2023-03-11 04:47:59'),
-(74, 65, 182, 74, 'Et sint aut ipsum ra', 87.00, 'EXW', 6438.00, '2023-03-11 04:47:59', '2023-03-11 04:47:59');
 
 -- --------------------------------------------------------
 
@@ -576,14 +499,6 @@ CREATE TABLE `requisitions` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `requisitions`
---
-
-INSERT INTO `requisitions` (`id`, `requisitionType_id`, `date`, `amount`, `status`, `details`, `created_at`, `updated_at`) VALUES
-(1, 1, '1992-09-24', 65.00, 'paid', 'Earum velit distinct', '2023-03-22 02:52:23', NULL),
-(2, 1, '1980-02-17', 16.00, 'Unpaid', 'Duis dolores nihil s', '2023-03-22 22:40:53', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -596,13 +511,6 @@ CREATE TABLE `requisition_types` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `requisition_types`
---
-
-INSERT INTO `requisition_types` (`id`, `requisitionType`, `created_at`, `updated_at`) VALUES
-(1, 'hello', '2023-03-22 01:07:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -626,14 +534,6 @@ CREATE TABLE `sales` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `sales`
---
-
-INSERT INTO `sales` (`id`, `customer_id`, `sale_date`, `details`, `sub_total`, `grand_total`, `discount_flat`, `discount_per`, `total_vat`, `p_paid_amount`, `due_amount`, `created_at`, `updated_at`) VALUES
-(30, 643, '1978-08-15', 'Voluptas voluptates', 8000.00, 8000.00, NULL, NULL, NULL, '8000', '0', '2023-03-21 05:37:19', NULL),
-(31, 642, '2023-03-22', NULL, 1000.00, 1000.00, NULL, NULL, NULL, '1000', '0', '2023-03-21 23:07:05', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -652,14 +552,6 @@ CREATE TABLE `sales_items` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `sales_items`
---
-
-INSERT INTO `sales_items` (`id`, `sale_id`, `product_id`, `qty`, `rateType`, `rate`, `amount`, `created_at`, `updated_at`) VALUES
-(23, 30, 1, '80', 'E', 1.00, 8000.00, '2023-03-21 05:37:19', '2023-03-21 05:37:19'),
-(24, 31, 1, '10', 'C', 1.00, 1000.00, '2023-03-21 23:07:05', '2023-03-21 23:07:05');
-
 -- --------------------------------------------------------
 
 --
@@ -674,14 +566,6 @@ CREATE TABLE `sales_payment_items` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `sales_payment_items`
---
-
-INSERT INTO `sales_payment_items` (`id`, `sale_id`, `bank_id`, `b_paid_amount`, `created_at`, `updated_at`) VALUES
-(20, 30, 3, 8000.00, '2023-03-21 05:37:19', '2023-03-21 05:37:19'),
-(21, 31, 3, 1000.00, '2023-03-21 23:07:05', '2023-03-21 23:07:05');
 
 -- --------------------------------------------------------
 
@@ -699,15 +583,6 @@ CREATE TABLE `schedules` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `schedules`
---
-
-INSERT INTO `schedules` (`id`, `schedule_date`, `customer_id`, `qty`, `stock`, `time`, `created_at`, `updated_at`) VALUES
-(30, '2023-03-11', 643, 12, 24, '15:48:00', '2023-03-11 04:50:52', '2023-03-11 04:50:52'),
-(31, '2023-03-11', 642, 12, 24, '03:41:00', '2023-03-11 04:50:52', '2023-03-11 04:50:52'),
-(32, '2023-03-11', 642, 3, 24, '01:27:00', '2023-03-11 04:50:53', '2023-03-11 04:50:53');
 
 -- --------------------------------------------------------
 
@@ -729,8 +604,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('i7TQ2Lc6PK5uOURaAOnFBgrki52vWyiH7Pvv0x4z', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiNzI4TGhEWnNQSDg3MGlzTEt5OG0wOVo2aVhITG5jalUzaUpvdVlvZCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbnVzZXJyb2xlL2FsbCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTI6ImxvZ2luX2FkbWluXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE5OiJwYXNzd29yZF9oYXNoX2FkbWluIjtzOjYwOiIkMnkkMTAkQUxiTW1HbnFDZUJmbFAuSlQ4TFdOdS9zd3NtZXJ2RjJVRnNzVUJBM1FLbzUyYzZDckE5WWUiO30=', 1679552664),
-('vqfXmqzVEEeo3FBjupmsF8dgNOyPGv1JIOT4pbxz', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoicXBJN2VpdnA1ZXNHdE83UXNjYmxpYnRpWndzeW5jRnFwa1Z3MWxWSiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jYXRlZ29yeS92aWV3Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MjoibG9naW5fYWRtaW5fNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTk6InBhc3N3b3JkX2hhc2hfYWRtaW4iO3M6NjA6IiQyeSQxMCRBTGJNbUducUNlQmZsUC5KVDhMV051L3N3c21lcnZGMlVGc3NVQkEzUUtvNTJjNkNyQTlZZSI7fQ==', 1679481602);
+('mcDHQJfBL9UDtYlKCuA4bMhP5ohJdmUZqaKRPxaO', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiTVVyMURDeFJ3WWl3Wm5Ja3RQNjhzTDk2T2l5cTRmblVwbWNZdGd3eiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9kYXNoYm9hcmQiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUyOiJsb2dpbl9hZG1pbl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxOToicGFzc3dvcmRfaGFzaF9hZG1pbiI7czo2MDoiJDJ5JDEwJEFMYk1tR25xQ2VCZmxQLkpUOExXTnUvc3dzbWVydkYyVUZzc1VCQTNRS281MmM2Q3JBOVllIjt9', 1679564768);
 
 -- --------------------------------------------------------
 
@@ -811,12 +685,7 @@ CREATE TABLE `todays_productions` (
 --
 
 INSERT INTO `todays_productions` (`id`, `product`, `qty`, `created_at`, `updated_at`) VALUES
-(1, 'Sulphuric Acid', '4', '2023-02-27 03:43:52', '2023-02-27 03:43:52'),
-(2, 'Sulphuric Acid', '8', '2023-02-27 03:50:31', '2023-02-27 03:50:31'),
-(3, 'Sulphuric Acid', '12', '2023-02-27 03:52:15', '2023-02-27 03:52:15'),
-(4, 'Sulphuric Acid', '5', '2023-03-21 23:33:18', '2023-03-21 23:33:18'),
-(5, 'Sulphuric Acid', '5', '2023-03-21 23:37:28', '2023-03-21 23:37:28'),
-(6, 'Sulphuric Acid', '10', '2023-03-21 23:37:41', '2023-03-21 23:37:41');
+(1, 'Sulphuric Acid', '0', '2023-02-27 03:43:52', '2023-02-27 03:43:52');
 
 -- --------------------------------------------------------
 
@@ -841,15 +710,6 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `name`, `email`, `phone`, `email_verified_at`, `password`, `last_seen`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(9, 'fahmid', 'fahmidh27@gmail.com', '01964870827', NULL, '$2y$10$Zi.ngCri1I7EO6ZvGInfh.UT1NCC6TvCiN5RH9g.UPqVUutFC6cb6', '2023-01-08 09:44:00', NULL, NULL, NULL, NULL, NULL, NULL, '2022-08-06 02:52:03', '2023-01-08 03:44:00'),
-(10, 'mehdi', 'mehdi@gmail.com', '01964870827', NULL, '$2y$10$wdIv5BY/K2rYhBY.yc89xepU2LG6BU4YaKEHXmA6Jh9d1ElnGgFTq', '2022-08-20 08:15:04', NULL, NULL, NULL, NULL, NULL, '202208160633images.jfif', '2022-08-07 23:44:23', '2022-08-20 02:15:04'),
-(11, 'user', 'user@gmail.com', '01964870827', NULL, '$2y$10$HGluUJ0Wk77sdIcwuG6.OOSCbNKsTcMB1KIVO3UCnLy.UjOl6gKNy', '2022-12-03 07:44:37', NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-11 23:55:30', '2022-12-03 01:44:37');
 
 --
 -- Indexes for dumped tables
@@ -1081,7 +941,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `banks`
 --
 ALTER TABLE `banks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `categories`
