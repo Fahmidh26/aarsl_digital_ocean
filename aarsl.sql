@@ -38,7 +38,7 @@ CREATE TABLE `acid_products` (
 
 LOCK TABLES `acid_products` WRITE;
 /*!40000 ALTER TABLE `acid_products` DISABLE KEYS */;
-INSERT INTO `acid_products` VALUES (1,'Sulphuric Acid',0,NULL,'2023-03-21 23:39:36');
+INSERT INTO `acid_products` VALUES (1,'Sulphuric Acid',1075,NULL,'2023-03-28 05:51:33');
 /*!40000 ALTER TABLE `acid_products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,7 +108,7 @@ CREATE TABLE `banks` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,6 +117,7 @@ CREATE TABLE `banks` (
 
 LOCK TABLES `banks` WRITE;
 /*!40000 ALTER TABLE `banks` DISABLE KEYS */;
+INSERT INTO `banks` VALUES (5,'Payment','Shelby Mercado','40','Eos sequi illo omni',77,'2023-03-25 07:07:00',NULL);
 /*!40000 ALTER TABLE `banks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -167,7 +168,7 @@ CREATE TABLE `chalans` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -176,6 +177,7 @@ CREATE TABLE `chalans` (
 
 LOCK TABLES `chalans` WRITE;
 /*!40000 ALTER TABLE `chalans` DISABLE KEYS */;
+INSERT INTO `chalans` VALUES (14,647,'Al Amin','Faridpur','2023-03-28','RSA34888415',10,3000,30000,270000,'2023-03-28 05:45:41',NULL),(15,649,'Square','Dhaka','2023-03-28','RSA42671968',10,2000,20000,180000,'2023-03-28 05:50:44',NULL),(16,646,'Friends','Dhaka','2023-03-28','RSA34798214',10,1000,10000,90000,'2023-03-28 05:50:57',NULL),(17,651,'Hamid','Dhaka','2023-03-28','RSA19346984',10,500,5000,45000,'2023-03-28 05:51:10',NULL),(18,650,'Khadiza','Dhaka','2023-03-28','RSA39691906',10,300,3000,27000,'2023-03-28 05:51:33',NULL);
 /*!40000 ALTER TABLE `chalans` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,7 +205,7 @@ CREATE TABLE `customers` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `customer_id` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=644 DEFAULT CHARSET=utf8mb3;
+) ENGINE=MyISAM AUTO_INCREMENT=652 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -212,6 +214,7 @@ CREATE TABLE `customers` (
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
+INSERT INTO `customers` VALUES (646,'Friends Chemical','Dhaka','123456778','friends@chemical.com',1,100,10,90,1000,'FOB',90000,'2023-03-28 05:50:57','2023-03-28 05:50:57'),(647,'Al Amin Chemical','Dhaka','12345678','alamin@gmail.com',1,100,10,90,3000,'FOB',270000,'2023-03-28 05:45:41','2023-03-28 05:45:41'),(648,'ZXL Industries','Dhaka','12345678','zxl@gmail.com',1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(649,'Ayesha Trading Corpor.','Dhaka','12345678','ayesha@gmail.com',1,100,10,90,2000,'FOB',180000,'2023-03-28 05:50:44','2023-03-28 05:50:44'),(650,'Khadiza Enterprise','Dhaka','12344576','khadiza@gmail.com',1,100,10,90,300,'FOB',27000,'2023-03-28 05:51:33','2023-03-28 05:51:33'),(651,'Hamid','Dhaka','5432543524','hamid@gmail.com',1,100,10,90,500,'FOB',45000,'2023-03-28 05:51:10','2023-03-28 05:51:10');
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -385,7 +388,7 @@ CREATE TABLE `payment_items` (
   PRIMARY KEY (`id`),
   KEY `payment_items_purchase_id_foreign` (`purchase_id`),
   CONSTRAINT `payment_items_purchase_id_foreign` FOREIGN KEY (`purchase_id`) REFERENCES `purchases` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -394,6 +397,7 @@ CREATE TABLE `payment_items` (
 
 LOCK TABLES `payment_items` WRITE;
 /*!40000 ALTER TABLE `payment_items` DISABLE KEYS */;
+INSERT INTO `payment_items` VALUES (59,66,5,12.00,'2023-03-27 10:48:23','2023-03-27 10:48:23'),(60,67,5,50000.00,'2023-03-28 05:25:50','2023-03-28 05:25:50'),(61,68,5,50000.00,'2023-03-28 05:26:24','2023-03-28 05:26:24');
 /*!40000 ALTER TABLE `payment_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -443,7 +447,7 @@ CREATE TABLE `productions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -452,6 +456,7 @@ CREATE TABLE `productions` (
 
 LOCK TABLES `productions` WRITE;
 /*!40000 ALTER TABLE `productions` DISABLE KEYS */;
+INSERT INTO `productions` VALUES (12,179,'1','2023-03-27 10:53:10','2023-03-27 10:53:10'),(13,179,'5','2023-03-28 05:20:31','2023-03-28 05:20:31'),(14,181,'100','2023-03-28 05:37:46','2023-03-28 05:37:46'),(15,181,'300','2023-03-28 05:39:21','2023-03-28 05:39:21');
 /*!40000 ALTER TABLE `productions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -485,7 +490,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (182,'12','Sulphur Pellet','2500','SP',1,NULL,'2500',0,'2023-02-26 00:12:52','2023-03-11 04:52:05'),(181,'12','Sulphur Flakes','2000','SF',1,NULL,'2000',0,'2023-02-26 00:12:33','2023-03-06 04:25:33'),(180,'12','Sulphur Granular','15000','SG',1,NULL,'15000',0,'2023-02-26 00:12:09','2023-03-11 04:52:05'),(179,'12','Sulphur Lump','1000','SL',1,NULL,'1000',0,'2023-02-26 00:11:44','2023-03-11 03:51:06');
+INSERT INTO `products` VALUES (182,'12','Sulphur Pellet','2500','SP',1,NULL,'2500',0,'2023-02-26 00:12:52','2023-03-11 04:52:05'),(181,'12','Sulphur Flakes','2000','SF',1,NULL,'2000',600,'2023-02-26 00:12:33','2023-03-28 05:39:21'),(180,'12','Sulphur Granular','15000','SG',1,NULL,'15000',0,'2023-02-26 00:12:09','2023-03-11 04:52:05'),(179,'12','Sulphur Lump','1000','SL',1,NULL,'1000',86,'2023-02-26 00:11:44','2023-03-28 05:20:31');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -510,7 +515,7 @@ CREATE TABLE `purchase_items` (
   PRIMARY KEY (`id`),
   KEY `purchase_items_purchase_id_foreign` (`purchase_id`),
   CONSTRAINT `purchase_items_purchase_id_foreign` FOREIGN KEY (`purchase_id`) REFERENCES `purchases` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -519,6 +524,7 @@ CREATE TABLE `purchase_items` (
 
 LOCK TABLES `purchase_items` WRITE;
 /*!40000 ALTER TABLE `purchase_items` DISABLE KEYS */;
+INSERT INTO `purchase_items` VALUES (75,66,179,92,'Sit velit quo qui a',16.00,'FOB',1472.00,'2023-03-27 10:48:23','2023-03-27 10:48:23'),(76,67,181,500,'45',100.00,'FOB',50000.00,'2023-03-28 05:25:50','2023-03-28 05:25:50'),(77,68,181,500,'42',100.00,'FOB',50000.00,'2023-03-28 05:26:24','2023-03-28 05:26:24');
 /*!40000 ALTER TABLE `purchase_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -535,6 +541,9 @@ CREATE TABLE `purchases` (
   `chalan_no` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `purchase_date` date DEFAULT NULL,
   `ldate` date DEFAULT NULL,
+  `boen` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `besb` date DEFAULT NULL,
+  `boed` date DEFAULT NULL,
   `track` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `details` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `sub_total` double(8,2) NOT NULL,
@@ -548,7 +557,7 @@ CREATE TABLE `purchases` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -557,6 +566,7 @@ CREATE TABLE `purchases` (
 
 LOCK TABLES `purchases` WRITE;
 /*!40000 ALTER TABLE `purchases` DISABLE KEYS */;
+INSERT INTO `purchases` VALUES (66,1,'Velit libero velit',NULL,NULL,'Qui ipsum voluptas','2011-11-24','1988-06-25','Labore ab Nam ipsum','1970-01-19',1472.00,1461.00,NULL,'11',NULL,'12','1449','Reached Factory','2023-03-27 10:48:23','2023-03-27 10:50:47'),(67,2,'123',NULL,NULL,'567','2023-03-31','2023-03-30','1234','2023-03-30',50000.00,50000.00,NULL,NULL,NULL,'50000','0','Reached Factory','2023-03-28 05:25:50','2023-03-28 05:36:17'),(68,2,'45',NULL,NULL,'653','2023-03-28','2023-03-28','32','2023-03-28',50000.00,50000.00,NULL,NULL,NULL,'50000','0','Reached Factory','2023-03-28 05:26:24','2023-03-28 05:36:34');
 /*!40000 ALTER TABLE `purchases` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -643,7 +653,7 @@ CREATE TABLE `requisition_types` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -652,6 +662,7 @@ CREATE TABLE `requisition_types` (
 
 LOCK TABLES `requisition_types` WRITE;
 /*!40000 ALTER TABLE `requisition_types` DISABLE KEYS */;
+INSERT INTO `requisition_types` VALUES (2,'Water Pump','2023-03-28 05:14:52',NULL),(3,'Shaft','2023-03-28 05:15:01',NULL),(4,'Metal Sheet','2023-03-28 05:15:08',NULL),(5,'Almirah','2023-03-28 05:16:20',NULL);
 /*!40000 ALTER TABLE `requisition_types` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -672,7 +683,7 @@ CREATE TABLE `requisitions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -681,6 +692,7 @@ CREATE TABLE `requisitions` (
 
 LOCK TABLES `requisitions` WRITE;
 /*!40000 ALTER TABLE `requisitions` DISABLE KEYS */;
+INSERT INTO `requisitions` VALUES (3,4,'2023-03-28',50000.00,'Unpaid','SS 316 10 MM,  8 feet / 4 feet','2023-03-28 05:19:12',NULL);
 /*!40000 ALTER TABLE `requisitions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -706,7 +718,7 @@ CREATE TABLE `sales` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -715,6 +727,7 @@ CREATE TABLE `sales` (
 
 LOCK TABLES `sales` WRITE;
 /*!40000 ALTER TABLE `sales` DISABLE KEYS */;
+INSERT INTO `sales` VALUES (36,647,'2023-03-28',NULL,300000.00,300000.00,NULL,NULL,NULL,'300000','0','2023-03-28 05:43:37',NULL),(37,649,'2023-03-28',NULL,200000.00,200000.00,NULL,NULL,NULL,'200000','0','2023-03-28 05:44:22',NULL),(38,646,'2023-03-28',NULL,100000.00,100000.00,NULL,NULL,NULL,'100000','0','2023-03-28 05:49:08',NULL),(39,651,'2023-03-28',NULL,50000.00,50000.00,NULL,NULL,NULL,'50000','0','2023-03-28 05:49:29',NULL),(40,650,'2023-03-28',NULL,30000.00,30000.00,NULL,NULL,NULL,'30000','0','2023-03-28 05:49:48',NULL);
 /*!40000 ALTER TABLE `sales` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -738,7 +751,7 @@ CREATE TABLE `sales_items` (
   PRIMARY KEY (`id`),
   KEY `sales_items_sale_id_foreign` (`sale_id`),
   CONSTRAINT `sales_items_sale_id_foreign` FOREIGN KEY (`sale_id`) REFERENCES `sales` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -747,6 +760,7 @@ CREATE TABLE `sales_items` (
 
 LOCK TABLES `sales_items` WRITE;
 /*!40000 ALTER TABLE `sales_items` DISABLE KEYS */;
+INSERT INTO `sales_items` VALUES (27,36,1,'100','F',3.00,300000.00,'2023-03-28 05:43:37','2023-03-28 05:43:37'),(28,37,1,'100','F',2.00,200000.00,'2023-03-28 05:44:22','2023-03-28 05:44:22'),(29,38,1,'100','F',1.00,100000.00,'2023-03-28 05:49:08','2023-03-28 05:49:08'),(30,39,1,'100','F',5.00,50000.00,'2023-03-28 05:49:29','2023-03-28 05:49:29'),(31,40,1,'100','F',3.00,30000.00,'2023-03-28 05:49:48','2023-03-28 05:49:48');
 /*!40000 ALTER TABLE `sales_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -767,7 +781,7 @@ CREATE TABLE `sales_payment_items` (
   PRIMARY KEY (`id`),
   KEY `sales_payment_items_sale_id_foreign` (`sale_id`),
   CONSTRAINT `sales_payment_items_sale_id_foreign` FOREIGN KEY (`sale_id`) REFERENCES `sales` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -776,6 +790,7 @@ CREATE TABLE `sales_payment_items` (
 
 LOCK TABLES `sales_payment_items` WRITE;
 /*!40000 ALTER TABLE `sales_payment_items` DISABLE KEYS */;
+INSERT INTO `sales_payment_items` VALUES (24,36,5,300000.00,'2023-03-28 05:43:37','2023-03-28 05:43:37'),(25,37,5,200000.00,'2023-03-28 05:44:22','2023-03-28 05:44:22'),(26,38,5,100000.00,'2023-03-28 05:49:08','2023-03-28 05:49:08'),(27,39,5,50000.00,'2023-03-28 05:49:29','2023-03-28 05:49:29'),(28,40,5,30000.00,'2023-03-28 05:49:48','2023-03-28 05:49:48');
 /*!40000 ALTER TABLE `sales_payment_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -796,7 +811,7 @@ CREATE TABLE `schedules` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -805,6 +820,7 @@ CREATE TABLE `schedules` (
 
 LOCK TABLES `schedules` WRITE;
 /*!40000 ALTER TABLE `schedules` DISABLE KEYS */;
+INSERT INTO `schedules` VALUES (34,'2023-03-28',647,10,1125,'17:40:00','2023-03-28 05:47:36','2023-03-28 05:47:36'),(35,'2023-03-28',650,10,1125,'11:51:00','2023-03-28 05:52:32','2023-03-28 05:52:32'),(36,'2023-03-28',646,10,1125,'13:56:00','2023-03-28 05:52:32','2023-03-28 05:52:32'),(37,'2023-03-28',651,10,1125,'14:56:00','2023-03-28 05:52:32','2023-03-28 05:52:32'),(38,'2023-03-28',649,10,1125,'16:00:00','2023-03-28 05:52:32','2023-03-28 05:52:32');
 /*!40000 ALTER TABLE `schedules` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -834,7 +850,7 @@ CREATE TABLE `sessions` (
 
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` VALUES ('71Eyg6fpa8YPRBa3jo7sj4Vm89hNM1bWRHeZl8io',NULL,'79.137.207.165','Go-http-client/1.1','YTozOntzOjY6Il90b2tlbiI7czo0MDoiMEppU1oyYTVHMXNiTVhlVDIyejd0aUtDTXo4MWkzVDk3WjlEUVNUZyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xNjUuMjIuMjQxLjEyOCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=',1679718265),('BRaGgoBusV2PCwKOHQhdijEEu7Gh7GCIns73QAAg',NULL,'103.230.63.86','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36','YTo1OntzOjY6Il90b2tlbiI7czo0MDoiRWN6Smt4Z2VEZVpxNmx0S1BtVGNFOTJvUFFROHhOOGdUQTF3UFM1cSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzk6Imh0dHA6Ly9hYXJzbC5keWF6Lnh5ei9hZG1pbnVzZXJyb2xlL2FsbCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTI6ImxvZ2luX2FkbWluXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE5OiJwYXNzd29yZF9oYXNoX2FkbWluIjtzOjYwOiIkMnkkMTAkQUxiTW1HbnFDZUJmbFAuSlQ4TFdOdS9zd3NtZXJ2RjJVRnNzVUJBM1FLbzUyYzZDckE5WWUiO30=',1679719679),('cufJoMjShwvtlzfZH6UInTTsE3ON6FQ7GbmqlC3j',NULL,'51.222.253.11','Mozilla/5.0 (compatible; AhrefsBot/7.0; +http://ahrefs.com/robot/)','YTozOntzOjY6Il90b2tlbiI7czo0MDoiOHQxWWhSdjJTTVVGR1dKdFNzeEJxNkRjdWRDMTV5SHZWSXpiUHFSNiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xNjUuMjIuMjQxLjEyOCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=',1679716676),('J9ne3Dz0GXARNWE9JKi7ohE6dypIzCmLtlU6Nyen',NULL,'193.32.162.159','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46','YToyOntzOjY6Il90b2tlbiI7czo0MDoiYTVKNlhtODFlOXRsWXhBbjk2aVpzb3A0RzNHeGpzZU94VXBMYURMQiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==',1679714891),('L9Q20MDcMSRaRa3Y0LRF6CUFHyKihMsBpHaHiS3J',1,'103.230.63.86','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36','YTo1OntzOjY6Il90b2tlbiI7czo0MDoiV2thdXFUc2FIRUlvMHVPQnlRR0JwT05TUkNjSWRpT3FoVnpOMHhmYSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly9hYXJzbC5keWF6Lnh5ei9hZG1pbi9kYXNoYm9hcmQiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUyOiJsb2dpbl9hZG1pbl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxOToicGFzc3dvcmRfaGFzaF9hZG1pbiI7czo2MDoiJDJ5JDEwJEFMYk1tR25xQ2VCZmxQLkpUOExXTnUvc3dzbWVydkYyVUZzc1VCQTNRS281MmM2Q3JBOVllIjt9',1679721163),('ojt2HBp0jHDkLoFUTgs7bd2VFFcmviAEykX7WH5P',NULL,'143.110.222.166','Mozilla/5.0 (iPhone; CPU iPhone OS 16_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Mobile/15E148 Safari/604.1','YTozOntzOjY6Il90b2tlbiI7czo0MDoiUlhjZXFCZ0hXVUY5bnltUGMwdDB6aFJ2N2lLOURwdGZXWWd0SmdPNyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xNjUuMjIuMjQxLjEyOCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=',1679714197),('QqNS0YmZSjaJBONk81e4LzYcggCdhYkhcMideYcT',NULL,'103.230.63.86','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36','YTo1OntzOjY6Il90b2tlbiI7czo0MDoiaHhPWEc2Rzh6bDRGeGFRUGhLeTFZajRkNXFOeXF6NmRtTnEyUmlxRCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MjoibG9naW5fYWRtaW5fNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTk6InBhc3N3b3JkX2hhc2hfYWRtaW4iO3M6NjA6IiQyeSQxMCRBTGJNbUducUNlQmZsUC5KVDhMV051L3N3c21lcnZGMlVGc3NVQkEzUUtvNTJjNkNyQTlZZSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly9hYXJzbC5keWF6Lnh5ei9wcm9kdWN0L21hbmFnZSI7fX0=',1679721221),('slCPOgIhNsAxDXNaliDJkm3dcdEN8yJl1IKM2ICj',NULL,'167.248.133.38','','YTozOntzOjY6Il90b2tlbiI7czo0MDoiZ01pTm95aFNDZjljRzJaY0ZSc2p6dXBsVHhvTWo3RWZ3Z3pEM3VnQyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xNjUuMjIuMjQxLjEyOCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=',1679713978),('t5gq70GxjQ6AqZwYD7zzU3Mty9MvQUApgxxVqcWm',NULL,'167.248.133.38','Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)','YTozOntzOjY6Il90b2tlbiI7czo0MDoiMUFjUUUzMW8ybEM0V29RMGMwZXZiVXpwaEVFd3RvQ3dCUXBqWnpWViI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xNjUuMjIuMjQxLjEyOCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=',1679713979),('VrAKfMCJVFTTCdw7x5ZU3VgirfF3eg2YjC0U0y0g',NULL,'143.110.222.166','Mozilla/5.0 (iPhone; CPU iPhone OS 16_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Mobile/15E148 Safari/604.1','YTozOntzOjY6Il90b2tlbiI7czo0MDoiVnQwVkwxU010YTBlUlJEWEljV0JSWnMwSDUxbWtnRTE0NzR3cDF5WCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xNjUuMjIuMjQxLjEyOCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=',1679720798),('yYJr4i9NWEYnJehx8wNOxjcjraGL0C8v82QIJj9M',NULL,'143.110.222.166','Mozilla/5.0 (iPhone; CPU iPhone OS 16_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Mobile/15E148 Safari/604.1','YTozOntzOjY6Il90b2tlbiI7czo0MDoiREl4Uk5XSEZHSXp5OGhiQkZ2QW1FR1F6cDB6OUxxNzJYdE1GbG5vZCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xNjUuMjIuMjQxLjEyOCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=',1679717892);
+INSERT INTO `sessions` VALUES ('0WETpaADSecZs88nkxbpRmkAoT1r2DsfFW7dNdCP',NULL,'185.225.74.42','Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:76.0) Gecko/20100101 Firefox/76.0','YTozOntzOjY6Il90b2tlbiI7czo0MDoiSVdDVDhNT0ZXY1RHZDZZWU5ia1I3bDlFQ3M5ZXNFZDJBSmpKSHd3bCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xNjUuMjIuMjQxLjEyOCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=',1679982663),('1P7NuAhv7M4aeIMn817iawOYQnPGDwaxmi3Ip8es',1,'103.230.63.86','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36','YTo1OntzOjY6Il90b2tlbiI7czo0MDoiZ3dkclhYaXpiYnBXRnRXSFAxWVNEMmhwaFJlZlJBdEZIckZJSGNSaiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly9hYXJzbC5keWF6Lnh5ei9hZG1pbi9kYXNoYm9hcmQiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUyOiJsb2dpbl9hZG1pbl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxOToicGFzc3dvcmRfaGFzaF9hZG1pbiI7czo2MDoiJDJ5JDEwJEFMYk1tR25xQ2VCZmxQLkpUOExXTnUvc3dzbWVydkYyVUZzc1VCQTNRS281MmM2Q3JBOVllIjt9',1679983653),('dLREKBe9T5B33wr9W8akmVqtroLu45t57WjIMF0g',NULL,'94.102.61.10','python-requests/2.26.0','YTozOntzOjY6Il90b2tlbiI7czo0MDoid3ROUkZjaVJHQm5tSlQ5Y2dKY0VoYnl4OHVFWGNxa3BQZVY4MmxMNSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xNjUuMjIuMjQxLjEyOCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=',1679982359),('e148yuHmHPyNnUj8T6TkkTvSaoZsmvWNC8C4rm0M',NULL,'43.134.171.185','\'Mozilla/5.0','YTozOntzOjY6Il90b2tlbiI7czo0MDoiWlU1RURTcEtDMllJYnNNUFZ2TU9uSGY5bVl4ZFg4elBrUG9GUWZqTiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xNjUuMjIuMjQxLjEyOCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=',1679984270),('HH8VdIPFlatwEOH9pI90kLR4oHhV7mvFsmblWBOB',NULL,'143.110.222.166','Mozilla/5.0 (iPhone; CPU iPhone OS 16_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Mobile/15E148 Safari/604.1','YTozOntzOjY6Il90b2tlbiI7czo0MDoiT3NhYUp1TDVZcjdVc1BpUXFoenZNcFZXSzBMaEphdTh3UmVFeGNQSiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xNjUuMjIuMjQxLjEyOCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=',1679975944),('I4bOqEeMZBaNXEdo4kIGPQYRMSX6u4Y500TnSRII',NULL,'179.43.177.242','Hello World','YTozOntzOjY6Il90b2tlbiI7czo0MDoiM1RwdW9Dc2FwVVY2R2xZUkZUT2Rndm5EbHh0NW9PTURYb29CcjQzdSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xNjUuMjIuMjQxLjEyOCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=',1679982175),('iDFzz3xf5Lf35G5JMuLYsh13tQVCDMtE8oyLYe1z',NULL,'103.230.63.86','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36','YTo1OntzOjY6Il90b2tlbiI7czo0MDoiaFlIaEF0aGRHeEY5cWFaekNsTTM0WW1xQjlVU1kxZTBKM0tNakZyOSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MjoibG9naW5fYWRtaW5fNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTk6InBhc3N3b3JkX2hhc2hfYWRtaW4iO3M6NjA6IiQyeSQxMCRBTGJNbUducUNlQmZsUC5KVDhMV051L3N3c21lcnZGMlVGc3NVQkEzUUtvNTJjNkNyQTlZZSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDk6Imh0dHA6Ly9hYXJzbC5keWF6Lnh5ei9jaGFsYW4vZG93bmxvYWQvZmF2aWNvbi5pY28iO319',1679983697),('ONQNmMBYatKBtpTO6UF63sNdxiMiG0JxjX3vzuOS',NULL,'143.110.222.166','Mozilla/5.0 (iPhone; CPU iPhone OS 16_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Mobile/15E148 Safari/604.1','YTozOntzOjY6Il90b2tlbiI7czo0MDoibW9JTXg2M3h3b3ZYUXhMQjZvS2Jtc0p2YjVJVWZVYmVVUDdEM3NUOSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xNjUuMjIuMjQxLjEyOCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=',1679983414),('rlIfW4I4JDvWe8W5Q3iL4Ka5MoLPVRIdNU2n6R0L',NULL,'66.249.65.99','Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)','YTozOntzOjY6Il90b2tlbiI7czo0MDoibGdra25RYkJxcFI5b0M1VjgyRnc2WklRVll5YmxXQWFDMWtrUUlVUyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xNjUuMjIuMjQxLjEyOCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=',1679975995),('RQZbb5UzORW708ISRw5PlnwokR7HX4nQGnlH5Nx3',NULL,'193.32.162.159','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46','YToyOntzOjY6Il90b2tlbiI7czo0MDoiMmZVV0lEWjdZZ3ZQN25jVzdMS1lhZDlLMnJUNzdBV1c5SnpxWlNwaSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==',1679981994),('y60TLWsC9NinJhlURrRO6P8IEDme7jovRiehD5AG',NULL,'103.78.254.174','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36','YTo2OntzOjY6Il90b2tlbiI7czo0MDoic01OYklRVmdWYXo0OUdlUno0dzlEb05vUENRU25pU0J1Njdsc3hIYSI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjM2OiJodHRwOi8vYWFyc2wuZHlhei54eXovcHJvZHVjdC9tYW5hZ2UiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUyOiJsb2dpbl9hZG1pbl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxOToicGFzc3dvcmRfaGFzaF9hZG1pbiI7czo2MDoiJDJ5JDEwJEFMYk1tR25xQ2VCZmxQLkpUOExXTnUvc3dzbWVydkYyVUZzc1VCQTNRS281MmM2Q3JBOVllIjt9',1679981871),('YKtOcomEwIYvWeseQA3QPsaKBgYYkRdmwFW4SVd8',NULL,'143.110.222.166','Mozilla/5.0 (iPhone; CPU iPhone OS 16_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Mobile/15E148 Safari/604.1','YTozOntzOjY6Il90b2tlbiI7czo0MDoiNGtoSmJVUm9pT05zcVJ6RzA3VEgwUzZJdjlBemNmbndwYkJQMVZGWSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xNjUuMjIuMjQxLjEyOCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=',1679980056);
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -915,7 +931,7 @@ CREATE TABLE `suppliers` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -924,7 +940,7 @@ CREATE TABLE `suppliers` (
 
 LOCK TABLES `suppliers` WRITE;
 /*!40000 ALTER TABLE `suppliers` DISABLE KEYS */;
-INSERT INTO `suppliers` VALUES (1,'Tashya Oneal','Aut ex omnis illum','19','tajakoci@mailinator.com','66','Non dolor omnis ut s','Lorem nisi quis quas','68540',NULL,'2023-01-10 03:14:10',NULL);
+INSERT INTO `suppliers` VALUES (1,'Tashya Oneal','Aut ex omnis illum','19','tajakoci@mailinator.com','66','Non dolor omnis ut s','Lorem nisi quis quas','68540',NULL,'2023-01-10 03:14:10',NULL),(2,'Dubai Chemicals','Dubai, UAE','3873821314','dubai@chemicals.com',NULL,'Dubai','Dubai','1234',NULL,'2023-03-28 05:00:37',NULL);
 /*!40000 ALTER TABLE `suppliers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -942,7 +958,7 @@ CREATE TABLE `todays_productions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -951,7 +967,7 @@ CREATE TABLE `todays_productions` (
 
 LOCK TABLES `todays_productions` WRITE;
 /*!40000 ALTER TABLE `todays_productions` DISABLE KEYS */;
-INSERT INTO `todays_productions` VALUES (1,'Sulphuric Acid','0','2023-02-27 03:43:52','2023-02-27 03:43:52');
+INSERT INTO `todays_productions` VALUES (1,'Sulphuric Acid','0','2023-02-27 03:43:52','2023-02-27 03:43:52'),(7,'Sulphuric Acid','2','2023-03-27 10:55:12','2023-03-27 10:55:12'),(8,'Sulphuric Acid','3','2023-03-28 05:21:10','2023-03-28 05:21:10'),(9,'Sulphuric Acid','280','2023-03-28 05:38:49','2023-03-28 05:38:49'),(10,'Sulphuric Acid','840','2023-03-28 05:39:43','2023-03-28 05:39:43');
 /*!40000 ALTER TABLE `todays_productions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1001,4 +1017,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-25  5:17:55
+-- Dump completed on 2023-03-28  6:18:04
