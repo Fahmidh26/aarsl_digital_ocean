@@ -82,6 +82,11 @@ class ChalanController extends Controller
        
         $chalans = Chalan::orderBy('id','DESC')->get();
 		return view('admin.Backend.Chalan.manage_chalan',compact('chalans'));
+    }
 
+    public function DownloadChalan ($id){
+       
+        $chalan = Chalan::findOrFail($id);
+		return view('admin.Backend.Chalan.view_chalan',compact('chalan'));
     }
 }

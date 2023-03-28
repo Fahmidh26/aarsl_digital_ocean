@@ -298,7 +298,7 @@ $adminuserrole = (auth()->guard('admin')->user()->adminuserrole == 1);
 <span class="sidenav-mini-icon"></span>
 <span class="sidenav-normal">Add Chalan</span>
 </a>
-<a class="nav-link {{ ($route == 'sales.manage')? 'active':'' }}" href="{{ route('sales.manage') }}">
+<a class="nav-link {{ ($route == 'chalan.manage')? 'active':'' }}" href="{{ route('chalan.manage') }}">
 <span class="sidenav-mini-icon"></span>
 <span class="sidenav-normal">Manage Chalan</span>
 </a>

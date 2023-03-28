@@ -21,7 +21,7 @@
 						<div class="col-3"><label  class="text-uppercase text-dark text-xs font-weight-bold" for="mySelect">Description</label></div>
 						<div class="col">
 							<select id="mySelect" name="requisitionType" class="js-example-basic-single select2 form-control" required="">
-							<option value="" selected="" disabled="">Select Expense Type</option>
+							<option value="" selected="" disabled="">Select Requisition Type</option>
 							@foreach($requisitionTypes as $requisitionType)
 									 <option value="{{ $requisitionType->id }}">{{ $requisitionType->requisitionType }}</option>	
 							@endforeach
