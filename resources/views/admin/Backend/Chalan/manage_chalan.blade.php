@@ -43,9 +43,9 @@
 		<td class="text-sm font-weight-bold mb-0">TK {{ $item->total }} </td>
 		{{-- <td><h6 class="badge badge-sm bg-gradient-success"> {{ $item->due_amount }}</h6></td> --}}
 		<td width="10%">
-			<a class="btn btn-link text-dark px-3 mb-0" href="{{ route('purchase.details',$item->id) }}"><i class="fa-solid fa-eye me-2" aria-hidden="true"></i>View</a>
+			{{-- <a class="btn btn-link text-dark px-3 mb-0" href="{{ route('purchase.details',$item->id) }}"><i class="fa-solid fa-eye me-2" aria-hidden="true"></i>View</a> --}}
 			
-			<a class="btn btn-link text-danger text-gradient px-3 mb-0" href="{{ route('chalan.download',$item->id) }}"><i class="fa-solid fa-download me-2"></i>Download</a>
+			<a class="btn btn-link text-dark px-3 mb-0" href="{{ route('chalan.download',$item->id) }}"><i class="fa-solid fa-eye me-2" aria-hidden="true"></i>View</a>
 
  {{-- <a href="{{ route('purchase.details',$item->id) }}" class="btn btn-primary" title="Purchase View"><i class="fa fa-eye"></i> </a>
 
