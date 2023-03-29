@@ -11,7 +11,7 @@ use App\Models\TodaysProduction;
 use Illuminate\Http\Request;
 use App\Models\Chalan;
 use Carbon\Carbon;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ChalanController extends Controller
 {
@@ -91,14 +91,9 @@ class ChalanController extends Controller
                     
         $chalan = Chalan::findOrFail($id);
 // Load the view and pass data to it
-$view = view('admin.Backend.Chalan.view_chalan', compact('chalan'));
+// $view = view('admin.Backend.Chalan.view_chalan', compact('chalan'));
 
-// Generate the PDF and set options
-$pdf = PDF::loadHTML($view)->setPaper('a4')->setOptions([
-    'tempDir' => public_path(),
-    'chroot' => public_path(),
-]);
-    return $pdf->download('chalan.pdf');
+return view('admin.Backend.Chalan.view_chalan',compact('chalan'));
 }
 
 
