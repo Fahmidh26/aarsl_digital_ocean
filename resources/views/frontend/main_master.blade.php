@@ -172,7 +172,7 @@ rel="stylesheet">
 	<link rel="stylesheet" href="{{ asset('frontend/assets/css/magnific-popup.css') }}">
 	<link rel="stylesheet" href="{{ asset('frontend/assets/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/mystyle.css') }}">
-
+    {{-- <link rel="stylesheet" href="{{ asset('../assets/css/app-light.css') }}" id="lightTheme"> --}}
 </head>
 
 

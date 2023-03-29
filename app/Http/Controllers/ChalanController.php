@@ -11,6 +11,7 @@ use App\Models\TodaysProduction;
 use Illuminate\Http\Request;
 use App\Models\Chalan;
 use Carbon\Carbon;
+use PDF;
 
 class ChalanController extends Controller
 {
@@ -44,6 +45,8 @@ class ChalanController extends Controller
             'company' => $request->company,
             'address' => $request->address,
             'chalan_date' => $request->chalanDate,
+            't_driver' => $request->t_driver,
+            't_no' => $request->t_no,
             'chalan_no' => 'RSA'.mt_rand(10000000,99999999),
             'qty' => $request->qnty,
             'rate' => $request->rate,
@@ -85,8 +88,18 @@ class ChalanController extends Controller
     }
 
     public function DownloadChalan ($id){
-       
+                    
         $chalan = Chalan::findOrFail($id);
-		return view('admin.Backend.Chalan.view_chalan',compact('chalan'));
-    }
+// Load the view and pass data to it
+$view = view('admin.Backend.Chalan.view_chalan', compact('chalan'));
+
+// Generate the PDF and set options
+$pdf = PDF::loadHTML($view)->setPaper('a4')->setOptions([
+    'tempDir' => public_path(),
+    'chroot' => public_path(),
+]);
+    return $pdf->download('chalan.pdf');
+}
+
+
 }

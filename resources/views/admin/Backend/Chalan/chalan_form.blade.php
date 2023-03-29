@@ -27,11 +27,17 @@
 						</div>
 	
 						
-						<div class="row mb-3">
+						<div class="row mb-1">
 							<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">Customer/Company</label></div>
 							<div class="col"><input class="form-control mb-3" type="text" id="company" name="company" required=""></div>
 							
 						</div>
+
+						<div class="row mb-3">
+							<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">Address</label></div>
+							<div class="col"><input class="form-control " type="text" id="address" name="address" required="">
+						</div>
+					</div>
 
 						
 	
@@ -46,9 +52,18 @@
 						<div class="col"><input class="form-control" type="date" id="chalanDate" name="chalanDate" required=""></div>
 					</div>
 
+
+
 					<div class="row mb-3">
-						<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">Address</label></div>
-						<div class="col"><input class="form-control " type="text" id="address" name="address" required="">
+						<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">Truck Driver</label></div>
+						<div class="col"><input class="form-control " type="text" id="t_driver" name="t_driver" required="">
+					</div>
+						
+					</div>
+
+					<div class="row mb-3">
+						<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">Truck No.</label></div>
+						<div class="col"><input class="form-control " type="text" id="t_no" name="t_no" required="">
 					</div>
 						
 					</div>
