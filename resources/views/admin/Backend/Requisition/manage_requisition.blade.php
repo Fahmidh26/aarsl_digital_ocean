@@ -39,16 +39,17 @@
 		@if ( $item->status == 'Unpaid' )
 		<td>
 			<a class="btn btn-link text-dark px-3 mb-0" href="{{ route('purchase.details',$item->id) }}"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
-			
+			@if(Auth::guard('admin')->user()->type=="1")
 			<a class="btn btn-link text-danger text-gradient px-3 mb-0" href="{{ route('purchase.status.port',$item->id) }}"><i class="fa-solid fa-credit-card me-2"></i>Paid</a>
+			@endif
 		</td>
 		@else
-		@if(Auth::guard('admin')->user()->type=="1")
+	
 		<td>
 			<a class="btn btn-link text-dark px-3 mb-0" href="{{ route('purchase.details',$item->id) }}"><i class="fa-solid fa-eye text-dark me-2" aria-hidden="true"></i>View</a>
 			
 		</td>
-		@endif
+		
 		@endif
 	
 							 
