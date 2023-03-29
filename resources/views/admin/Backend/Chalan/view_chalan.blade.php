@@ -57,8 +57,8 @@
                   <table class="table table-borderless table-striped">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Description Of Goods</th>
+                        <th scope="col" class="text-center">#</th>
+                        <th scope="col" class="text-center">Description Of Goods</th>
                         <th scope="col" class="text-center">QTY/MT</th>
                         {{-- <th scope="col" class="text-right">Hours</th>
                         <th scope="col" class="text-right">Ammout</th> --}}
@@ -66,10 +66,9 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <th scope="row">1</th>
-                        <p> Sulphuric Acid<br />
-                          <span class="small text-muted"></span>
-                        </p>
+                        <th scope="row" class="text-center">1</th>
+                        <td class="text-center"> Sulphuric Acid
+                        </td>
                         <td class="text-center">{{$chalan->qty}}</td>
                         {{-- <td class="text-right">2</td>
                         <td class="text-right">$30.00</td> --}}

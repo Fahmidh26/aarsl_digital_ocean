@@ -90,10 +90,8 @@ class ChalanController extends Controller
     public function DownloadChalan ($id){
                     
         $chalan = Chalan::findOrFail($id);
-// Load the view and pass data to it
-// $view = view('admin.Backend.Chalan.view_chalan', compact('chalan'));
 
-return view('admin.Backend.Chalan.view_chalan',compact('chalan'));
+    return view('admin.Backend.Chalan.view_chalan',compact('chalan'));
 }
 
 
