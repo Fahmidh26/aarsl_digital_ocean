@@ -68,11 +68,6 @@
 			</div>	<!-- end row 	 -->	
 
 
-
-
-
-
-
 	 <div class="row">
 
 				<div class="col-md-6">
@@ -83,10 +78,21 @@
 	</div>
 				</div><!-- end cold md 6 --> 
 
-				<div class="col-md-6">
+				<div class="col-md-1">
 	<img id="showImage" src="{{ url('upload/no_image.jpg') }}" style="width: 100px; height: 100px;">				
 
-				</div><!-- end cold md 6 -->  
+				</div>
+
+	<div class="col-md-3 ">
+	<div class="form-group">
+		<h5>Type</h5>	
+			<select id="type" name="type" class="form-control" required="" >
+				<option value="1" selected="">Super Admin</option>
+				<option value="2" >Admin</option>
+				<option value="3" >User</option>
+			</select>					
+		</div>
+	</div>
 			</div><!-- end row 	 -->	
 
 
