@@ -11,6 +11,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="{{ asset('../assets/css/app-light.css') }}" id="lightTheme">
+
+    <style>
+      /* Regular styles here */
+      
+      /* Styles for print output */
+      @media print {
+          /* Define styles here */
+          .print-button {
+              display: none;
+          }
+      }
+  </style>
   </head>
   <body class="vertical light">
     <div class="wrapper">
@@ -19,7 +31,13 @@
         <div class="container-fluid">
           <div class="row justify-content-center">
             <div class="col-12 col-lg-10 col-xl-8">
-
+              <div class="row align-items-center mb-4">
+                <div class="col">
+                </div>
+                <div class="col-auto">
+                  <button class="print-button" onclick="window.print()" class="btn btn-secondary">Print</button>
+                </div>
+              </div>
               <div class="card shadow">
                 <div class="card-body p-5">
                   <div class="row mb-5">
