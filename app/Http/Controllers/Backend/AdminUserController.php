@@ -83,7 +83,7 @@ class AdminUserController extends Controller
 			'schedule' => $request->schedule,
 			'adminuserrole' => $request->adminuserrole,
 			
-			'type' => 2,
+			'type' => $request->type,
 			'profile_photo_path' => null,
 			'created_at' => Carbon::now(),
 	

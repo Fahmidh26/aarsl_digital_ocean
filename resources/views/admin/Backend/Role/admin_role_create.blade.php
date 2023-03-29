@@ -89,7 +89,8 @@
 			<select id="type" name="type" class="form-control" required="" >
 				<option value="1" selected="">Super Admin</option>
 				<option value="2" >Admin</option>
-				<option value="3" >User</option>
+				<option value="3" >Sales</option>
+				<option value="4" >Production</option>
 			</select>					
 		</div>
 	</div>
