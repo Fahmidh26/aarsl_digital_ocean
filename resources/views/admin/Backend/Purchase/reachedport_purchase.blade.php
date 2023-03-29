@@ -39,9 +39,9 @@
 		<td><h6 class="badge badge-sm bg-gradient-primary"> {{ $item->status }}</h6></td>
 		<td width="20%">
 			<a class="btn btn-link text-dark px-3 mb-0" href="{{ route('purchase.details',$item->id) }}"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
-			
+			@if(Auth::guard('admin')->user()->type=="1" || Auth::guard('admin')->user()->type=="2")
 			<a class="btn btn-link text-danger text-gradient px-3 mb-0" href="{{ route('purchase.status.factory',$item->id) }}"><i class="fa-solid fa-warehouse me-2"></i>Factory</a>
-
+			@endif
  {{-- <a href="{{ route('purchase.details',$item->id) }}" class="btn btn-primary" title="Purchase View"><i class="fa fa-eye"></i> </a>
 
  <a href="{{ route('purchase.status.factory',$item->id) }}" class="btn btn-info" title="Change Status"><i class="fa fa-pencil"></i> </a> --}}
