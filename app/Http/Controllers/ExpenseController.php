@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Expense;
 use App\Models\ExpenseType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -52,37 +53,37 @@ class ExpenseController extends Controller
 
     } // end method 
 
-	public function CategoryEdit($id){
-    	$category = Category::findOrFail($id);
-    	return view('admin.Backend.Category.category_edit',compact('category'));
+	public function ExpenseView (){
 
+    	$expenseTypes = ExpenseType::latest()->get();
+    	return view('admin.Backend.Expense.expense',compact('expenseTypes'));
     }
 
+    public function ExpenseStore(Request $request){
 
-    public function CategoryUpdate(Request $request ,$id){
+        Expense::insert([
+            'expenseType_id' => $request->expenseType,
+            'date' => $request->date,
+            'amount' => $request->amount,
+            'details' => $request->details,
+            'created_at' => Carbon::now(),   
+    
+            ]);
+            
+           
+            $notification = array(
+                'message' => 'Expense Added Successfully',
+                'alert-type' => 'success'
+            );
+    
+    
+            return redirect()->back()->with($notification);
+    
+        } // end method 
 
-		Category::findOrFail($id)->update([
-			'category_name' => $request->category_name,
-			]);
+        public function ExpenseManage (){
 
-			$notification = array(
-				'message' => 'Category Updated Successfully',
-				'alert-type' => 'success'
-			);
-	
-			return redirect()->route('category.view')->with($notification);
-	}
-
-    public function CategoryDelete($id){
-
-    	Category::findOrFail($id)->delete();
-
-    	$notification = array(
-			'message' => 'Category Deleted Successfully',
-			'alert-type' => 'success'
-		);
-
-		return redirect()->back()->with($notification);
-
-    } // end method 
+            $expenses = Expense::latest()->get();
+            return view('admin.Backend.Expense.manage_expense',compact('expenses'));
+        }
 }

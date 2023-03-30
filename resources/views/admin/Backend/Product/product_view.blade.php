@@ -16,9 +16,6 @@
 										<tr class="align-middle text-center">
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Code</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price </th>
-											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Discount Price</th>
-											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Discount %</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
 											 
 										</tr>
@@ -28,25 +25,9 @@
 				 <tr class="align-middle text-center text-sm">
 					<td><h6 class="mb-0 text-sm">{{ $item->product_code }}</h6></td>
 					<td><p class="mb-0 text-sm">{{ $item->product_name }}</p></td>
-					 <td class="text-sm font-weight-bold mb-0">TK {{ $item->selling_price }} </td>
-					 <td class="text-sm font-weight-bold mb-0">
-						@if($item->discount_price == NULL)
-						<span><h6 class="mb-0 text-sm">TK 0</h6></span>
-						@else
-						  <h6 class="badge badge-sm bg-gradient-success">TK {{ $item->discount_price }} </h6>
-						@endif
-					</td>
-					 <td class="align-middle text-center text-sm"> 
-						 @if($item->discount_price == NULL)
-						 <h6 class="badge badge-sm bg-gradient-secondary">No Discount</h6>
-						 @else
-						 @php
-						 $amount = $item->selling_price - $item->discount_price;
-						 $discount = ($amount/$item->selling_price) * 100;
-						 @endphp
-						 <h6 class="badge badge-sm bg-gradient-secondary"> {{ round($discount)  }} %</h6>			
-						 @endif
-					 </td>			
+					
+					
+					
 			
 					<td>
 

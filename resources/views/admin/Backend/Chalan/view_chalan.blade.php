@@ -12,7 +12,7 @@
     
     <link rel="stylesheet" href="{{ asset('../assets/css/app-light.css') }}" id="lightTheme">
 
-    <style>
+    <style type="text/css">
       /* Regular styles here */
       
       /* Styles for print output */
@@ -22,6 +22,7 @@
               display: none;
           }
       }
+
   </style>
   </head>
   <body class="vertical light">
@@ -38,75 +39,74 @@
                   <button class="print-button" onclick="window.print()" class="btn btn-secondary">Print</button>
                 </div>
               </div>
-              <div class="card shadow">
+              <div class="card shadow" style="background-image: url('/backend/images/logo/watermark.png'); background-size: 50%; background-position: center; background-repeat: no-repeat; align-items: center; justify-content: center;">
                 <div class="card-body p-5">
                   <div class="row mb-5">
                     <div class="col-12 text-center mb-4">
-                      {{-- <img src="./assets/images/logo.svg" class="navbar-brand-img brand-sm mx-auto mb-4" alt="..."> --}}
-                      <h2 class="mb-0 text-uppercase">Chalan</h2>
-                      <h5 class="mb-0">AA Rashayon Shilpo Ltd.</h5>
-                      <p class="text-muted">West Wind Point, Cha-89/4-5, Progoti Sarani<br /> North Badda, Bir Uttam Rafikul Islam Avenue, Commercial Level 2, Dhaka, Bangladesh</p>
+                      <h3 class="mb-0 text-uppercase">Delivery Chalan</h3>
+                      <img src="/backend/images/logo/chalan_logo.png" alt="">
+                    
+                      <p><strong> Head Office : West Wind Point, Cha-89/4-5, Progoti Sarani, North Badda, Bir Uttam Rafikul Islam Avenue, Commercial Level 2, Dhaka, Bangladesh<br />
+                      Factory :BSCIC Industrial Estate, Kanaipur, Faridpur<br />Tel : 9347568, Mobile : 01711-381694</strong></p>
                     </div>
                     <div class="col-md-7">
-                      <p class="small  text-uppercase mb-2">Chalan To</p>
+                      <p class="small  text-uppercase mb-2"><strong><u> Chalan To</u></strong></p>
                       <p class="mb-4">
-                        <strong>{{$chalan->customer->customer_name}}</strong><br />{{$chalan->company}}<br />{{$chalan->address}}<br />
+                        <strong>{{$chalan->customer->customer_name}}<br />{{$chalan->company}}<br />{{$chalan->address}}</strong>
                       </p>
                       <p>
-                        <span class="small text-muted text-uppercase">Chalan #</span><br />
+                        <span class="small text-uppercase"><strong><u> Chalan </u></strong></span><br />
                         <strong>{{$chalan->chalan_no}}</strong>
                       </p>
                     </div>
                     <div class="col-md-5">
-                      <p class="small text-muted text-uppercase mb-2">Chalan Date</p>
+                      <p class="small  text-uppercase mb-2"><strong><u> Chalan Date</u></strong></p>
                       <p class="mb-4">
                         <strong>{{$chalan->chalan_date}}</strong>
                       </p>
                       <p>
-                        <span class="small text-muted text-uppercase">Driver Name #</span>
+                        <span class="small text-uppercase"><strong><u> Driver Name</u></strong></span><br>
                         <strong>{{$chalan->t_driver}}</strong>
                       </p>
                       <p>
-                        <span class="small text-muted text-uppercase">Truck No #</span>
+                        <span class="small text-uppercase"><strong><u> Truck No</u></strong> </span><br>
                         <strong>{{$chalan->t_no}}</strong>
                       </p>
                     </div>
                   </div> <!-- /.row -->
-                  <table class="table table-borderless table-striped">
-                    <thead>
-                      <tr>
-                        <th scope="col" class="text-center">#</th>
-                        <th scope="col" class="text-center">Description Of Goods</th>
-                        <th scope="col" class="text-center">QTY/MT</th>
-                        {{-- <th scope="col" class="text-right">Hours</th>
-                        <th scope="col" class="text-right">Ammout</th> --}}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row" class="text-center">1</th>
-                        <td class="text-center"> Sulphuric Acid
-                        </td>
-                        <td class="text-center">{{$chalan->qty}}</td>
-                        {{-- <td class="text-right">2</td>
-                        <td class="text-right">$30.00</td> --}}
-                      </tr>
-                    </tbody>
-                  </table>
+
+                  <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10 col-xl-8">
+
+                      <div class="row">
+                        <div class="col"> <h5>Sl.</h5></div>
+                        <div class="col"> <h5>Description Of Goods</h5></div>
+                        <div class="col"> <h5>QTY/MT</h5></div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col"> <p><strong> 1</strong></p></div>
+                        <div class="col"> <p><strong> Sulphuric Acid</strong></p></div>
+                        <div class="col"> <p><strong> {{$chalan->qty}}</strong></p></div>
+                      </div>
+                    </div>
+                      
+                </div>
+
                   <div class="row mt-5">
                     <div class="col-2 text-center">
-                      <span class="text-muted small">---------------------</span>
-                      <p class="text-muted small">
-                        <p> Signature of the <br />Receiver</p>
+                      <span class="small"><strong> ---------------------</strong></span>
+                      <p class="small">
+                        <p><strong> Signature of the <br />Receiver</strong></p>
                     </div>
                     <div class="col-md-5">
                  
                     </div>
                     <div class="col-md-5">
                       <div class="text-center mr-2">
-                        <span class="text-muted small">---------------------</span>
-                        <p class="text-muted small">
-                         <p> Authorized<br />Signature</p>
+                        <span class="small"><strong> ---------------------</strong></span>
+                        <p class="small">
+                         <p><strong> Authorized<br />Signature</strong></p>
                       </div>
                     </div>
                   </div> <!-- /.row -->

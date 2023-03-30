@@ -828,6 +828,10 @@ Route::prefix('product')->group(function(){
 
         Route::get('/expense-type', [ExpenseController::class, 'EnpenseTypeView'])->name('expenseType.view');
         Route::post('/expense-type/store', [ExpenseController::class, 'EnpenseTypeStore'])->name('enpenseType.store');
+        Route::get('/expense', [ExpenseController::class, 'ExpenseView'])->name('expense.view');
+        Route::post('/expense/store', [ExpenseController::class, 'ExpenseStore'])->name('expense.store');
+        Route::get('/expense/manage', [ExpenseController::class, 'ExpenseManage'])->name('expense.manage');
+        
         Route::get('/manage', [PurchaseController::class, 'PurchaseManage'])->name('purchase.manage');
 
         Route::get('/requisition-type', [RequisitionController::class, 'RequisitionTypeView'])->name('requisitionType.view');

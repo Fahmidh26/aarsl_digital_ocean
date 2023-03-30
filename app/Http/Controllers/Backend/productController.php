@@ -23,18 +23,12 @@ class productController extends Controller
 
 	public function StoreProduct(Request $request){
 
-		$discount = ($request->selling_price) - ($request->discount_price);
-
       $product_id = Product::insertGetId([
       	'category_id' => $request->category_id,
       	'product_name' => $request->product_name,
       	'product_code' => $request->product_code,
 
-      	'selling_price' => $request->selling_price,
-      	'discount_price' => $request->discount_price,
 		'qty' => 0,
-		
-		'discount' => $discount,
 	
       	'status' => 1,
       	'created_at' => Carbon::now(),   
