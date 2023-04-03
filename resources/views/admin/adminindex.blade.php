@@ -246,7 +246,7 @@
 
 	<div class="row my-4">
 	  <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
-		@if(Auth::guard('admin')->user()->type=="1" || (Auth::guard('admin')->user()->type=="2"))
+		@if(Auth::guard('admin')->user()->type=="1" || (Auth::guard('admin')->user()->type=="2") || (Auth::guard('admin')->user()->type=="5"))
 		<div class="card">
 		  <div class="card-header pb-0">
 			<div class="row">
