@@ -13,7 +13,7 @@ class AdminUserController extends Controller
 {
     public function AllAdminRole(){
 
-    	$adminuser = Admin::where('type',2)->latest()->get();
+    	$adminuser = Admin::orderBy('id','DESC')->get();
     	return view('admin.Backend.Role.admin_role_all',compact('adminuser'));
 
     } // end method 
