@@ -20,7 +20,7 @@
 	 <div class="form-group">
 		<h5>Admin User Name  <span class="text-danger">*</span></h5>
 		<div class="controls">
-	 <input type="text" name="name" class="form-control" > </div>
+	 <input type="text" name="name" required="" class="form-control" > </div>
 	</div>
 
 				</div> <!-- end cold md 6 -->
@@ -32,7 +32,7 @@
 	  <div class="form-group">
 		<h5>Admin Email  <span class="text-danger">*</span></h5>
 		<div class="controls">
-	 <input type="email" name="email" class="form-control" > </div>
+	 <input type="email" name="email" required="" class="form-control" > </div>
 	</div>
 
 				</div> <!-- end cold md 6 --> 
@@ -91,6 +91,7 @@
 				<option value="2" >Admin</option>
 				<option value="3" >Sales</option>
 				<option value="4" >Production</option>
+				<option value="5" >GM</option>
 			</select>					
 		</div>
 	</div>
