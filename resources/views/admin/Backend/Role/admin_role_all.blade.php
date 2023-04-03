@@ -31,7 +31,9 @@
 								<th>Image  </th>
 								<th>Name  </th>
 								<th>Email </th> 
+								<th>Type </th>
 								<th>Access </th>
+								
 								<th>Action</th>
 
 							</tr>
@@ -42,6 +44,18 @@
         <td> <img src="{{ asset($item->profile_photo_path) }}" style="width: 50px; height: 50px;">  </td>
 		<td> {{ $item->name }}  </td>
         <td> {{ $item->email  }}  </td>
+		<td>@if ( $item->type == "1")
+			Super Admin
+		@elseif ( $item->type == "2")
+			Admin
+		@elseif ( $item->type == "3")
+			Sales
+		@elseif ( $item->type == "4")
+			Production
+		@elseif ( $item->type == "5")
+			GM
+		@endif 
+			  </td>
 
         <td>
 			@if($item->supplier == 1)
