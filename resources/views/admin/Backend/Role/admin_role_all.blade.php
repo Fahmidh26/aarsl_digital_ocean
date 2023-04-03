@@ -18,7 +18,9 @@
 
 			 <div class="box">
 				<div class="box-header with-border">
+					@if(Auth::guard('admin')->user()->type=="1")
                     <a href="{{ route('add.admin') }}" class="btn btn-danger" style="float: right;">Add Admin User</a>
+					@endif
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
