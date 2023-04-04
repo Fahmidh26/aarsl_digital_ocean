@@ -23,7 +23,7 @@
 		 	@csrf
 
 			 <div class="form-group row">
-				<label for="supplier_name" class="col-sm-2 text-right col-form-label">Supplier Name <i class="text-danger"> * </i>:</label>
+				<label for="supplier_name" class="col text-right col-form-label">Supplier Name <i class="text-danger"> * </i>:</label>
 				<div class="col-sm-4">
 				<div class="">
 				<input type="text" name="supplier_name" class="form-control" id="supplier_name"  value="">
@@ -32,7 +32,7 @@
 				@enderror 
 				</div>
 				</div>
-				<label for="supplier_mobile" class="col-sm-2 text-right col-form-label">Mobile No <i class="text-danger"> </i>:</label>
+				<label for="supplier_mobile" class="col text-right col-form-label">Mobile No <i class="text-danger"> </i>:</label>
 				<div class="col-sm-4">
 				<div class="">
 				<input type="number" name="mobile" class="form-control" id="supplier_mobile" value="">
@@ -43,7 +43,7 @@
 				</div>
 				</div>
 				<div class="form-group row">
-				<label for="email_address" class="col-sm-2 text-right col-form-label">Email:</label>
+				<label for="email_address" class="col text-right col-form-label">Email:</label>
 				<div class="col-sm-4">
 				<div class="">
 				<input type="email" class="form-control" name="email_address" id="email_address" value="">
