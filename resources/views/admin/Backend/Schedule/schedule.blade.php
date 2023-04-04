@@ -40,7 +40,7 @@
 						  <td><input class="form-control stock" value="{{ $inventory }}" type="text" id="stock" name="stock[]" required="" readonly></td>
 						
 						  <td><input class="form-control qnty" type="number" id="qnty" name="qnty[]" required=""></td>
-						  <td><input class="form-control time" type="time" id="time" name="time[]" required=""></td>
+						  <td><input class="form-control time" type="time" id="time" name="time[]"></td>
 						  <td>
 							<a name="add" id="add" class="btn bg-gradient-dark mb-0"><i class="fas fa-plus" aria-hidden="true"></i></a>
 						</td>
