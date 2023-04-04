@@ -82,7 +82,7 @@
                       <label class="form-check-label" for="rememberMe">Remember me</label> 
                     </div>--}}
                     <div class="text-center">
-						<button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign In</button>
+						<button type="submit" class="btn bg-gradient-primary w-100 mt-4 mb-0">Sign In</button>
                     </div>
                   </form>
                 </div>
@@ -128,7 +128,7 @@
             Pricing
           </a>
         </div> --}}
-        <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
+        {{-- <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
           <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
             <span class="text-lg fab fa-dribbble"></span>
           </a>
@@ -144,14 +144,14 @@
           <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
             <span class="text-lg fab fa-github"></span>
           </a>
-        </div>
+        </div> --}}
       </div>
       <div class="row">
         <div class="col-8 mx-auto text-center mt-1">
           <p class="mb-0 text-secondary">
             Copyright © <script>
               document.write(new Date().getFullYear())
-            </script> AARSL
+            </script> AARSL || Proudly Powered By <a href="https://statait.com/">STATA IT LIMITED</a>
           </p>
         </div>
       </div>
