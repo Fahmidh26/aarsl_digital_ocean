@@ -19,6 +19,7 @@
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Amount</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Details</th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Location</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
 											 
@@ -35,6 +36,7 @@
 		<td class="text-sm font-weight-bold mb-0">{{ $item->date }}</td>
 		<td class="text-sm font-weight-bold mb-0">{{ $item->amount }}</td>
 		<td class="text-sm font-weight-bold mb-0">{{ $item->details }} </td>
+		<td class="text-sm font-weight-bold mb-0">{{ $item->location }} </td>
 		<td class="text-sm font-weight-bold mb-0">{{ $item->status }} </td>
 		@if ( $item->status == 'Unpaid' )
 		<td>

@@ -18,6 +18,7 @@
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Description</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Amount</th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Location</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Details</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
 											 
@@ -33,6 +34,7 @@
         <td><p class="mb-0 text-sm">{{ $item->expenseType->expenseType }}</p></td>
 		<td class="text-sm font-weight-bold mb-0">{{ $item->date }}</td>
 		<td class="text-sm font-weight-bold mb-0">{{ $item->amount }}</td>
+		<td class="text-sm font-weight-bold mb-0">{{ $item->location }} </td>
 		<td class="text-sm font-weight-bold mb-0">{{ $item->details }} </td>
 		<td>
 			<a class="btn btn-link text-dark px-3 mb-0" href="{{ route('purchase.details',$item->id) }}"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
