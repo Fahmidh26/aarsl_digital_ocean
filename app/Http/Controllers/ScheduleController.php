@@ -11,11 +11,12 @@ use Illuminate\Http\Request;
 use Dompdf\Dompdf;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\FilteredDataExport;
+use App\Models\Sales;
 
 class ScheduleController extends Controller
 {
     public function ScheduleView(){
-		$customers = Customer::latest()->get();
+        $customers =Sales::join('customers', 'sales.customer_id', '=', 'customers.id')->select('sales.customer_id', 'customers.customer_name')->distinct()->pluck('customers.customer_name', 'sales.customer_id');
         $inventory = TodaysProduction::sum('qty');
 		return view('admin.Backend.Schedule.schedule' ,compact('customers','inventory'));
 	}

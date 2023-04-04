@@ -40,9 +40,17 @@
 				<div class="col">
 				
 				
-					<div class="row mb-3">
+					<div class="row mb-2">
 						<div class="col-3"> <label for="details">Details</label></div>
-						<div class="col"><textarea class="form-control" name="details" id="details" rows="5"></textarea></div>
+						<div class="col"><textarea class="form-control" name="details" id="details" rows="4"></textarea></div>
+					</div>
+					<div class="row mb-3">
+						<div class="col-3"> <label class="text-uppercase text-dark text-xs font-weight-bold">Location</label></div>
+						<div class="col"><select id="location" name="location" class="js-example-basic-single form-control">
+							<option value="factory">Factory</option>
+							<option value="head">Head Office</option>
+							<!-- More options -->
+							</select></div>
 					</div>
 					
 			</div>

@@ -7,7 +7,7 @@ use App\Models\Requisition;
 use App\Models\RequisitionType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use App\Http\Controllers\toast;
+use Illuminate\Support\Facades\Auth;
 
 class RequisitionController extends Controller
 {
@@ -47,6 +47,9 @@ class RequisitionController extends Controller
             'date' => $request->date,
             'amount' => $request->amount,
             'details' => $request->details,
+            'type' => $request->type,
+            'lo' => $request->lo,
+            'location' => $request->location,
             'status' => 'Unpaid',
             'created_at' => Carbon::now(),   
     
@@ -65,7 +68,11 @@ class RequisitionController extends Controller
 
         public function RequisitionManage (){
 
-            $requisitions = Requisition::latest()->get();
+            if(Auth::guard('admin')->user()->type=="1" || Auth::guard('admin')->user()->type=="2"){
+            	$requisitions = Requisition::latest()->get();
+			}else{
+				$requisitions = Requisition::where('location','factory')->get();
+			}
             return view('admin.Backend.Requisition.manage_requisition',compact('requisitions'));
         }
 }

@@ -7,6 +7,7 @@ use App\Models\Expense;
 use App\Models\ExpenseType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class ExpenseController extends Controller
 {
@@ -65,6 +66,7 @@ class ExpenseController extends Controller
             'expenseType_id' => $request->expenseType,
             'date' => $request->date,
             'amount' => $request->amount,
+			'location' => $request->location,
             'details' => $request->details,
             'created_at' => Carbon::now(),   
     
@@ -83,7 +85,11 @@ class ExpenseController extends Controller
 
         public function ExpenseManage (){
 
-            $expenses = Expense::latest()->get();
+			if(Auth::guard('admin')->user()->type=="1" || Auth::guard('admin')->user()->type=="2"){
+            	$expenses = Expense::latest()->get();
+			}else{
+				$expenses = Expense::where('location','factory')->get();
+			}
             return view('admin.Backend.Expense.manage_expense',compact('expenses'));
         }
 }

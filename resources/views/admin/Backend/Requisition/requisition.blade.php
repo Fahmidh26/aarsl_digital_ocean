@@ -38,17 +38,17 @@
 						<div class="row mb-3">
 							<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">Type</label></div>
 							<div class="col">
-								  <div class="form-check mb-3">
-									<input value="emergency" class="form-check-input" type="radio" name="type" id="customRadio1">
-									<label class="text-uppercase text-dark text-xs font-weight-bold" for="customRadio1">Emergency</label>
+								  <div class="form-check mb-2">
+									<input value="emergency" checked="" class="form-check-input" type="radio" name="type" id="customRadio1">
+									<label class="text-uppercase text-dark text-xs font-weight-bold" for="customRadio1" >Emergency</label>
 								  </div>
-								  <div class="form-check mb-3">
-									<input value="moderate" class="form-check-input" type="radio" name="type" id="customRadio1">
-									<label class="text-uppercase text-dark text-xs font-weight-bold" for="customRadio1">Moderate</label>
+								  <div class="form-check mb-2">
+									<input value="moderate" class="form-check-input" type="radio" name="type" id="customRadio2">
+									<label class="text-uppercase text-dark text-xs font-weight-bold" for="customRadio2">Moderate</label>
 								  </div>
 								  <div class="form-check">
-									<input value="minor" class="form-check-input" type="radio" name="type" id="customRadio2">
-									<label class="text-uppercase text-dark text-xs font-weight-bold" for="customRadio2">Minor</label>
+									<input value="minor" class="form-check-input" type="radio" name="type" id="customRadio3">
+									<label class="text-uppercase text-dark text-xs font-weight-bold" for="customRadio3">Minor</label>
 								  </div>
 							</div>
 						</div>
@@ -62,16 +62,16 @@
 						<div class="col"><textarea class="form-control" name="details" id="details" rows="5"></textarea></div>
 					</div>
 					<div class="row mb-3">
-						<div class="col-3"> <label class="text-uppercase text-dark text-xs font-weight-bold">Purchase Type</label></div>
-						<div class="col"><select id="lo" name="lo" class="js-example-basic-single select2 form-control">
+						<div class="col-3"> <label class="text-uppercase text-dark text-xs font-weight-bold">Purchase</label></div>
+						<div class="col"><select id="lo" name="lo" class="js-example-basic-single form-control">
 							<option value="local">Local Purchase</option>
 							<option value="outside">Outside Procurement</option>
 							<!-- More options -->
 							</select></div>
 					</div>
 					<div class="row mb-3">
-						<div class="col-3"> <label class="text-uppercase text-dark text-xs font-weight-bold">Purchase Type</label></div>
-						<div class="col"><select id="lo" name="lo" class="js-example-basic-single select2 form-control">
+						<div class="col-3"> <label class="text-uppercase text-dark text-xs font-weight-bold">Location</label></div>
+						<div class="col"><select id="location" name="location" class="js-example-basic-single form-control">
 							<option value="factory">Factory</option>
 							<option value="head">Head Office</option>
 							<!-- More options -->
