@@ -12,16 +12,14 @@
 		<section class="content">
 		  <div class="row">
 
-
-
 			<div class="col-12">
 
 			 <div class="box">
-				<div class="box-header with-border">
+				{{-- <div class="box-header with-border">
 					@if(Auth::guard('admin')->user()->type=="1")
-                    <a href="{{ route('add.admin') }}" class="btn btn-danger" style="float: right;">Add Admin User</a>
+                    <a href="{{ route('add.admin') }}" class="btn btn-primary" style="float: right;">Add Admin User</a>
 					@endif
-				</div>
+				</div> --}}
 				<!-- /.box-header -->
 				<div class="box-body">
 					<div class="table-responsive">
@@ -140,6 +138,12 @@
 						</tbody>
 
 					  </table>
+
+					  <div class="box-header with-border">
+						@if(Auth::guard('admin')->user()->type=="1")
+						<a href="{{ route('add.admin') }}" class="btn btn-primary " style="float: right;">Add Admin User</a>
+						@endif
+					</div>
 					</div>
 				</div>
 				<!-- /.box-body -->
