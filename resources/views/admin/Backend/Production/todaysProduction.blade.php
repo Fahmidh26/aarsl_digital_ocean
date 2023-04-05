@@ -33,7 +33,7 @@
 					</tr>
 				</table>
 				
-					<input class="btn bg-gradient-dark mb-0" type="submit" name="save" id="save" value="
+					<input class="btn bg-gradient-primary mb-0" type="submit" name="save" id="save" value="
 					Save Todays Production">
 				
 			</div>

@@ -48,7 +48,7 @@
 				</table>
 				
 					{{-- <a type="submit" name="save" id="save" class="btn bg-gradient-dark mb-0">&nbsp;&nbsp;Save Production</a> --}}
-					<input class="btn bg-gradient-dark mb-0" type="submit" name="save" id="save" value="
+					<input class="btn bg-gradient-primary mb-0" type="submit" name="save" id="save" value="
 					Save Schedule">
 				
 			</div>

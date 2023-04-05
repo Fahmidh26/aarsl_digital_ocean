@@ -26,7 +26,7 @@
 			</div>
 			<div class="col-md-2">
 				<div class="">
-					<input class="btn bg-gradient-dark mb-0" type="submit" name="save" id="save" value="
+					<input class="btn bg-gradient-primary mb-0" type="submit" name="save" id="save" value="
 					Filter Schedule">
 				</div>
 			</div>
@@ -80,7 +80,7 @@
 							{{-- </div> --}}
 			</div>
 		  </div>
-		  <input class="btn bg-gradient-dark mb-0" type="submit" name="save" id="save" value="
+		  <input class="btn bg-gradient-primary mb-0" type="submit" name="save" id="save" value="
 		  Print PDF">
 		</div>
 	  </div>
