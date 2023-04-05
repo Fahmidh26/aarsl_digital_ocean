@@ -20,6 +20,7 @@
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Amount</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Details</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Location</th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Priority</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
 											 
@@ -37,12 +38,13 @@
 		<td class="text-sm font-weight-bold mb-0">{{ $item->amount }}</td>
 		<td class="text-sm font-weight-bold mb-0">{{ $item->details }} </td>
 		<td class="text-sm font-weight-bold mb-0">{{ $item->location }} </td>
+		<td class="text-sm font-weight-bold mb-0">{{ $item->type }} </td>
 		<td class="text-sm font-weight-bold mb-0">{{ $item->status }} </td>
 		@if ( $item->status == 'Unpaid' )
 		<td>
 			<a class="btn btn-link text-dark px-3 mb-0" href="{{ route('purchase.details',$item->id) }}"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
 			@if(Auth::guard('admin')->user()->type=="1" || Auth::guard('admin')->user()->type=="2")
-			<a class="btn btn-link text-danger text-gradient px-3 mb-0" href="{{ route('purchase.status.port',$item->id) }}"><i class="fa-solid fa-credit-card me-2"></i>Paid</a>
+			<a class="btn btn-link text-success text-gradient px-3 mb-0" href="{{ route('purchase.status.port',$item->id) }}"><i class="fa-solid fa-credit-card me-2"></i>Paid</a>
 			@endif
 		</td>
 		@else
