@@ -31,7 +31,7 @@
 				</div>
 			</div>
 		</form>
-		<div class="col-md-2">
+		<div class="col-md-0">
 		<form action="{{ route('download') }}" method="GET">
 			@csrf
 			<input type="hidden" name="type" value="pdf">
