@@ -18,6 +18,7 @@
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Description</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Amount</th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Procurement Location</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Details</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Location</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Priority</th>
@@ -36,6 +37,7 @@
         <td><p class="mb-0 text-sm">{{ $item->requisitionType->requisitionType }}</p></td>
 		<td class="text-sm font-weight-bold mb-0">{{ $item->date }}</td>
 		<td class="text-sm font-weight-bold mb-0">{{ $item->amount }}</td>
+		<td class="text-sm font-weight-bold mb-0">{{ $item->lo }}</td>
 		<td class="text-sm font-weight-bold mb-0">{{ $item->details }} </td>
 		<td class="text-sm font-weight-bold mb-0">{{ $item->location }} </td>
 		<td class="text-sm font-weight-bold mb-0">{{ $item->type }} </td>

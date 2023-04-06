@@ -64,8 +64,8 @@
 					<div class="row mb-3">
 						<div class="col-3"> <label class="text-uppercase text-dark text-xs font-weight-bold">Purchase</label></div>
 						<div class="col"><select id="lo" name="lo" class="js-example-basic-single form-control">
-							<option value="local">Local Purchase</option>
-							<option value="outside">Outside Procurement</option>
+							<option value="Local Purchase">Local Purchase</option>
+							<option value="Outside Procurement">Outside Procurement</option>
 							<!-- More options -->
 							</select></div>
 					</div>
