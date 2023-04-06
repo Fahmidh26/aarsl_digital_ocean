@@ -47,8 +47,8 @@
 					<div class="row mb-3">
 						<div class="col-3"> <label class="text-uppercase text-dark text-xs font-weight-bold">Location</label></div>
 						<div class="col"><select id="location" name="location" class="js-example-basic-single form-control">
-							<option value="factory">Factory</option>
-							<option value="head">Head Office</option>
+							<option value="Factory">Factory</option>
+							<option value="Head Office">Head Office</option>
 							<!-- More options -->
 							</select></div>
 					</div>

@@ -39,15 +39,15 @@
 							<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">Type</label></div>
 							<div class="col">
 								  <div class="form-check mb-2">
-									<input value="emergency" checked="" class="form-check-input" type="radio" name="type" id="customRadio1">
+									<input value="Emergency" checked="" class="form-check-input" type="radio" name="type" id="customRadio1">
 									<label class="text-uppercase text-dark text-xs font-weight-bold" for="customRadio1" >Emergency</label>
 								  </div>
 								  <div class="form-check mb-2">
-									<input value="moderate" class="form-check-input" type="radio" name="type" id="customRadio2">
+									<input value="Moderate" class="form-check-input" type="radio" name="type" id="customRadio2">
 									<label class="text-uppercase text-dark text-xs font-weight-bold" for="customRadio2">Moderate</label>
 								  </div>
 								  <div class="form-check">
-									<input value="minor" class="form-check-input" type="radio" name="type" id="customRadio3">
+									<input value="Minor" class="form-check-input" type="radio" name="type" id="customRadio3">
 									<label class="text-uppercase text-dark text-xs font-weight-bold" for="customRadio3">Minor</label>
 								  </div>
 							</div>
@@ -72,8 +72,8 @@
 					<div class="row mb-3">
 						<div class="col-3"> <label class="text-uppercase text-dark text-xs font-weight-bold">Location</label></div>
 						<div class="col"><select id="location" name="location" class="js-example-basic-single form-control">
-							<option value="factory">Factory</option>
-							<option value="head">Head Office</option>
+							<option value="Factory">Factory</option>
+							<option value="Head Office">Head Office</option>
 							<!-- More options -->
 							</select></div>
 					</div>
