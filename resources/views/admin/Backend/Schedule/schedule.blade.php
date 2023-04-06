@@ -37,7 +37,7 @@
 							</select>
 
 						</td>
-						  <td><input class="form-control stock" value="{{ $inventory }}" type="text" id="stock" name="stock[]" required="" readonly></td>
+						  <td><input class="form-control stock" value="{{ $inventory->stock }}" type="text" id="stock" name="stock[]" required="" readonly></td>
 						
 						  <td><input class="form-control qnty" type="number" id="qnty" name="qnty[]" required=""></td>
 						  <td><input class="form-control time" type="time" id="time" name="time[]"></td>
