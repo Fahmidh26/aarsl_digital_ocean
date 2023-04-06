@@ -11,7 +11,7 @@
 		<div class="ms-md-auto pe-md-3 d-flex align-items-center">
 			<li class="nav-item d-flex align-items-center">
 				<a href="microsoft-edge:http://103.78.254.174/doc/page/login.asp?_1680765170764" target="_blank" class="nav-link text-body font-weight-bold px-0">
-				  <i class="fa fa-camera me-sm-1 fa-2x" style="color: #cb0c9f"></i>
+				  <i class="fa fa-video-camera me-sm-1 fa-2x" style="color: #cb0c9f"></i>
 				  {{-- <span class="d-sm-inline d-none">Camera</span> --}}
 				</a>
 			  </li>
