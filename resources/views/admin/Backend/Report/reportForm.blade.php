@@ -27,6 +27,7 @@
 												<select class="form-control" name="option" id="option">
 													<option value="expense">Expense</option>
 													<option value="requisition">Requisition</option>
+													<option value="L/C">L/C</option>
 												</select>
 											</div>
 										</div>

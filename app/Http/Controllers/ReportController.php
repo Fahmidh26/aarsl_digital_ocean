@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Expense;
+use App\Models\Purchase;
 use App\Models\Requisition;
 use Illuminate\Http\Request;
 use Dompdf\Dompdf;
@@ -24,6 +25,8 @@ class ReportController extends Controller
             $filtered = Expense::whereBetween('date', [$sdate, $edate])->get();
         }elseif($option == "requisition"){
             $filtered = Requisition::whereBetween('date', [$sdate, $edate])->get();
+        }elseif($option == "L/C"){
+            $filtered = Purchase::whereBetween('purchase_date', [$sdate, $edate])->get();
         }
 		
        $notification = array(
