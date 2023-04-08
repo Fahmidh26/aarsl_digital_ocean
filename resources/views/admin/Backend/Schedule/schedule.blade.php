@@ -78,7 +78,7 @@
   
   <script>
 	$(document).ready(function(){
-		var html='<tr><td><select id="item" name="item[]" class="form-control" required="" ><option value="" selected="" disabled="">Select Product</option>@foreach($customers as $customerId => $customerName)<option value="{{ $customerId }}">{{ $customerName }}</option> @endforeach</select></td><td><input class="form-control stock" type="text" id="stock" value="{{ $inventory->stock }}" name="stock[]" required="" readonly></td><td><input class="form-control qnty" type="number" id="qnty" name="qnty[]" required=""></td> <td><input class="form-control time" type="time" id="time" name="time[]" required=""></td><td><a name="remove" id="remove" class="btn bg-gradient-danger mb-0"><i class="fas fa-minus" aria-hidden="true"></i></a></td></tr>';
+		var html='<tr><td><select id="item" name="item[]" class="form-control" required="" ><option value="" selected="" disabled="">Select Customer/Dealer</option>@foreach($customers as $customerId => $customerName)<option value="{{ $customerId }}">{{ $customerName }}</option> @endforeach</select></td><td><input class="form-control stock" type="text" id="stock" value="{{ $inventory->stock }}" name="stock[]" required="" readonly></td><td><input class="form-control qnty" type="number" id="qnty" name="qnty[]" required=""></td> <td><input class="form-control time" type="time" id="time" name="time[]"></td><td><a name="remove" id="remove" class="btn bg-gradient-danger mb-0"><i class="fas fa-minus" aria-hidden="true"></i></a></td></tr>';
 	
 		// var x =1;
 	  $("#add").click(function(){

@@ -10,7 +10,7 @@ use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\LocationController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\productController;
-use App\Http\Controllers\Backend\ReportController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\Backend\ReturnController;
 use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\SiteSettingController;
@@ -189,6 +189,29 @@ Route::prefix('category')->group(function(){
     
     
     });
+
+    // REPORTS
+    Route::prefix('reports')->group(function(){
+
+        Route::get('/form', [ReportController::class, 'ReportsForm'])->name('reports.form');
+
+        Route::post('/filter', [ReportController::class, 'ReportFilter'])->name('report.filter');
+
+        Route::get('/download', [ReportController::class, 'DownloadPDF'])->name('download.pdf.filter');
+
+
+        
+        Route::post('/store', [SalesController::class, 'SalesStore'])->name('sales.store');
+
+        Route::get('/details/{id}', [PurchaseController::class, 'PurchaseDetails'])->name('purchase.details');
+    
+        Route::get('/download/{id}', [SalesController::class, 'DownloadSale'])->name('sale.download');
+        
+        Route::get('/filter', [SalesController::class, 'SaleFilterView'])->name('sale.filter.view');
+
+      
+        });
+
 
 // Admin Slider All Routes 
     

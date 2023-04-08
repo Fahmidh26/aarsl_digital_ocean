@@ -27,6 +27,7 @@
 									<tbody>
 			@php
 				$sl = 1;
+				$amount = 0;
 			@endphp
 	 @foreach($expenses as $item)
 	 <tr class="align-middle text-center text-sm">
@@ -34,6 +35,7 @@
         <td><p class="mb-0 text-sm">{{ $item->expenseType->expenseType }}</p></td>
 		<td class="text-sm font-weight-bold mb-0">{{ $item->date }}</td>
 		<td class="text-sm font-weight-bold mb-0">{{ $item->amount }}</td>
+		<td style="display:none;">{{$amount += $item->amount}}</td>
 		<td class="text-sm font-weight-bold mb-0">{{ $item->location }} </td>
 		<td class="text-sm font-weight-bold mb-0">{{ $item->details }} </td>
 		<td>
@@ -44,6 +46,18 @@
 		</td>				 
 	 </tr>
 	  @endforeach
+	  <tr class="align-middle text-center text-sm">
+		<td width="5%"><h6 class="mb-0 text-sm "></h6></td>
+        <td><p class="mb-0 text-sm"></p></td>
+		<td class="text-sm font-weight-bold mb-0"></td>
+		<td class="text-sm font-weight-bolder mb-0">{{ $amount }}</td>
+		<td style="display:none;"></td>
+		<td class="text-sm font-weight-bold mb-0"> </td>
+		<td class="text-sm font-weight-bold mb-0"></td>
+		<td>
+			
+		</td>				 
+	 </tr>
 	</tbody>
 									 
 </table>
