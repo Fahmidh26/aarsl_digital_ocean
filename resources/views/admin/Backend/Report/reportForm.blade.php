@@ -28,6 +28,7 @@
 													<option value="expense">Expense</option>
 													<option value="requisition">Requisition</option>
 													<option value="L/C">L/C</option>
+													<option value="sale">Sale</option>
 												</select>
 											</div>
 										</div>

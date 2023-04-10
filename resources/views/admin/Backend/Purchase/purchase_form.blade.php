@@ -58,7 +58,7 @@
 					</div> --}}
 					<div class="row mb-3">
 						<div class="col-3"><label  class="text-uppercase text-dark text-xs font-weight-bold ">Last Date of Shipment</label></div>
-						<div class="col"><input class="form-control" type="date" id="details" name="details"></div>
+						<div class="col"><input class="form-control" type="date" id="ldate" name="ldate"></div>
 					</div>
 					<div class="row mb-3">
 						<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">B/E  Date</label></div>

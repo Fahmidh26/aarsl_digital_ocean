@@ -42,6 +42,8 @@ class PurchaseController extends Controller
         $purchased_id = Purchase::insertGetId([
             'supplier_id' => $request->supplier_id,
             'chalan_no' => $request->chalan,
+            'purchase_date' => $request->quoDate,
+            'ldate' => $request->ldate,
             'boed' => $request->boed,
             'boen' => $request->boen,
             'besb' => $request->besb,

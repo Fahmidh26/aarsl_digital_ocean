@@ -35,6 +35,7 @@
   <body>
 
     <h3>Requisition Report</h3>
+    <h5>Date - <span> {{$sdate}}</span> - <span>{{$edate}} </span></h5>
 
     <table class="table table-bordered">
       <thead>

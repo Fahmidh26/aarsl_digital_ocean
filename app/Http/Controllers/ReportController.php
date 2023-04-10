@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Expense;
 use App\Models\Purchase;
 use App\Models\Requisition;
+use App\Models\Sales;
 use Illuminate\Http\Request;
 use Dompdf\Dompdf;
 
@@ -26,39 +27,61 @@ class ReportController extends Controller
         }elseif($option == "requisition"){
             $filtered = Requisition::whereBetween('date', [$sdate, $edate])->get();
         }elseif($option == "L/C"){
-            $filtered = Purchase::whereBetween('purchase_date', [$sdate, $edate])->get();
+            $filtered = Purchase::with('purchaseItems')
+            ->whereBetween('purchase_date', [$sdate, $edate])
+            ->get();
+        }elseif($option == "sale"){
+            $filtered = Sales::whereBetween('sale_date', [$sdate, $edate])
+            ->get();
+        }else{
+            
         }
-		
+
        $notification = array(
 			'message' => 'Filterd Data Successfully',
 			'alert-type' => 'success'
 		);
 
-	return view('admin.Backend.Report.filteredData' ,compact('filtered','option'));
+	return view('admin.Backend.Report.filteredData' ,compact('filtered','option','sdate','edate'));
 
     } 
 
 
 	public function DownloadPDF(Request $request)
     {	
+        $sdate = $request->sdate;
+		$edate = $request->edate;
         $option = $request->input('soption');
         if($option == "expense"){
             $filter = collect(json_decode($request->input('filter'), true))->mapInto(Expense::class);
              if ($request->type === 'pdf') {
             $pdf = new Dompdf();
-            $pdf->loadHTML(view('admin.Backend.Report.download_expense_report_pdf', ['filter' => $filter])->render());
+            $pdf->loadHTML(view('admin.Backend.Report.download_expense_report_pdf',compact('sdate','edate'), ['filter' => $filter])->render());
             $pdf->setPaper('A4', 'landscape');
             $pdf->render();
-            $pdf->stream('filtered-data.pdf');
+            $pdf->stream('Expense-Report-' . $sdate . ') - (' . $edate . '.pdf');
             }
         }elseif($option == "requisition"){
             $filter = collect(json_decode($request->input('filter'), true))->mapInto(Requisition::class);
             if ($request->type === 'pdf') {
            $pdf = new Dompdf();
-           $pdf->loadHTML(view('admin.Backend.Report.download_requisition_report_pdf', ['filter' => $filter])->render());
+           $pdf->loadHTML(view('admin.Backend.Report.download_requisition_report_pdf',compact('sdate','edate'), ['filter' => $filter])->render());
            $pdf->setPaper('A4', 'landscape');
            $pdf->render();
-           $pdf->stream('filtered-data.pdf');
+           $pdf->stream('Requisition-Report(' . $sdate . ') - ('. $edate . ').pdf');
+           }
+        }elseif($option == "L/C"){
+            $filter = collect(json_decode($request->input('filter'), true))
+            ->mapInto(Purchase::class)
+            ->each(function ($purchase) {
+                $purchase->load('purchaseItems');
+            });
+            if ($request->type === 'pdf') {
+           $pdf = new Dompdf();
+           $pdf->loadHTML(view('admin.Backend.Report.download_l_c_report_pdf',compact('sdate','edate'), ['filter' => $filter])->render());
+           $pdf->setPaper('A4', 'landscape');
+           $pdf->render();
+           $pdf->stream('L-C-Report(' . $sdate . ') - (' . $edate . ').pdf');
            }
         }
 

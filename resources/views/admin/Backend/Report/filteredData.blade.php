@@ -29,6 +29,8 @@
 													<option value="" selected="" disabled>Select Report Type</option>
 													<option value="expense">Expense</option>
 													<option value="requisition">Requisition</option>
+													<option value="L/C">L/C</option>
+													<option value="sale">Sale</option>
 												</select>
 											</div>
 										</div>
@@ -53,6 +55,8 @@
 								<input type="hidden" name="type" value="pdf">
 								<input type="hidden" name="filter" value="{{ $filtered->toJson() }}">
 								<input type="hidden" name="soption" value="{{$option}}">
+								<input value="{{$sdate}}" type="hidden" name="sdate">
+								<input value="{{$edate}}" type="hidden" name="edate">
 								<div class="">
 									<input class="btn bg-gradient-dark mb-0" type="submit" name="save" id="save" value="PDF">
 								</div>
@@ -86,8 +90,7 @@
 											
 																					 
 										</tr>
-										@else
-										{{-- @if ($option == "requisition") --}}
+										@elseif ($option == "requisition")
 										<tr>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Description</th>
@@ -99,6 +102,25 @@
 											font-weight-bolder opacity-7">Type</th>
 											
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+																					 
+										</tr>
+										@elseif ($option == "L/C")
+										<tr>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">L/C no.</th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Supplier</th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Product</th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Qty</th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grand Total</th>
+																					 
+										</tr>
+										@elseif ($option == "sale")
+										<tr>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Customer</th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Product</th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Qty</th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Grand Total</th>
 																					 
 										</tr>
 										@endif
@@ -120,7 +142,7 @@
 					  <td><h6 class="mb-0 text-sm">{{ $item->location }}</h6></td>			   
 				   </tr>
 
-				   @else
+				   @elseif ($option == "requisition")
 				 
 				   <tr>
 					<td><h6 class="mb-0 text-sm">{{ $item->date }}</h6></td>
@@ -133,9 +155,39 @@
 					<td><h6 class="mb-0 text-sm">{{ $item->type }}</h6></td> 
 					<td><h6 class="mb-0 text-sm">{{ $item->status }}</h6></td> 				   
 				 </tr>
+
+				 @elseif ($option == "L/C")
 				 
+				 @foreach ($item->purchaseItems as $pitem)
+					<tr>
+						<td><h6 class="mb-0 text-sm">{{ $item->purchase_date }}</h6></td>
+						<td><h6 class="mb-0 text-sm">{{ $item->chalan_no }}</h6></td>
+						<td><h6 class="mb-0 text-sm">{{ $item->supplier->supplier_name }}</h6></td>
+						<td><h6 class="mb-0 text-sm">{{ $pitem->product->product_name }}</h6></td>
+						<td><h6 class="mb-0 text-sm">{{ $pitem->qty }}</h6></td>
+						<td><h6 class="mb-0 text-sm">{{ $item->grand_total }}</h6></td>
+						<td style="display:none;">{{$amount += $item->grand_total}}</td>
+					</tr>
+				 @endforeach
+
+				 @elseif ($option == "sale")
+				 
+				 {{-- @foreach ($item->saleItemss as $sitem) --}}
+					<tr>
+						<td><h6 class="mb-0 text-sm">{{ $item->sale_date }}</h6></td>
+						{{-- <td><h6 class="mb-0 text-sm">{{ $item->customer->customer_name }}</h6></td> --}}
+						<td><h6 class="mb-0 text-sm">Sulphuric Acid</h6></td>
+						{{-- <td><h6 class="mb-0 text-sm">{{ $sitem->qty }}</h6></td> --}}
+						{{-- <td><h6 class="mb-0 text-sm">{{ $item->grand_total }}</h6></td>
+						<td style="display:none;">{{$amount += $item->grand_total}}</td> --}}
+					</tr>
+				 {{-- @endforeach --}}
+
+
 				   @endif
 					@endforeach
+
+
 					@if ($option == "expense")
 					<tr>
 						<td></td>
@@ -144,7 +196,7 @@
 						<td></td>
 						<td></td>			   
 					 </tr>
-					 @else
+					 @elseif ($option == "requisition")
 					 <tr>
 						<td></td>
 						<td></td>
@@ -153,6 +205,15 @@
 						<td></td>
 						<td></td>
 						<td></td> 				   
+					 </tr>
+					 @elseif (($option == "L/C"))
+					 <tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>{{$amount}}</td>
 					 </tr>
 					 @endif
 									  </tbody>
