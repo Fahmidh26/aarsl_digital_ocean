@@ -25,6 +25,7 @@
 										<div class="col-md-4 mb-md-0 mb-4">
 											<div>
 												<select class="form-control" name="option" id="option">
+													<option value="" selected="" disabled>Select Report Type</option>
 													<option value="expense">Expense</option>
 													<option value="requisition">Requisition</option>
 													<option value="L/C">L/C</option>
