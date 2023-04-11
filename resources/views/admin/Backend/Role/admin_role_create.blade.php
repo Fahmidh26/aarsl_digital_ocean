@@ -128,6 +128,11 @@
 	</div>
 
 	<div class="form-check form-switch">
+		<input class="form-check-input" type="checkbox" id="checkbox_25" name="report" value="1">
+		<label class="form-check-label" for="checkbox_25">Report</label>
+	</div>
+
+	<div class="form-check form-switch">
 		<input class="form-check-input" type="checkbox" id="checkbox_6" name="bank" value="1">
 		<label class="form-check-label" for="checkbox_6">Bank</label>
 	</div>
