@@ -32,7 +32,7 @@
 	
 						<div class="row mb-3">
 							<div class="col-3"><label class="text-uppercase text-dark text-xs font-weight-bold">Amount</label></div>
-							<div class="col"><input class="form-control" type="number" id="amount" name="amount">
+							<div class="col"><input class="form-control" type="number" id="amount" name="amount" required="">
 						</div>	
 						</div>
 						<div class="row mb-3">

@@ -771,9 +771,9 @@ Route::prefix('product')->group(function(){
         
                 Route::get('/manage', [SalesController::class, 'ManageSales'])->name('sales.manage');
     
-                Route::get('/port', [PurchaseController::class, 'PurchaseReachedPort'])->name('purchase.port');
+                // Route::get('/port', [PurchaseController::class, 'PurchaseReachedPort'])->name('purchase.port');
     
-                Route::get('/factory', [PurchaseController::class, 'PurchaseReachedFactory'])->name('purchase.factory');
+                // Route::get('/factory', [PurchaseController::class, 'PurchaseReachedFactory'])->name('purchase.factory');
                 // Route::get('/get-stock', [PurchaseController::class, 'getProductStock']);
     
                 // Route::get('/get-unit-price', function(Request $request) {
@@ -814,9 +814,9 @@ Route::prefix('product')->group(function(){
 
             Route::get('/download/{id}', [ChalanController::class, 'DownloadChalan'])->name('chalan.download');
 
-            Route::get('/port', [PurchaseController::class, 'PurchaseReachedPort'])->name('purchase.port');
+            // Route::get('/port', [PurchaseController::class, 'PurchaseReachedPort'])->name('purchase.port');
 
-            Route::get('/factory', [PurchaseController::class, 'PurchaseReachedFactory'])->name('purchase.factory');
+            // Route::get('/factory', [PurchaseController::class, 'PurchaseReachedFactory'])->name('purchase.factory');
             // Route::get('/get-stock', [PurchaseController::class, 'getProductStock']);
 
             // Route::get('/get-unit-price', function(Request $request) {

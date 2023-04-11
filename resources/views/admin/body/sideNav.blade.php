@@ -16,6 +16,7 @@ $l_c = (auth()->guard('admin')->user()->l_c == 1);
 $chalan = (auth()->guard('admin')->user()->chalan == 1);
 $expense = (auth()->guard('admin')->user()->expense == 1);
 $schedule = (auth()->guard('admin')->user()->schedule == 1);
+$report = (auth()->guard('admin')->user()->report == 1);
 $hr = (auth()->guard('admin')->user()->hr == 1);
 $adminuserrole = (auth()->guard('admin')->user()->adminuserrole == 1);
 @endphp
@@ -247,9 +248,9 @@ $adminuserrole = (auth()->guard('admin')->user()->adminuserrole == 1);
 @endif
 
 
-@if($customer  == true)
+@if($report  == true)
 <li class="nav-item">
-<a data-bs-toggle="collapse" href="#report" class="nav-link  {{ ($prefix == '/report')?'active':'' }}" aria-controls="ecommerceExamples" role="button">
+<a data-bs-toggle="collapse" href="#report" class="nav-link  {{ ($prefix == '/reports')?'active':'' }}" aria-controls="ecommerceExamples" role="button">
 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
 

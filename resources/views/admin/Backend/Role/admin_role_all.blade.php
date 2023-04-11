@@ -14,6 +14,9 @@
 
 			<div class="col-12">
 
+				<div class="card">
+					<div class="card-body p-3">
+
 			 <div class="box">
 				{{-- <div class="box-header with-border">
 					@if(Auth::guard('admin')->user()->type=="1")
@@ -151,6 +154,8 @@
 			  <!-- /.box -->
 
 
+			</div>
+			</div>
 			</div>
 			<!-- /.col -->
 
