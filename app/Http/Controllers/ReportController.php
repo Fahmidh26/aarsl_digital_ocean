@@ -31,10 +31,11 @@ class ReportController extends Controller
             ->whereBetween('purchase_date', [$sdate, $edate])
             ->get();
         }elseif($option == "sale"){
-            $filtered = Sales::whereBetween('sale_date', [$sdate, $edate])
+            $filtered = Sales::with('saleItems')
+            ->whereBetween('sale_date', [$sdate, $edate])
             ->get();
         }else{
-            
+            $filtered = Expense::whereBetween('date', [$sdate, $edate])->get();
         }
 
        $notification = array(
@@ -82,6 +83,20 @@ class ReportController extends Controller
            $pdf->setPaper('A4', 'landscape');
            $pdf->render();
            $pdf->stream('L-C-Report(' . $sdate . ') - (' . $edate . ').pdf');
+           }
+        }
+        elseif($option == "sale"){
+            $filter = collect(json_decode($request->input('filter'), true))
+            ->mapInto(Sales::class)
+            ->each(function ($sale) {
+                $sale->load('saleItems');
+            });
+            if ($request->type === 'pdf') {
+           $pdf = new Dompdf();
+           $pdf->loadHTML(view('admin.Backend.Report.download_sale_report_pdf',compact('sdate','edate'), ['filter' => $filter])->render());
+           $pdf->setPaper('A4', 'landscape');
+           $pdf->render();
+           $pdf->stream('Sale-Report(' . $sdate . ') - (' . $edate . ').pdf');
            }
         }
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2023 at 12:22 PM
+-- Generation Time: Apr 11, 2023 at 07:45 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -69,6 +69,7 @@ CREATE TABLE `admins` (
   `hr` int(11) DEFAULT NULL,
   `adminuserrole` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `schedule` int(11) DEFAULT NULL,
+  `report` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `type` int(11) DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `current_team_id` bigint(20) UNSIGNED DEFAULT NULL,
@@ -81,17 +82,17 @@ CREATE TABLE `admins` (
 -- Dumping data for table `admins`
 --
 
-INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `password`, `phone`, `category`, `product`, `customer`, `bank`, `supplier`, `production`, `l_c`, `sale`, `chalan`, `alluser`, `expense`, `hr`, `adminuserrole`, `schedule`, `type`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@gmail.com', '2022-06-05 03:57:32', '$2y$10$ALbMmGnqCeBflP.JT8LWNu/swsmervF2UFssUBA3QKo52c6CrA9Ye', '01964870827', '1', '1', '1', '1', '1', '1', '1', '1', 1, '1', 1, 1, '1', 1, 1, '9GtEW9OJucolDYsLsyytEtDLYAg7Z4hJGQ1LSVSpPRxuxA2f1aJ1hhQwWIRE', NULL, '202207230834attachment_127807231.jfif', '2022-06-05 03:57:32', '2022-07-23 03:06:17'),
-(18, 'Syed Ashiq', 'sashiq62@gmail.com', NULL, '$2y$10$HCO/Lzvdwf9qYIbZrO2j/u99S1K2IO88mn2Lp2n7akSRWBDO22AqK', NULL, '1', '1', '1', '1', '1', '1', '1', '1', 1, NULL, 1, NULL, '1', 1, 2, NULL, NULL, NULL, '2023-03-25 05:04:51', NULL),
-(19, 'Nazmul Haque Niaz', 'n.haque19@gmail.com', NULL, '$2y$10$FmhNsrIwyavujsBEjPo3JOEd1Co3C0hlTr.YLXAt8KW14Xrox4AO6', NULL, '1', '1', '1', '1', '1', '1', '1', '1', 1, NULL, 1, NULL, '1', 1, 2, NULL, NULL, NULL, '2023-03-25 05:06:34', NULL),
-(25, 'Test Sale', 'sales@aarslbd.com', NULL, '$2y$10$b8n4XZLM484L1wk2pO/lKeG3FdokCjlwqUM8j6/aR/D.Zr0IYN6ci', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, '1', 1, NULL, NULL, NULL, NULL, NULL, 3, NULL, NULL, NULL, '2023-03-31 19:11:53', NULL),
-(26, 'MD IKRAM', 'mdikram@aarslbd.com', NULL, '$2y$10$e7D6NDf1YG9XN2cs5eKhP.Tqa1y2PNPbUgEp42bUvIN1sDc489uYO', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, NULL, NULL, NULL, '2023-04-03 05:14:02', NULL),
-(28, 'MD Jashim', 'mdjashim@aarslbd.com', NULL, '$2y$10$klsUJ.F3mn1jaa5PYPk.t.S84jbw/RFwyXLcIMIu.TE98Q1mR1sc.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, 3, NULL, NULL, NULL, '2023-04-03 05:18:29', NULL),
-(30, 'MD IMRAN', 'mdimran@aarslbd.com', NULL, '$2y$10$LtfXy.tri2TcBdZsmSKNseIKTjg.pOKi4ZQ3qth9iKt4ds0f9ph0m', NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, 1, NULL, NULL, NULL, 2, NULL, NULL, NULL, '2023-04-03 05:22:12', NULL),
-(31, 'MD SABBIR', 'mdsabbir@aarslbd.com', NULL, '$2y$10$1NU5YcTB96v.GO3dp.8lreb.Kj0aPswfI/Kyb77euIZvU6/6zxmhS', NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, 1, NULL, NULL, NULL, 2, NULL, NULL, NULL, '2023-04-03 05:23:35', NULL),
-(33, 'MD REZOAN', 'mdrezoan@aarslbd.com', NULL, '$2y$10$uUvvrFnX/rwpjvGWb75sSeGm8Nlw3vH.d.e3NK1bU3q56JeyIXeXi', NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, NULL, NULL, NULL, '2023-04-03 05:32:22', NULL),
-(37, 'MD F.BARI', 'mdfbari@aarslbd.com', NULL, '$2y$10$ygfZx/l7MSOZPMrLnes2u.cG6PVt3LYXmWApxacir6DLZUHdowA0C', NULL, '1', '1', '1', NULL, '1', '1', NULL, '1', 1, NULL, 1, NULL, NULL, 1, 5, NULL, NULL, NULL, '2023-04-03 06:12:13', NULL);
+INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `password`, `phone`, `category`, `product`, `customer`, `bank`, `supplier`, `production`, `l_c`, `sale`, `chalan`, `alluser`, `expense`, `hr`, `adminuserrole`, `schedule`, `report`, `type`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', 'admin@gmail.com', '2022-06-05 03:57:32', '$2y$10$ALbMmGnqCeBflP.JT8LWNu/swsmervF2UFssUBA3QKo52c6CrA9Ye', '01964870827', '1', '1', '1', '1', '1', '1', '1', '1', 1, '1', 1, 1, '1', 1, NULL, 1, '9GtEW9OJucolDYsLsyytEtDLYAg7Z4hJGQ1LSVSpPRxuxA2f1aJ1hhQwWIRE', NULL, '202207230834attachment_127807231.jfif', '2022-06-05 03:57:32', '2022-07-23 03:06:17'),
+(18, 'Syed Ashiq', 'sashiq62@gmail.com', NULL, '$2y$10$HCO/Lzvdwf9qYIbZrO2j/u99S1K2IO88mn2Lp2n7akSRWBDO22AqK', NULL, '1', '1', '1', '1', '1', '1', '1', '1', 1, NULL, 1, NULL, '1', 1, NULL, 2, NULL, NULL, NULL, '2023-03-25 05:04:51', NULL),
+(19, 'Nazmul Haque Niaz', 'n.haque19@gmail.com', NULL, '$2y$10$FmhNsrIwyavujsBEjPo3JOEd1Co3C0hlTr.YLXAt8KW14Xrox4AO6', NULL, '1', '1', '1', '1', '1', '1', '1', '1', 1, NULL, 1, NULL, '1', 1, NULL, 2, NULL, NULL, NULL, '2023-03-25 05:06:34', NULL),
+(25, 'Test Sale', 'sales@aarslbd.com', NULL, '$2y$10$b8n4XZLM484L1wk2pO/lKeG3FdokCjlwqUM8j6/aR/D.Zr0IYN6ci', NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, '1', 1, NULL, NULL, NULL, NULL, NULL, NULL, 3, NULL, NULL, NULL, '2023-03-31 19:11:53', NULL),
+(26, 'MD IKRAM', 'mdikram@aarslbd.com', NULL, '$2y$10$e7D6NDf1YG9XN2cs5eKhP.Tqa1y2PNPbUgEp42bUvIN1sDc489uYO', NULL, NULL, NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, NULL, NULL, NULL, '2023-04-03 05:14:02', NULL),
+(28, 'MD Jashim', 'mdjashim@aarslbd.com', NULL, '$2y$10$klsUJ.F3mn1jaa5PYPk.t.S84jbw/RFwyXLcIMIu.TE98Q1mR1sc.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 3, NULL, NULL, NULL, '2023-04-03 05:18:29', NULL),
+(30, 'MD IMRAN', 'mdimran@aarslbd.com', NULL, '$2y$10$LtfXy.tri2TcBdZsmSKNseIKTjg.pOKi4ZQ3qth9iKt4ds0f9ph0m', NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, 1, NULL, NULL, NULL, NULL, 2, NULL, NULL, NULL, '2023-04-03 05:22:12', NULL),
+(31, 'MD SABBIR', 'mdsabbir@aarslbd.com', NULL, '$2y$10$1NU5YcTB96v.GO3dp.8lreb.Kj0aPswfI/Kyb77euIZvU6/6zxmhS', NULL, NULL, NULL, NULL, '1', NULL, NULL, NULL, '1', NULL, NULL, 1, NULL, NULL, NULL, NULL, 2, NULL, NULL, NULL, '2023-04-03 05:23:35', NULL),
+(33, 'MD REZOAN', 'mdrezoan@aarslbd.com', NULL, '$2y$10$uUvvrFnX/rwpjvGWb75sSeGm8Nlw3vH.d.e3NK1bU3q56JeyIXeXi', NULL, NULL, '1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, NULL, NULL, NULL, '2023-04-03 05:32:22', NULL),
+(37, 'MD F.BARI', 'mdfbari@aarslbd.com', NULL, '$2y$10$ygfZx/l7MSOZPMrLnes2u.cG6PVt3LYXmWApxacir6DLZUHdowA0C', NULL, '1', '1', '1', NULL, '1', '1', NULL, '1', 1, NULL, 1, NULL, NULL, 1, NULL, 5, NULL, NULL, NULL, '2023-04-03 06:12:13', NULL);
 
 -- --------------------------------------------------------
 
@@ -398,6 +399,14 @@ CREATE TABLE `payment_items` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `payment_items`
+--
+
+INSERT INTO `payment_items` (`id`, `purchase_id`, `bank_id`, `b_paid_amount`, `created_at`, `updated_at`) VALUES
+(63, 70, 5, 13.00, '2023-04-09 23:09:33', '2023-04-09 23:09:33'),
+(64, 71, 5, 78.00, '2023-04-09 23:18:35', '2023-04-09 23:18:35');
+
 -- --------------------------------------------------------
 
 --
@@ -505,6 +514,14 @@ CREATE TABLE `purchases` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `purchases`
+--
+
+INSERT INTO `purchases` (`id`, `supplier_id`, `chalan_no`, `purchase_date`, `ldate`, `boen`, `besb`, `boed`, `track`, `details`, `sub_total`, `grand_total`, `purchase_discount`, `discount_flat`, `total_vat`, `p_paid_amount`, `due_amount`, `status`, `created_at`, `updated_at`) VALUES
+(70, 2, 'Est modi tenetur ex', '2023-04-10', NULL, 'Sint quo corporis i', '2015-06-02', '1982-04-16', 'Facere adipisicing s', '1989-06-02', 2632.00, 2566.00, NULL, '66', NULL, '13', '2553', 'L/C Opened', '2023-04-09 23:09:33', NULL),
+(71, 2, 'Dolore suscipit dolo', '2023-04-01', '1984-05-06', 'Et magna laudantium', '1978-01-02', '1982-04-17', 'Laborum laudantium', NULL, 84.00, 62.00, NULL, '22', NULL, '78', '-16', 'L/C Opened', '2023-04-09 23:18:35', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -523,6 +540,14 @@ CREATE TABLE `purchase_items` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `purchase_items`
+--
+
+INSERT INTO `purchase_items` (`id`, `purchase_id`, `product_id`, `qty`, `batch_no`, `rate`, `rateType`, `amount`, `created_at`, `updated_at`) VALUES
+(79, 70, 181, 47, 'Qui excepturi ut id', 56.00, 'FOB', 2632.00, '2023-04-09 23:09:33', '2023-04-09 23:09:33'),
+(80, 71, 179, 12, 'Molestias aute ipsa', 7.00, 'EXW', 84.00, '2023-04-09 23:18:35', '2023-04-09 23:18:35');
 
 -- --------------------------------------------------------
 
@@ -668,7 +693,7 @@ INSERT INTO `sales` (`id`, `customer_id`, `sale_date`, `details`, `sub_total`, `
 
 CREATE TABLE `sales_items` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `sale_id` bigint(20) UNSIGNED NOT NULL,
+  `sales_id` bigint(20) UNSIGNED NOT NULL,
   `product_id` int(11) NOT NULL,
   `qty` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `rateType` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -682,7 +707,7 @@ CREATE TABLE `sales_items` (
 -- Dumping data for table `sales_items`
 --
 
-INSERT INTO `sales_items` (`id`, `sale_id`, `product_id`, `qty`, `rateType`, `rate`, `amount`, `created_at`, `updated_at`) VALUES
+INSERT INTO `sales_items` (`id`, `sales_id`, `product_id`, `qty`, `rateType`, `rate`, `amount`, `created_at`, `updated_at`) VALUES
 (35, 45, 1, '500', 'E', 4.00, 20000000, '2023-04-06 08:15:53', '2023-04-06 08:15:53'),
 (36, 46, 1, '200', 'E', 3.00, 7600000, '2023-04-06 08:16:36', '2023-04-06 08:16:36'),
 (37, 47, 1, '100', 'E', 4.00, 4800000, '2023-04-06 08:17:04', '2023-04-06 08:17:04'),
@@ -773,17 +798,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('2bCgboD2YRPGE044HMMeNRLVREyMXhznAMptdhQr', NULL, '103.78.254.174', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiSG1GTVprR240TWR4NUZMNUxMQndsakdlbDM3czdZMUFPT1NvcXdEcSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly9hYXJzbC5keWF6Lnh5ei9jYXRlZ29yeS9lZGl0LzEiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUyOiJsb2dpbl9hZG1pbl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjMxO3M6MTk6InBhc3N3b3JkX2hhc2hfYWRtaW4iO3M6NjA6IiQyeSQxMCQxTlU1WWNUQjk2di5HTzNkcC44bHJlYi5LajBhUHN3ZkkvS3liNzdldUladlU2LzZ6eG1oUyI7fQ==', 1680926465),
-('6WhuZnZgXEVfSd4AKlwXyiPIiWM0f572OMYMd6Qf', NULL, '162.221.192.26', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiZFhtc0NQdklCVEcxcUdOTzk0a25FM2NKU3piVDBLYnVmeDdoNElCTCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xNjUuMjIuMjQxLjEyOCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1680924047),
-('BPTSuEYxgMCwmeV9rNHOiQy3ujmjDMtVdxTYSatG', NULL, '193.32.162.159', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiV3JVaUJzYTc2Zm5INWlydWQwbUVBVVhwbW93MFl1QTJKUFhHc3J1dCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1680921084),
-('ddPVAEHrNYu5jP9Trc3nJYWI7dhu2rssdvNNljLP', NULL, '103.78.254.174', 'Mozilla/5.0 (Linux; Android 12; 220333QAG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiSlMwUGxHUDFtY2ZUdzhaU2Y3ZDlWd090dHZPM2N5RTI3UU9peEE3ZCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9hYXJzbC5keWF6Lnh5eiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1680926276),
-('L7zLfWGStevNgMHuOE8XbFgijgkWZy8O8kAdCKAL', NULL, '179.43.177.242', 'Hello World', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoidno3MFdETlBtdTRMV045MFRpaXJnYnR1SDhpbTNPUFhkVlRLMHkxTiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xNjUuMjIuMjQxLjEyOCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1680921215),
-('lIK3ntg5HsKAlnAxOizQnIij9PmwShceftVx3d0D', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiMTcwQmhSSWVOeGlMRVVhTFpBQk1NYm50VkNjU3FHbXZmOUVvQVVHdiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MTIzMjoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL3JlcG9ydHMvZG93bmxvYWQ/X3Rva2VuPTE3MEJoUkllTnhpTEVVYUxaQUJNTWJudFZDY1NxR212ZjlFb0FVR3YmZmlsdGVyPSU1QiU3QiUyMmlkJTIyJTNBNSUyQyUyMmV4cGVuc2VUeXBlX2lkJTIyJTNBNiUyQyUyMmRhdGUlMjIlM0ElMjIyMDIzLTA0LTA2JTIyJTJDJTIyYW1vdW50JTIyJTNBNTAwMDAlMkMlMjJsb2NhdGlvbiUyMiUzQSUyMmZhY3RvcnklMjIlMkMlMjJkZXRhaWxzJTIyJTNBJTIyNTAwMCUyMHBjcyUyMiUyQyUyMmNyZWF0ZWRfYXQlMjIlM0ElMjIyMDIzLTA0LTA2VDIzJTNBNTclM0EyMS4wMDAwMDBaJTIyJTJDJTIydXBkYXRlZF9hdCUyMiUzQW51bGwlN0QlMkMlN0IlMjJpZCUyMiUzQTYlMkMlMjJleHBlbnNlVHlwZV9pZCUyMiUzQTMlMkMlMjJkYXRlJTIyJTNBJTIyMjAyMy0wNC0wNiUyMiUyQyUyMmFtb3VudCUyMiUzQTUwJTJDJTIybG9jYXRpb24lMjIlM0ElMjJoZWFkJTIyJTJDJTIyZGV0YWlscyUyMiUzQSUyMk1yJTIwTmlheiUyMCUyOFRyYXZlbCUyMEZyb20lMjBHdWxzaGFuJTIwdG8lMjBTSklCTCUyMFByb2dvdGklMjBTYXJhbmklMjklMjIlMkMlMjJjcmVhdGVkX2F0JTIyJTNBJTIyMjAyMy0wNC0wNlQyMyUzQTU4JTNBMDUuMDAwMDAwWiUyMiUyQyUyMnVwZGF0ZWRfYXQlMjIlM0FudWxsJTdEJTJDJTdCJTIyaWQlMjIlM0E3JTJDJTIyZXhwZW5zZVR5cGVfaWQlMjIlM0EyJTJDJTIyZGF0ZSUyMiUzQSUyMjIwMjMtMDQtMDYlMjIlMkMlMjJhbW91bnQlMjIlM0ExNTAwMDAlMkMlMjJsb2NhdGlvbiUyMiUzQSUyMmhlYWQlMjIlMkMlMjJkZXRhaWxzJTIyJTNBJTIyQXByaWwlMjBNb250aCUyMDIwMjMlMjIlMkMlMjJjcmVhdGVkX2F0JTIyJTNBJTIyMjAyMy0wNC0wNlQyMyUzQTU4JTNBMjcuMDAwMDAwWiUyMiUyQyUyMnVwZGF0ZWRfYXQlMjIlM0FudWxsJTdEJTJDJTdCJTIyaWQlMjIlM0E4JTJDJTIyZXhwZW5zZVR5cGVfaWQlMjIlM0E3JTJDJTIyZGF0ZSUyMiUzQSUyMjIwMjMtMDQtMDYlMjIlMkMlMjJhbW91bnQlMjIlM0ExMjAwMCUyQyUyMmxvY2F0aW9uJTIyJTNBJTIyZmFjdG9yeSUyMiUyQyUyMmRldGFpbHMlMjIlM0ElMjIxMCUyMEJhZ3MlMjBTaGEtQ2VtZW50JTIyJTJDJTIyY3JlYXRlZF9hdCUyMiUzQSUyMjIwMjMtMDQtMDZUMjMlM0E1OCUzQTU4LjAwMDAwMFolMjIlMkMlMjJ1cGRhdGVkX2F0JTIyJTNBbnVsbCU3RCU1RCZzYXZlPVBERiZzb3B0aW9uPWV4cGVuc2UmdHlwZT1wZGYiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUyOiJsb2dpbl9hZG1pbl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxOToicGFzc3dvcmRfaGFzaF9hZG1pbiI7czo2MDoiJDJ5JDEwJEFMYk1tR25xQ2VCZmxQLkpUOExXTnUvc3dzbWVydkYyVUZzc1VCQTNRS281MmM2Q3JBOVllIjt9', 1680948933),
-('o1mUO353ZTsTX2FfWvAYhlyStCmv6siWkJTk23T1', NULL, '152.89.196.54', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiYXFiczFUSW8xZzgxa1d6ajR6OUR2WE1RbHhLTzNYaTRpOFBPdEQzWSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MTU3OiJodHRwOi8vMTY1LjIyLjI0MS4xMjgvaW5kZXgucGhwP2Z1bmN0aW9uPWNhbGxfdXNlcl9mdW5jX2FycmF5JnM9JTJGSW5kZXglMkYlNUN0aGluayU1Q2FwcCUyRmludm9rZWZ1bmN0aW9uJnZhcnMlNUIwJTVEPW1kNSZ2YXJzJTVCMSU1RCU1QjAlNUQ9SGVsbG9UaGlua1BIUDIxIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1680926334),
-('OnJ2K8zB0O5iznGoxv5ItSV4mPx5wJzfyRnZLXGG', NULL, '103.149.192.152', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoibGE5QTBUanRXRXF5SXJ6NFhSMjlGRU5qbTh3Mmxzb2VuMVVnS1NpQSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xNjUuMjIuMjQxLjEyOCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1680922929),
-('UKeqYaNmQHIUcsncsFyTGsw36U70G7NB3LOFuQhF', NULL, '143.110.222.166', 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Mobile/15E148 Safari/604.1', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiYjZPYkdQc1d1SkRsY0tYUnZqRlJxNGpYdEQzMlNSYTFQbDgySkdERiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xNjUuMjIuMjQxLjEyOCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1680923746),
-('utHF5ce7fgRRM32oQlLb6lv6aU134NPwI2zi8aFe', NULL, '65.49.20.69', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQkpOd1dqamp4ZWRDeXZJQkdjSHBuazJMaEk0UEU0ZnlCVHM4bEZoaiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xNjUuMjIuMjQxLjEyOCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1680920474),
-('xjxk0d64WRse6bKjwLy2TqYF6v5NaWlExbiKVdsn', NULL, '193.32.162.159', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoiYnQ2bGFrQ3gzZFk2WmZhU09nT21TV1FDeXBCYmpteE1JTTV2dDdVQiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1680924519);
+('01q5uV3CIEmQFnU2fzQF7vIPJdDS9WDFWekgyoEZ', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiVHJGTDhPU0I3RUh2MHJiM094V25vMXE3OTBYT3ltRUxjaVVOZUMwZCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbnVzZXJyb2xlL2FkZCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTI6ImxvZ2luX2FkbWluXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE5OiJwYXNzd29yZF9oYXNoX2FkbWluIjtzOjYwOiIkMnkkMTAkQUxiTW1HbnFDZUJmbFAuSlQ4TFdOdS9zd3NtZXJ2RjJVRnNzVUJBM1FLbzUyYzZDckE5WWUiO30=', 1681191893);
 
 -- --------------------------------------------------------
 
@@ -1053,7 +1068,7 @@ ALTER TABLE `sales`
 --
 ALTER TABLE `sales_items`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `sales_items_sale_id_foreign` (`sale_id`);
+  ADD KEY `sales_items_sale_id_foreign` (`sales_id`);
 
 --
 -- Indexes for table `sales_payment_items`
@@ -1187,7 +1202,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `payment_items`
 --
 ALTER TABLE `payment_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1211,13 +1226,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `purchase_items`
 --
 ALTER TABLE `purchase_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `quotations`
@@ -1323,7 +1338,7 @@ ALTER TABLE `quotation_items`
 -- Constraints for table `sales_items`
 --
 ALTER TABLE `sales_items`
-  ADD CONSTRAINT `sales_items_sale_id_foreign` FOREIGN KEY (`sale_id`) REFERENCES `sales` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `sales_items_sale_id_foreign` FOREIGN KEY (`sales_id`) REFERENCES `sales` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `sales_payment_items`

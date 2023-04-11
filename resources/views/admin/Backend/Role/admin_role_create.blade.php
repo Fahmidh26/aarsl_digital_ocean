@@ -173,6 +173,10 @@
 		<input class="form-check-input" type="checkbox" id="checkbox_13" name="chalan" value="1">
 		<label class="form-check-label" for="checkbox_13">Chalan</label>
 	</div>
+	<div class="form-check form-switch">
+		<input class="form-check-input" type="checkbox" id="checkbox_14" name="report" value="1">
+		<label class="form-check-label" for="checkbox_14">Report</label>
+	</div>
 </div>
 
 			 <div class="text-xs-right">

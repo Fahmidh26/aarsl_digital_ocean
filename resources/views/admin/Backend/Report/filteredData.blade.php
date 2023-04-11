@@ -172,16 +172,16 @@
 
 				 @elseif ($option == "sale")
 				 
-				 {{-- @foreach ($item->saleItemss as $sitem) --}}
+				 @foreach ($item->saleItems as $sitem)
 					<tr>
 						<td><h6 class="mb-0 text-sm">{{ $item->sale_date }}</h6></td>
-						{{-- <td><h6 class="mb-0 text-sm">{{ $item->customer->customer_name }}</h6></td> --}}
+						<td><h6 class="mb-0 text-sm">{{ $item->customer->customer_name }}</h6></td>
 						<td><h6 class="mb-0 text-sm">Sulphuric Acid</h6></td>
-						{{-- <td><h6 class="mb-0 text-sm">{{ $sitem->qty }}</h6></td> --}}
-						{{-- <td><h6 class="mb-0 text-sm">{{ $item->grand_total }}</h6></td>
-						<td style="display:none;">{{$amount += $item->grand_total}}</td> --}}
+						<td><h6 class="mb-0 text-sm">{{ $sitem->qty }}</h6></td>
+						<td><h6 class="mb-0 text-sm">{{ $item->grand_total }}</h6></td>
+						<td style="display:none;">{{$amount += $item->grand_total}}</td>
 					</tr>
-				 {{-- @endforeach --}}
+				 @endforeach
 
 
 				   @endif
@@ -209,6 +209,13 @@
 					 @elseif (($option == "L/C"))
 					 <tr>
 						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>{{$amount}}</td>
+					 </tr>
+					 @elseif (($option == "sale"))
+					 <tr>
 						<td></td>
 						<td></td>
 						<td></td>

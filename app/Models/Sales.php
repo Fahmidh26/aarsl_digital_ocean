@@ -15,14 +15,18 @@ class Sales extends Model
     	return $this->belongsTo(Customer::class,'customer_id','id');
     }
 
-    public function saleItem(){
-    	return $this->belongsTo(SalesItem::class,'sale_id','id');
-    }
-
-    public function saleItemss()
+    public function saleItems()
     {
         return $this->hasMany(SalesItem::class);
     }
+    // public function saleItem(){
+    // 	return $this->belongsTo(SalesItem::class,'sale_id','id');
+    // }
+
+    // public function saleItemss()
+    // {
+    //     return $this->hasMany(SalesItem::class);
+    // }
 
 
 }

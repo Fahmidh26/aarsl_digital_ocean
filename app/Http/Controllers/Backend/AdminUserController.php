@@ -53,6 +53,7 @@ class AdminUserController extends Controller
 		'chalan' => $request->chalan,
 		'expense' => $request->expense,
 		'schedule' => $request->schedule,
+		'report' => $request->report,
 		'adminuserrole' => $request->adminuserrole,
 		
 		'type' => $request->type,
