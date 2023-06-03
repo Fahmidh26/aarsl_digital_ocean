@@ -28,7 +28,7 @@
 							</select>
 
 						</td>
-						  <td><input class="form-control qnty" type="number" id="qnty" name="qnty" required=""></td>
+						  <td><input class="form-control qnty" type="text" id="qnty" name="qnty" required=""></td>
 						 
 					</tr>
 				</table>
