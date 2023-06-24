@@ -248,7 +248,7 @@ $adminuserrole = (auth()->guard('admin')->user()->adminuserrole == 1);
 @endif
 
 
-{{-- @if($customer  == true)
+@if($customer  == true)
 <li class="nav-item">
 <a data-bs-toggle="collapse" href="#truck" class="nav-link  {{ ($prefix == '/truck')?'active':'' }}" aria-controls="ecommerceExamples" role="button">
 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
@@ -276,20 +276,24 @@ $adminuserrole = (auth()->guard('admin')->user()->adminuserrole == 1);
 <span class="sidenav-mini-icon"></span>
 <span class="sidenav-normal">Manage Truck</span>
 </a>
-<a class="nav-link {{ ($route == 'dealer.view')? 'active':'' }}" href="{{ route('dealer.view') }}">
+<a class="nav-link {{ ($route == 'driver.view')? 'active':'' }}" href="{{ route('driver.view') }}">
 <span class="sidenav-mini-icon"></span>
 <span class="sidenav-normal">Manage Driver</span>
 </a>
-<a class="nav-link {{ ($route == 'dealer.view')? 'active':'' }}" href="{{ route('dealer.view') }}">
+<a class="nav-link {{ ($route == 'journey.view')? 'active':'' }}" href="{{ route('journey.view') }}">
 <span class="sidenav-mini-icon"></span>
-<span class="sidenav-normal">Truck Data</span>
+<span class="sidenav-normal">Add Journey</span>
+</a>
+<a class="nav-link {{ ($route == 'manage.journey')? 'active':'' }}" href="{{ route('manage.journey') }}">
+<span class="sidenav-mini-icon"></span>
+<span class="sidenav-normal">Manage Journey</span>
 </a>
 </li>
 </ul>
 </div>
 </li>
 @else
-@endif --}}
+@endif
 
 
 @if($report  == true)

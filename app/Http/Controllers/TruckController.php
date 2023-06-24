@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Driver;
+use App\Models\Journey;
 use App\Models\Truck;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class TruckController extends Controller
 {
@@ -23,17 +26,84 @@ class TruckController extends Controller
 
         Truck::insert([
 		'truck_no' => $request->truck_no,
+		'created_at' => Carbon::now(),   
       
     	]);
 
 	    $notification = array(
-			'message' => 'Truck Number Inserted Successfully',
+			'message' => 'Truck Number Added Successfully',
 			'alert-type' => 'success'
 		);
 
 		return redirect()->back()->with($notification);
 
     } // end method
+
+	// DRIVER
+	public function DriverView(){
+		$drivers = Driver::orderBy('id','ASC')->get();
+		return view('admin.Backend.Truck.driver',compact('drivers'));
+	}
+
+	public function DriverStore(Request $request){
+
+    	$request->validate([
+    		 
+    		'd_name' => 'required',
+    	]);
+
+        Driver::insert([
+		'd_name' => $request->d_name,
+		'phone' => $request->phone,
+		'created_at' => Carbon::now(),   
+      
+    	]);
+
+	    $notification = array(
+			'message' => 'Driver Added Successfully',
+			'alert-type' => 'success'
+		);
+
+		return redirect()->back()->with($notification);
+
+    } // end method
+
+	// JOURNEY
+	public function JourneyView(){
+		$trucks = Truck::orderBy('truck_no','ASC')->get();
+		$drivers = Driver::orderBy('d_name','ASC')->get();
+		return view('admin.Backend.Truck.journey',compact('trucks','drivers'));
+	}
+
+	public function JourneyStore(Request $request){
+
+        Journey::insert([
+		'truck_id' => $request->truck_id,
+		'driver_id' => $request->driver_id,
+		'from' => $request->from,
+		'destination' => $request->to,
+		'date' => $request->jdate,
+		'details' => $request->details,
+		'amount' => $request->amount,
+		'created_at' => Carbon::now(),   
+      
+    	]);
+
+	    $notification = array(
+			'message' => 'Journey Added Successfully',
+			'alert-type' => 'success'
+		);
+
+		return redirect()->back()->with($notification);
+
+    } // end method
+
+	public function ManageJourney(){
+		$journeys = Journey::orderBy('id','DESC')->get();
+		return view('admin.Backend.Truck.journey_manage',compact('journeys'));
+	}
+
+	// -----------------------------------------------------------------------------------------------
 
 	public function CustomerEdit($id){
 		$customer = Customer::findOrFail($id);

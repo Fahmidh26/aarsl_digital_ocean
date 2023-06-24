@@ -15,7 +15,9 @@
 									<thead>
 										<tr>
 										
-											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Truck Number</th>
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Driver Name</th>
+
+											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Phone Number</th>
 										
 											<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
 											 
@@ -23,9 +25,10 @@
 									</thead>
 									<tbody>
             
- @foreach($trucks as $item)
+ @foreach($drivers as $item)
  <tr>
-  <td>{{ $item->truck_no }}</td>
+  <td>{{ $item->d_name }}</td>
+  <td>{{ $item->phone }}</td>
   <td>
 <a href="{{ route('brand.edit',$item->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
 <a href="{{ route('brand.delete',$item->id) }}" class="btn btn-danger" title="Delete Data" id="delete">
@@ -50,14 +53,24 @@
     <div class="card-body p-3">
       <div class="row">
 
-<form method="post" action="{{ route('truck.store') }}">
+<form method="post" action="{{ route('driver.store') }}">
 @csrf
         
 <div class="form-group">
-<label  class="text-uppercase text-dark text-xs font-weight-bold ">Truck Number</label>
+<label  class="text-uppercase text-dark text-xs font-weight-bold ">Driver Name</label>
 <div class="controls">
-<input type="text"  name="truck_no" class="form-control" > 
-@error('truck_no') 
+<input type="text"  name="d_name" class="form-control" > 
+@error('d_name') 
+<span class="text-danger">{{ $message }}</span>
+@enderror 
+</div>
+</div>
+
+<div class="form-group">
+<label  class="text-uppercase text-dark text-xs font-weight-bold ">Phone Number</label>
+<div class="controls">
+<input type="text"  name="phone" class="form-control" > 
+@error('phone') 
 <span class="text-danger">{{ $message }}</span>
 @enderror 
 </div>
@@ -65,7 +78,7 @@
 
 
 {{-- <div class="text-xs-right"> --}}
-<input type="submit" class="btn btn-rounded btn-primary mb-5" value="Add Truck">					 
+<input type="submit" class="btn btn-rounded btn-primary mb-5" value="Add Driver">					 
          {{-- </div> --}}
 
        </div>
