@@ -248,7 +248,7 @@ $adminuserrole = (auth()->guard('admin')->user()->adminuserrole == 1);
 @endif
 
 
-@if($customer  == true)
+{{-- @if($customer  == true)
 <li class="nav-item">
 <a data-bs-toggle="collapse" href="#truck" class="nav-link  {{ ($prefix == '/truck')?'active':'' }}" aria-controls="ecommerceExamples" role="button">
 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
@@ -289,7 +289,7 @@ $adminuserrole = (auth()->guard('admin')->user()->adminuserrole == 1);
 </div>
 </li>
 @else
-@endif
+@endif --}}
 
 
 @if($report  == true)
