@@ -15,6 +15,7 @@ use App\Http\Controllers\Backend\ReturnController;
 use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\SiteSettingController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\TruckController;
 use App\Http\Controllers\DealerController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\Backend\subCategoryController;
@@ -232,6 +233,20 @@ Route::prefix('customer')->group(function(){
     Route::post('/dealer/store', [DealerController::class, 'DealerStore'])->name('dealer.store');
     
     });
+
+    Route::prefix('truck')->group(function(){
+    
+        Route::get('/view', [TruckController::class, 'TruckView'])->name('truck.view');
+        
+        Route::post('/store', [TruckController::class, 'TruckStore'])->name('truck.store');
+        
+        Route::get('/edit/{id}', [TruckController::class, 'TruckEdit'])->name('truck.edit');
+        
+        Route::post('/update', [TruckController::class, 'TruckUpdate'])->name('truck.update');
+        
+        Route::get('/delete/{id}', [TruckController::class, 'TruckDelete'])->name('truck.delete');
+        
+        });
 
 
     Route::prefix('schedule')->group(function(){
