@@ -19,21 +19,6 @@ class ExpenseController extends Controller
 
     public function EnpenseTypeStore(Request $request){
 
-    //    $request->validate([
-    // 		'expense' => 'required',
-			// 'category_image' => 'required',
-    		// 'category_icon' => 'required',
-    	// ],[
-    	// 	'category_name.required' => 'Input Category Name',
-			// 'category_image.required' => 'Input Category Image',
-    	// ]);
-		
-		// $image = $request->file('category_image');
-    	// $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-
-    	// Image::make($image)->save('upload/category/'.$name_gen);
-    	// $save_url = 'upload/category/'.$name_gen;
-    	 
 
 	ExpenseType::insert([
 		'expenseType' => $request->expenseType,
@@ -92,4 +77,49 @@ class ExpenseController extends Controller
 			}
             return view('admin.Backend.Expense.manage_expense',compact('expenses'));
         }
+
+		public function ExpenseDetails($id){
+			$expense = Expense::findOrFail($id);
+			return view('admin.Backend.Expense.expenseDetails',compact('expense'));
+	
+		}
+
+		public function ExpenseUpdate(Request $request){
+
+			$expense_id = $request->id;
+
+			 Expense::findOrFail($expense_id)->update([
+				'expenseType_id' => $request->expenseType,
+				'date' => $request->date,
+				'amount' => $request->amount,
+				'location' => $request->location,
+				'details' => $request->details,
+				'updated_at' => Carbon::now(), 
+		  ]);
+	
+			  $notification = array(
+				'message' => 'Expense Updated Successfully',
+				'alert-type' => 'success'
+			);
+	
+			return redirect()->route('expense.managee')->with($notification);
+	
+	
+		} // end method 
+
+		public function ExpenseDelete($id){
+			$expense = Expense::findOrFail($id);
+
+			Expense::findOrFail($id)->delete();
+	
+			$notification = array(
+				'message' => 'Expense Deleted Successfully',
+				'alert-type' => 'info'
+			);
+	
+			return redirect()->route('expense.managee')->with($notification);
+
+	
+		} // end method
+	
 }

@@ -866,9 +866,15 @@ Route::prefix('product')->group(function(){
 
         Route::get('/expense-type', [ExpenseController::class, 'EnpenseTypeView'])->name('expenseType.view');
         Route::post('/expense-type/store', [ExpenseController::class, 'EnpenseTypeStore'])->name('enpenseType.store');
-        Route::get('/expense', [ExpenseController::class, 'ExpenseView'])->name('expense.view');
-        Route::post('/expense/store', [ExpenseController::class, 'ExpenseStore'])->name('expense.store');
-        Route::get('/expense/manage', [ExpenseController::class, 'ExpenseManage'])->name('expense.manage');
+        Route::get('/view', [ExpenseController::class, 'ExpenseView'])->name('expense.view');
+        Route::post('/store', [ExpenseController::class, 'ExpenseStore'])->name('expense.store');
+
+        Route::get('/managee', [ExpenseController::class, 'ExpenseManage'])->name('expense.managee');
+        
+        Route::get('/details/{id}', [ExpenseController::class, 'ExpenseDetails'])->name('expense.details');
+        Route::post('/update', [ExpenseController::class, 'ExpenseUpdate'])->name('expense.update');
+        Route::get('/delete/{id}', [ExpenseController::class, 'ExpenseDelete'])->name('expense.delete');
+
         
         Route::get('/manage', [PurchaseController::class, 'PurchaseManage'])->name('purchase.manage');
 
@@ -895,7 +901,7 @@ Route::prefix('product')->group(function(){
             });
     
         
-        Route::get('/details/{id}', [PurchaseController::class, 'PurchaseDetails'])->name('purchase.details');
+    
         
         // Route::post('/update', [CustomerController::class, 'CustomerUpdate'])->name('customer.update');
         

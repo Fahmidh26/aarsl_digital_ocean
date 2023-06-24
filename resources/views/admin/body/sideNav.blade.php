@@ -487,10 +487,12 @@ $adminuserrole = (auth()->guard('admin')->user()->adminuserrole == 1);
   <span class="sidenav-mini-icon"></span>
   <span class="sidenav-normal">Add Expense</span>
   </a>
-<a class="nav-link {{ ($route == 'expense.manage')? 'active':'' }}" href="{{ route('expense.manage') }}">
-<span class="sidenav-mini-icon"></span>
-<span class="sidenav-normal">Manage Expense</span>
-</a>
+
+  <a class="nav-link {{ ($route == 'expense.managee')? 'active':'' }}" href="{{ route('expense.managee') }}">
+    <span class="sidenav-mini-icon"></span>
+    <span class="sidenav-normal">Manage Expense</span>
+    </a>
+
 
 <a class="nav-link {{ ($route == 'requisitionType.view')? 'active':'' }}" href="{{ route('requisitionType.view') }}">
   <span class="sidenav-mini-icon"></span>

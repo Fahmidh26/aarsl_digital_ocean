@@ -39,9 +39,9 @@
 		<td class="text-sm font-weight-bold mb-0">{{ $item->location }} </td>
 		<td class="text-sm font-weight-bold mb-0">{{ $item->details }} </td>
 		<td>
-			<a class="btn btn-link text-dark px-3 mb-0" href="{{ route('purchase.details',$item->id) }}"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
+			<a class="btn btn-link text-dark px-3 mb-0" href="{{ route('expense.details',$item->id) }}"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
 			@if(Auth::guard('admin')->user()->type=="1" || Auth::guard('admin')->user()->type=="2")
-			<a class="btn btn-link text-danger text-gradient px-3 mb-0" href="{{ route('purchase.status.port',$item->id) }}"><i class="fa-solid fa-credit-card me-2"></i>Delete</a>
+			<a class="btn btn-link text-danger text-gradient px-3 mb-0" href="{{ route('expense.delete',$item->id) }}"><i class="fa-solid fa-credit-card me-2"></i>Delete</a>
 			@endif
 		</td>				 
 	 </tr>
