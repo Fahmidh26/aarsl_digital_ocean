@@ -103,6 +103,48 @@ class TruckController extends Controller
 		return view('admin.Backend.Truck.journey_manage',compact('journeys'));
 	}
 
+	// public function TruckDelete($id){
+	// 	$truck = Truck::findOrFail($id);
+		
+	// 	Truck::findOrFail($id)->delete();
+
+	// 	$notification = array(
+	// 		'message' => 'Truck Delectd Successfully',
+	// 		'alert-type' => 'info'
+	// 	);
+
+	// 	return redirect()->back()->with($notification);
+
+	// } 
+
+	// public function DriverDelete($id){
+	// 	$driver = Driver::findOrFail($id);
+		
+	// 	Driver::findOrFail($id)->delete();
+
+	// 	$notification = array(
+	// 		'message' => 'Driver Delectd Successfully',
+	// 		'alert-type' => 'info'
+	// 	);
+
+	// 	return redirect()->back()->with($notification);
+
+	// } 
+
+	// public function JourneyDelete($id){
+	// 	$journey = Journey::findOrFail($id);
+
+	// 	Journey::findOrFail($id)->delete();
+
+	// 	$notification = array(
+	// 		'message' => 'Journey Delectd Successfully',
+	// 		'alert-type' => 'info'
+	// 	);
+
+	// 	return redirect()->back()->with($notification);
+
+	// } 
+
 	// -----------------------------------------------------------------------------------------------
 
 	public function CustomerEdit($id){
