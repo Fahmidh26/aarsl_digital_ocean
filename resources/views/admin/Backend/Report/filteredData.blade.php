@@ -50,7 +50,7 @@
 				<div class="card">
 					<div class="card-body p-3">
 						<div class="form-download">
-							<form action="{{ route('download.pdf.filter') }}" method="GET">
+							<form action="{{ route('download.pdf.filter') }}" method="POST">
 								@csrf
 								<input type="hidden" name="type" value="pdf">
 								<input type="hidden" name="filter" value="{{ $filtered->toJson() }}">
