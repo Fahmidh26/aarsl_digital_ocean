@@ -244,12 +244,14 @@ Route::prefix('customer')->group(function(){
         
         Route::post('/update', [TruckController::class, 'TruckUpdate'])->name('truck.update');
         
-        Route::get('/delete/{id}', [TruckController::class, 'TruckDelete'])->name('truck.delete');
+        // Route::get('/deletes/{id}', [TruckController::class, 'TruckDelete'])->name('truck.delete');
 
         // DRIVER
         Route::get('/driver/view', [TruckController::class, 'DriverView'])->name('driver.view');
 
         Route::post('driver/store', [TruckController::class, 'DriverStore'])->name('driver.store');
+
+        // Route::get('/delete/{id}', [TruckController::class, 'DriverDelete'])->name('driver.delete');
 
         // JOURNEY
         Route::get('/journey/view', [TruckController::class, 'JourneyView'])->name('journey.view');
@@ -257,6 +259,8 @@ Route::prefix('customer')->group(function(){
         Route::post('journey/store', [TruckController::class, 'JourneyStore'])->name('journey.store');
 
         Route::get('/journey/manage', [TruckController::class, 'ManageJourney'])->name('manage.journey');
+
+        // Route::get('/delete/{id}', [TruckController::class, 'JourneyDelete'])->name('journey.delete');
 
         });
 

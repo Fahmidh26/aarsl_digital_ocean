@@ -44,11 +44,11 @@
 		 <td>{{ $item->driver->d_name }}</td>
 		 <td>{{ $item->truck->truck_no }}</td>
 		 <td>{{ $item->amount }}</td>
-		<td>
+		{{-- <td>
 			<a class="btn btn-link text-dark px-3 mb-0" href="{{ route('purchase.details',$item->id) }}"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit</a>
 			
-			<a class="btn btn-link text-danger text-gradient px-3 mb-0" href="{{ route('purchase.status.port',$item->id) }}"><i class="fa-solid fa-trash me-2"></i>Delete</a>
-		</td>
+			<a class="btn btn-link text-danger text-gradient px-3 mb-0" href="{{ route('journey.delete',$item->id) }}"><i class="fa-solid fa-trash me-2"></i>Delete</a>
+		</td> --}}
 
 	 </tr>
 	  @endforeach

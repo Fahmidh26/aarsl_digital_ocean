@@ -29,11 +29,11 @@
  <tr>
   <td>{{ $item->d_name }}</td>
   <td>{{ $item->phone }}</td>
-  <td>
+  {{-- <td>
 <a href="{{ route('brand.edit',$item->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
-<a href="{{ route('brand.delete',$item->id) }}" class="btn btn-danger" title="Delete Data" id="delete">
+<a href="{{ route('driver.delete',$item->id) }}" class="btn btn-danger" title="Delete Data" id="delete">
  <i class="fa fa-trash"></i></a>
-  </td>
+  </td> --}}
              
  </tr>
   @endforeach
