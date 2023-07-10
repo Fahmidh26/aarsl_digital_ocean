@@ -83,7 +83,7 @@ class TruckController extends Controller
 		'from' => $request->from,
 		'destination' => $request->to,
 		'date' => $request->jdate,
-		'details' => $request->details,
+		'details' => $request->details == NULL ? "NULL" : $request->details,
 		'amount' => $request->amount,
 		'created_at' => Carbon::now(),   
       
